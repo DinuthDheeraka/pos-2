@@ -2,6 +2,7 @@ package dao.custom.impl;
 
 import dao.custom.CustomerDAO;
 import dto.CustomerDTO;
+import entity.Customer;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -11,11 +12,11 @@ import java.util.ArrayList;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
-    public ArrayList<CustomerDTO> getAll() throws SQLException, ClassNotFoundException {
-        ArrayList<CustomerDTO> customerDTOS = new ArrayList();
+    public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<Customer> customers = new ArrayList();
         ResultSet resultSet = CrudUtil.execute("SELECT * FROM Customer;");
         while (resultSet.next()){
-            customerDTOS.add(new CustomerDTO(
+            customers.add(new Customer(
                     resultSet.getString("CustID"),resultSet.getString("CusTitle"),
                     resultSet.getString("CustName"),resultSet.getString("CustAddress"),
                     resultSet.getString("City"),resultSet.getString("Province"),
@@ -23,6 +24,6 @@ public class CustomerDAOImpl implements CustomerDAO {
                     LocalDate.parse(String.valueOf(resultSet.getDate("JoinedDate")))
             ));
         }
-        return customerDTOS;
+        return customers;
     }
 }

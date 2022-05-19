@@ -16,7 +16,7 @@ public class DAOFactory {
         CUSTOMERIMPL
     }
 
-    public static SuperDAO getDAO(DAO daoType){
+    public SuperDAO getDAO(DAO daoType){
         switch (daoType){
             case CUSTOMERIMPL:return new CustomerDAOImpl();
             default:return null;
