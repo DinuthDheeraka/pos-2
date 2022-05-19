@@ -24,4 +24,9 @@ public class ItemDAOImpl implements ItemDAO {
         }
         return items;
     }
+
+    @Override
+    public void insert(Item item) throws SQLException, ClassNotFoundException {
+
+    }
 }

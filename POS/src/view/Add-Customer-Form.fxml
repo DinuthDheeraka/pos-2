@@ -14,7 +14,7 @@
    <children>
       <AnchorPane prefHeight="51.0" prefWidth="626.0" style="-fx-background-color: #151617; -fx-background-radius: 20;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#151617" height="38.0" layoutY="14.0" stroke="#151617" strokeType="INSIDE" width="626.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#151617" height="717.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="626.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#151617" height="717.0" layoutY="58.0" stroke="#151617" strokeType="INSIDE" width="626.0" />
       <VBox layoutX="6.0" layoutY="83.0" prefHeight="568.0" prefWidth="615.0" spacing="45.0" style="-fx-background-color: #151617;">
          <children>
             <JFXTextField fx:id="txtCustomerId" labelFloat="true" promptText="Customer-Id" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
@@ -179,7 +179,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <JFXButton fx:id="addCustomerSaveBtn" buttonType="RAISED" layoutX="438.0" layoutY="710.0" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: #d7099c; -fx-background-radius: 18;" text="SAVE CUSTOMER" textFill="WHITE">
+      <JFXButton fx:id="addCustomerSaveBtn" buttonType="RAISED" layoutX="438.0" layoutY="710.0" onAction="#saveCustomerBtnOnAction" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: #d7099c; -fx-background-radius: 18;" text="SAVE CUSTOMER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

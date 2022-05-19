@@ -24,4 +24,9 @@ public class CustomerBOImpl implements CustomerBO {
         }
         return customerDTOS;
     }
+
+    @Override
+    public void insertCustomer(CustomerDTO customerDTO) {
+
+    }
 }

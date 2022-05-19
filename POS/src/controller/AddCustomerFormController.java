@@ -24,4 +24,8 @@ public class AddCustomerFormController {
 
     public void canselBtnOnaClick(MouseEvent mouseEvent) {
     }
+
+    public void saveCustomerBtnOnAction(ActionEvent actionEvent) {
+
+    }
 }

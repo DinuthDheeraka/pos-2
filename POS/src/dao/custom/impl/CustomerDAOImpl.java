@@ -3,12 +3,22 @@ package dao.custom.impl;
 import dao.custom.CustomerDAO;
 import dto.CustomerDTO;
 import entity.Customer;
+import javafx.scene.control.Alert;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+//// CustID      | varchar(6)  | NO   | PRI | NULL    |       |
+//    //| CusTitle    | varchar(5)  | YES  |     | NULL    |       |
+//    //| CustName    | varchar(40) | YES  |     | NULL    |       |
+//    //| CustAddress | varchar(40) | YES  |     | NULL    |       |
+//    //| City        | varchar(20) | YES  |     | NULL    |       |
+//    //| Province    | varchar(20) | YES  |     | NULL    |       |
+//    //| PostalCode  | varchar(9)  | YES  |     | NULL    |       |
+//    //| JoinedDate
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
@@ -25,5 +35,17 @@ public class CustomerDAOImpl implements CustomerDAO {
             ));
         }
         return customers;
+    }
+
+    @Override
+    public void insert(Customer customer) throws SQLException, ClassNotFoundException {
+        if(CrudUtil.execute("INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?)",
+                customer.getCustID(),customer.getCusTitle(),customer.getCustName(),
+                customer.getCustAddress(),customer.getCity(),customer.getProvince(),
+                customer.getPostalCode(),customer.getJoinedDate())){
+
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Couldn't Add Customer").show();
+        }
     }
 }

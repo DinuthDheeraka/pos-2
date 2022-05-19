@@ -5,5 +5,6 @@ import java.util.ArrayList;
 
 public interface CrudDAO <DTO,ID> extends SuperDAO{
 
-    public ArrayList<DTO> getAll() throws SQLException,ClassNotFoundException;
+    ArrayList<DTO> getAll() throws SQLException,ClassNotFoundException;
+    void insert(DTO dto) throws SQLException,ClassNotFoundException;
 }

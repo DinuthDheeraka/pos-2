@@ -9,4 +9,5 @@ import java.util.ArrayList;
 public interface CustomerBO extends SuperBO {
 
     ArrayList<CustomerDTO> getAllCustomers() throws SQLException, ClassNotFoundException;
+    void insertCustomer(CustomerDTO customerDTO);
 }
