@@ -3,18 +3,24 @@ package controller;
 import bo.BOFactory;
 import bo.custom.ItemBO;
 import bo.custom.impl.ItemBOImpl;
+import dto.ItemDTO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import util.NavigateUI;
+import view.tdm.ItemTM;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ItemFormController implements Initializable {
-    public TableView itemTbl;
+    public TableView<ItemTM> itemTbl;
     public TableColumn colItemCode;
     public TableColumn colItemDesc;
     public TableColumn colItemQOH;
@@ -29,6 +35,20 @@ public class ItemFormController implements Initializable {
     }
 
     private void loadAllItems() {
+        try {
+            ArrayList<ItemDTO> itemDTOS = itemBO.getAllItems();
+            ObservableList<ItemTM> itemTMS = FXCollections.observableArrayList();
+            for(ItemDTO dto : itemDTOS){
+                itemTMS.add(new ItemTM(
+                        dto.getItemCode(), dto.getDescription(), dto.getPackSize(),
+                        dto.getUnitPrice(),dto.getMaxDiscount(),dto.getQoh(),
+                        dto.getAddedDate()
+                ));
+            }
+            itemTbl.setItems(itemTMS);
+        } catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addNewItemOnAction(ActionEvent actionEvent) {

@@ -9,13 +9,13 @@ public class ItemTM {
     private double unitPrice;
     private double maxDiscount;
     private int qoh;
-    private String addedDate;
+    private LocalDate addedDate;
 
     public ItemTM() {
     }
 
     public ItemTM(String itemCode, String description, String packSize,
-                  double unitPrice, double maxDiscount, int qoh, String addedDate) {
+                  double unitPrice, double maxDiscount, int qoh, LocalDate addedDate) {
         this.itemCode = itemCode;
         this.description = description;
         this.packSize = packSize;
@@ -73,11 +73,11 @@ public class ItemTM {
         this.qoh = qoh;
     }
 
-    public String getAddedDate() {
+    public LocalDate getAddedDate() {
         return addedDate;
     }
 
-    public void setAddedDate(String addedDate) {
+    public void setAddedDate(LocalDate addedDate) {
         this.addedDate = addedDate;
     }
 }

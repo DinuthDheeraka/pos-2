@@ -58,7 +58,7 @@ public class CustomerFormController implements Initializable {
                         customerDTO.getCustID(),customerDTO.getCusTitle(),
                         customerDTO.getCustName(),customerDTO.getCustAddress(),
                         customerDTO.getCity(),customerDTO.getProvince(),
-                        customerDTO.getPostalCode(),String.valueOf(customerDTO.getJoinedDate())
+                        customerDTO.getPostalCode(),customerDTO.getJoinedDate()
                 ));
             }
             customerTbl.setItems(customerTMS);

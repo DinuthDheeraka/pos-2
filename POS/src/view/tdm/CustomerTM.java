@@ -10,13 +10,13 @@ public class CustomerTM {
     private String city;
     private String province;
     private String postalCode;
-    private String joinedDate;
+    private LocalDate joinedDate;
 
     public CustomerTM() {
     }
 
     public CustomerTM(String custID, String cusTitle, String custName,
-                      String custAddress, String city, String province, String postalCode, String joinedDate) {
+                      String custAddress, String city, String province, String postalCode, LocalDate joinedDate) {
         this.custID = custID;
         this.cusTitle = cusTitle;
         this.custName = custName;
@@ -83,11 +83,11 @@ public class CustomerTM {
         this.postalCode = postalCode;
     }
 
-    public String getJoinedDate() {
+    public LocalDate getJoinedDate() {
         return joinedDate;
     }
 
-    public void setJoinedDate(String joinedDate) {
+    public void setJoinedDate(LocalDate joinedDate) {
         this.joinedDate = joinedDate;
     }
 }
