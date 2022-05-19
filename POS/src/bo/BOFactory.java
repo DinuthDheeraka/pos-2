@@ -1,6 +1,7 @@
 package bo;
 
 import bo.custom.impl.CustomerBOImpl;
+import bo.custom.impl.ItemBOImpl;
 
 public class BOFactory {
 
@@ -13,12 +14,13 @@ public class BOFactory {
     }
 
     public enum BO{
-        CUSTOMERBO_IMPL
+        CUSTOMERBO_IMPL,ITEMBO_IMPL
     }
 
     public SuperBO getBO(BO boType){
         switch (boType){
             case CUSTOMERBO_IMPL:return new CustomerBOImpl();
+            case ITEMBO_IMPL:return new ItemBOImpl();
             default:return null;
         }
     }
