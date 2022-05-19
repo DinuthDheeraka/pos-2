@@ -3,28 +3,28 @@ package entity;
 import java.time.LocalDate;
 
 public class Customer {
-    String custID;
-    String cusTitle;
-    String custName;
-    String custAddress;
-    String city;
-    String province;
-    String postalCode;
-    LocalDate joinedDate;
+    private String custID;
+    private String cusTitle;
+    private String custName;
+    private String custAddress;
+    private String city;
+    private String province;
+    private String postalCode;
+    private LocalDate joinedDate;
 
     public Customer() {
     }
 
     public Customer(String custID, String cusTitle, String custName, String custAddress,
                     String city, String province, String postalCode, LocalDate joinedDate) {
-        this.custID = custID;
-        this.cusTitle = cusTitle;
-        this.custName = custName;
-        this.custAddress = custAddress;
-        this.city = city;
-        this.province = province;
-        this.postalCode = postalCode;
-        this.joinedDate = joinedDate;
+        this.setCustID(custID);
+        this.setCusTitle(cusTitle);
+        this.setCustName(custName);
+        this.setCustAddress(custAddress);
+        this.setCity(city);
+        this.setProvince(province);
+        this.setPostalCode(postalCode);
+        this.setJoinedDate(joinedDate);
     }
 
     public String getCustID() {

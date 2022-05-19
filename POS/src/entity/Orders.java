@@ -3,16 +3,16 @@ package entity;
 import java.time.LocalDate;
 
 public class Orders {
-    String orderId;
-    LocalDate date;
-    String custID;
+    private String orderId;
+    private LocalDate date;
+    private String custID;
 
     Orders(){}
 
     public Orders(String orderId, LocalDate date, String custID) {
-        this.orderId = orderId;
-        this.date = date;
-        this.custID = custID;
+        this.setOrderId(orderId);
+        this.setDate(date);
+        this.setCustID(custID);
     }
 
     public String getOrderId() {

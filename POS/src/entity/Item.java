@@ -3,25 +3,25 @@ package entity;
 import java.time.LocalDate;
 
 public class Item {
-    String itemCode;
-    String description;
-    String packSize;
-    double unitPrice;
-    double maxDiscount;
-    int qoh;
-    LocalDate addedDate;
+    private String itemCode;
+    private String description;
+    private String packSize;
+    private double unitPrice;
+    private double maxDiscount;
+    private int qoh;
+    private LocalDate addedDate;
 
     Item(){}
 
     public Item(String itemCode, String description, String packSize, double unitPrice,
                 double maxDiscount, int qoh, LocalDate addedDate) {
-        this.itemCode = itemCode;
-        this.description = description;
-        this.packSize = packSize;
-        this.unitPrice = unitPrice;
-        this.maxDiscount = maxDiscount;
-        this.qoh = qoh;
-        this.addedDate = addedDate;
+        this.setItemCode(itemCode);
+        this.setDescription(description);
+        this.setPackSize(packSize);
+        this.setUnitPrice(unitPrice);
+        this.setMaxDiscount(maxDiscount);
+        this.setQoh(qoh);
+        this.setAddedDate(addedDate);
     }
 
     public String getItemCode() {

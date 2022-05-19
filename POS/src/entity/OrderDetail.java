@@ -1,20 +1,20 @@
 package entity;
 
 public class OrderDetail {
-    String orderId;
-    String itemCode;
-    int orderQTY;
-    double unitPrice;
-    double discount;
+    private String orderId;
+    private String itemCode;
+    private int orderQTY;
+    private double unitPrice;
+    private double discount;
 
     OrderDetail(){}
 
     public OrderDetail(String orderId, String itemCode, int orderQTY, double unitPrice, double discount) {
-        this.orderId = orderId;
-        this.itemCode = itemCode;
-        this.orderQTY = orderQTY;
-        this.unitPrice = unitPrice;
-        this.discount = discount;
+        this.setOrderId(orderId);
+        this.setItemCode(itemCode);
+        this.setOrderQTY(orderQTY);
+        this.setUnitPrice(unitPrice);
+        this.setDiscount(discount);
     }
 
     public String getOrderId() {
