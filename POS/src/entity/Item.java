@@ -11,7 +11,7 @@ public class Item {
     private int qoh;
     private LocalDate addedDate;
 
-    Item(){}
+    public Item(){}
 
     public Item(String itemCode, String description, String packSize, double unitPrice,
                 double maxDiscount, int qoh, LocalDate addedDate) {
