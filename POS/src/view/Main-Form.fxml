@@ -274,9 +274,9 @@
                   <Image url="@assets/images/trainer%20(3).png" />
                </image>
             </ImageView>
-            <Label fx:id="lbl000000000000" layoutX="64.0" layoutY="16.0" text="KEELS">
+            <Label fx:id="lbl000000000000" layoutX="78.0" layoutY="18.0" text="ORRISONS" visible="false">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Tahoma Bold" size="18.0" />
                </font>
                <effect>
                   <Glow level="0.22" />
@@ -289,6 +289,165 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+            </Label>
+            <Label layoutX="54.0" layoutY="9.0" text="M" textFill="#db00c0" visible="false">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl0000000000001" layoutX="80.0" layoutY="20.0" text="O">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.22" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff0095" />
+                        <Stop color="#1bff00" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="55.0" layoutY="10.0" text="M">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff00ef" />
+                        <Stop color="#d00876" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="lbl00000000000011" layoutX="96.0" layoutY="18.0" text="R">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.22" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff0095" />
+                        <Stop color="#daff00" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="lbl000000000000111" layoutX="113.0" layoutY="20.0" text="R">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.22" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff0095" />
+                        <Stop color="#ff0010" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="lbl0000000000001111" layoutX="132.0" layoutY="18.0" text="I">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.22" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff0095" />
+                        <Stop color="#ff00ba" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="lbl00000000000011111" layoutX="148.0" layoutY="19.0" text="S">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.22" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff0095" />
+                        <Stop color="#ceff09" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="lbl000000000000111111" layoutX="165.0" layoutY="19.0" text="O">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.22" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff0095" />
+                        <Stop color="#570aff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="lbl0000000000001111111" layoutX="186.0" layoutY="20.0" text="N">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.22" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff0095" />
+                        <Stop color="#ff990a" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="lbl00000000000011111111" layoutX="207.0" layoutY="18.0" text="S">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.22" />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff0095" />
+                        <Stop color="#d500ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="219.0" layoutY="8.0" text="TM">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff00ef" />
+                        <Stop color="#d00876" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Label>
          </children>
       </AnchorPane>

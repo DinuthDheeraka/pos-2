@@ -33,8 +33,8 @@
             </Lighting>
          </effect>
       </ImageView>
-      <JFXComboBox layoutX="14.0" layoutY="22.0" prefHeight="42.0" prefWidth="288.0" promptText="Select Customer-Id" />
-      <JFXComboBox layoutX="14.0" layoutY="109.0" prefHeight="42.0" prefWidth="288.0" promptText="Select Item-Code" />
+      <JFXComboBox focusColor="#ff1654" layoutX="14.0" layoutY="22.0" prefHeight="42.0" prefWidth="288.0" promptText="Select Customer-Id" unFocusColor="WHITE" />
+      <JFXComboBox focusColor="#17e108" layoutX="14.0" layoutY="109.0" prefHeight="42.0" prefWidth="288.0" promptText="Select Item-Code" unFocusColor="WHITE" />
       <TableView layoutX="14.0" layoutY="279.0" prefHeight="472.0" prefWidth="1626.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Item-Code" />
