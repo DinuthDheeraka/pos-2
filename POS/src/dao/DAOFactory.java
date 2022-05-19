@@ -1,5 +1,7 @@
 package dao;
 
+import dao.custom.impl.CustomerDAOImpl;
+
 public class DAOFactory {
 
     private static DAOFactory daoFactory;
@@ -10,5 +12,14 @@ public class DAOFactory {
         return daoFactory==null? daoFactory = new DAOFactory() : daoFactory;
     }
 
+    public enum DAO{
+        CUSTOMERIMPL
+    }
 
+    public static SuperDAO getDAO(DAO daoType){
+        switch (daoType){
+            case CUSTOMERIMPL:return new CustomerDAOImpl();
+            default:return null;
+        }
+    }
 }
