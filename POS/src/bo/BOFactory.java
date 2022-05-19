@@ -1,5 +1,7 @@
 package bo;
 
+import bo.custom.impl.CustomerBOImpl;
+
 public class BOFactory {
 
     private static BOFactory boFactory;
@@ -10,9 +12,14 @@ public class BOFactory {
         return boFactory==null? boFactory = new BOFactory() : boFactory;
     }
 
-    public enum getBO{
-        CUSTOMERBOIMPL
+    public enum BO{
+        CUSTOMERBO_IMPL
     }
 
-
+    public SuperBO getBO(BO boType){
+        switch (boType){
+            case CUSTOMERBO_IMPL:return new CustomerBOImpl();
+            default:return null;
+        }
+    }
 }
