@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import util.NavigateUI;
 import view.tdm.ItemTM;
 
@@ -26,11 +27,20 @@ public class ItemFormController implements Initializable {
     public TableColumn colItemQOH;
     public TableColumn colItemUnitPrice;
     public TableColumn colIteMaxDiscount;
+    public TableColumn colItemPackSize;
+    public TableColumn colItemAddedDate;
 
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
+        colItemDesc.setCellValueFactory(new PropertyValueFactory("description"));
+        colItemUnitPrice.setCellValueFactory(new PropertyValueFactory("unitPrice"));
+        colItemQOH.setCellValueFactory(new PropertyValueFactory("qoh"));
+        colIteMaxDiscount.setCellValueFactory(new PropertyValueFactory("maxDiscount"));
+        colItemPackSize.setCellValueFactory(new PropertyValueFactory("packSize"));
+        colItemAddedDate.setCellValueFactory(new PropertyValueFactory("addedDate"));
         loadAllItems();
     }
 

@@ -45,7 +45,7 @@
                               <TableColumn fx:id="colItemQOH" prefWidth="160.0" text="QOH" />
                               <TableColumn fx:id="colIteMaxDiscount" prefWidth="230.0" text="Max Discount" />
                               <TableColumn fx:id="colItemPackSize" prefWidth="208.00003051757812" text="Pack Size" />
-                              <TableColumn fx:id="colItemPackSize1" prefWidth="152.0" text="Added Date" />
+                              <TableColumn fx:id="colItemAddedDate" prefWidth="152.0" text="Added Date" />
                           </columns>
                         </TableView>
                         <TextField layoutX="5.0" layoutY="224.0" prefHeight="50.0" prefWidth="1383.0" promptText="Search Items" style="-fx-border-color: purple; -fx-background-color: null; -fx-border-radius: 20; -fx-text-fill: white;">
