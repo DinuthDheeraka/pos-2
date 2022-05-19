@@ -1,4 +1,6 @@
 package dao.custom;
 
-public interface CustomerDAO {
+import dao.CrudDAO;
+
+public interface CustomerDAO extends CrudDAO {
 }
