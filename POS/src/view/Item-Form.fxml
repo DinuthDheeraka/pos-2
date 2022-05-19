@@ -39,14 +39,14 @@
                         </ImageView>
                         <TableView fx:id="itemTbl" layoutX="5.0" layoutY="295.0" prefHeight="525.0" prefWidth="1637.0">
                           <columns>
-                            <TableColumn fx:id="colItemCode" prefWidth="75.0" text="Item-Code" />
-                            <TableColumn fx:id="colItemDesc" prefWidth="75.0" text="Description" />
-                              <TableColumn fx:id="colItemUnitPrice" prefWidth="75.0" text="Unit Price" />
-                              <TableColumn fx:id="colItemQOH" prefWidth="75.0" text="QOH" />
+                            <TableColumn fx:id="colItemCode" prefWidth="204.00003051757812" text="Item-Code" />
+                            <TableColumn fx:id="colItemDesc" prefWidth="418.0" text="Description" />
+                              <TableColumn fx:id="colItemUnitPrice" prefWidth="264.9999694824219" text="Unit Price" />
+                              <TableColumn fx:id="colItemQOH" prefWidth="160.0" text="QOH" />
+                              <TableColumn fx:id="colIteMaxDiscount" prefWidth="230.0" text="Max Discount" />
+                              <TableColumn fx:id="colItemPackSize" prefWidth="208.00003051757812" text="Pack Size" />
+                              <TableColumn fx:id="colItemPackSize1" prefWidth="152.0" text="Added Date" />
                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
                         </TableView>
                         <TextField layoutX="5.0" layoutY="224.0" prefHeight="50.0" prefWidth="1383.0" promptText="Search Items" style="-fx-border-color: purple; -fx-background-color: null; -fx-border-radius: 20; -fx-text-fill: white;">
                            <font>

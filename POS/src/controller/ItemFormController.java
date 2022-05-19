@@ -13,6 +13,7 @@ public class ItemFormController {
     public TableColumn colItemDesc;
     public TableColumn colItemQOH;
     public TableColumn colItemUnitPrice;
+    public TableColumn colIteMaxDiscount;
 
     public void addNewItemOnAction(ActionEvent actionEvent) {
         try {
