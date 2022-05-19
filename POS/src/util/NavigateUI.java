@@ -16,6 +16,9 @@ import java.io.IOException;
 
 public class NavigateUI {
 
+    private double xOffset = 0;
+    private double yOffset = 0;
+
     private static NavigateUI navigateUI;
 
     private NavigateUI(){}
@@ -23,9 +26,6 @@ public class NavigateUI {
     public static NavigateUI getNavigateUI(){
         return navigateUI==null? navigateUI = new NavigateUI() : navigateUI;
     }
-
-    private double xOffset = 0;
-    private double yOffset = 0;
 
     public void setNewStage(String location) throws IOException {
         Stage stage = new Stage();
