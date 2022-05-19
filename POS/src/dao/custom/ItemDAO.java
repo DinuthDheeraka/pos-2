@@ -1,4 +1,6 @@
 package dao.custom;
 
-public interface ItemDAO {
+import dao.SuperDAO;
+
+public interface ItemDAO extends SuperDAO {
 }
