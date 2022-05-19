@@ -1,4 +1,6 @@
 package bo.custom;
 
-public interface ItemBO {
+import bo.SuperBO;
+
+public interface ItemBO extends SuperBO {
 }
