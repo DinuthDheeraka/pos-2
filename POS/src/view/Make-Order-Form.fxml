@@ -41,6 +41,7 @@
           <TableColumn prefWidth="75.0" text="Description" />
             <TableColumn prefWidth="75.0" text="Unit Price" />
             <TableColumn prefWidth="75.0" text="QTY" />
+            <TableColumn prefWidth="75.0" text="Discount" />
             <TableColumn prefWidth="75.0" text="Total" />
         </columns>
          <columnResizePolicy>
@@ -277,7 +278,7 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="630.0" layoutY="817.0" text="DISCOUNT" textFill="#fffefe">
+      <Label layoutX="630.0" layoutY="817.0" text="TOTAL DISCOUNT" textFill="#fffefe">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
