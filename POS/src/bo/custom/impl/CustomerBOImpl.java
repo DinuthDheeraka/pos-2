@@ -26,7 +26,11 @@ public class CustomerBOImpl implements CustomerBO {
     }
 
     @Override
-    public void insertCustomer(CustomerDTO customerDTO) {
-
+    public void insertCustomer(CustomerDTO customerDTO) throws SQLException, ClassNotFoundException {
+        customerDAO.insert(new Customer(
+                customerDTO.getCustID(), customerDTO.getCusTitle(),customerDTO.getCustName(),
+                customerDTO.getCustAddress(),customerDTO.getCity(),customerDTO.getProvince(),
+                customerDTO.getPostalCode(),customerDTO.getJoinedDate()
+        ));
     }
 }
