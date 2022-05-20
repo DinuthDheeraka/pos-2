@@ -109,6 +109,7 @@ public class CustomerFormController implements Initializable {
     public void deleteCtxmOnAction(ActionEvent actionEvent) {
         try {
             customerBO.deleteCustomer(selectedCustID);
+            loadAllCustomers();
         }
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();

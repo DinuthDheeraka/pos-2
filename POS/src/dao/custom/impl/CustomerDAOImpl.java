@@ -61,6 +61,17 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
+    public void update(Customer customer) throws SQLException, ClassNotFoundException {
+        if(CrudUtil.execute("UPDATE Customer SET CusTitle=?,CustName=?,CustAddress=?,City=?,Province=?,PostalCode=?,JoinedDate=? WHERE CustID = ?",
+                customer.getCusTitle(),customer.getCustName(),customer.getCustAddress(),customer.getCity(),customer.getProvince(),customer.getPostalCode(),customer.getJoinedDate(),customer.getCustID())){
+
+            new Alert(Alert.AlertType.CONFIRMATION,"Customer Updated").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Couldn't Update Customer").show();
+        }
+    }
+
+    @Override
     public String getLastId() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("SELECT CustID FROM Customer ORDER BY CustID DESC LIMIT 1");
         return resultSet.next()? resultSet.getString("CustID") : null;

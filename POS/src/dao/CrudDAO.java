@@ -3,10 +3,11 @@ package dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface CrudDAO <DTO,ID> extends SuperDAO{
+public interface CrudDAO <T,ID> extends SuperDAO{
 
-    ArrayList<DTO> getAll() throws SQLException,ClassNotFoundException;
-    void insert(DTO dto) throws SQLException,ClassNotFoundException;
+    ArrayList<T> getAll() throws SQLException,ClassNotFoundException;
+    void insert(T t) throws SQLException,ClassNotFoundException;
     void delete(ID id) throws SQLException,ClassNotFoundException;
+    void update(T t) throws SQLException,ClassNotFoundException;
     ID getLastId() throws SQLException, ClassNotFoundException;
 }
