@@ -53,20 +53,20 @@ public class ItemFormController implements Initializable {
 
         itemTbl.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> {
-                    if(newValue!=null)setSelectedItemData((ItemTM) newValue);
+                    if(newValue!=null)setSelectedItemData(newValue);
                 });
 
         loadAllItems();
     }
 
     private void setSelectedItemData(ItemTM newValue) {
-        String itemCode = newValue.getItemCode();
-        String description = newValue.getDescription();
-        String packSize = newValue.getPackSize();
-        double unitPrice = newValue.getUnitPrice();
-        double maxDiscount = newValue.getMaxDiscount();
-        int qoh = newValue.getQoh();
-        LocalDate addedDate = newValue.getAddedDate();
+        selectedItemCode = newValue.getItemCode();
+        selectedDescription = newValue.getDescription();
+        selectedPackSize = newValue.getPackSize();
+        selectedUnitPrice = newValue.getUnitPrice();
+        selectedMaxDiscount = newValue.getMaxDiscount();
+        selectedQOH = newValue.getQoh();
+        LocalDate selectedAddedDate = newValue.getAddedDate();
     }
 
     private void loadAllItems() {
@@ -97,6 +97,7 @@ public class ItemFormController implements Initializable {
     public void deleteCtxmOnAction(ActionEvent actionEvent) {
         try {
             itemBO.deleteItem(selectedItemCode);
+            loadAllItems();
         }
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
