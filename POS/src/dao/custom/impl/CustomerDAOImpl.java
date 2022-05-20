@@ -44,6 +44,8 @@ public class CustomerDAOImpl implements CustomerDAO {
                 customer.getCustAddress(),customer.getCity(),customer.getProvince(),
                 customer.getPostalCode(),customer.getJoinedDate())){
 
+            new Alert(Alert.AlertType.CONFIRMATION,"Added Customer").show();
+
         }else{
             new Alert(Alert.AlertType.ERROR,"Couldn't Add Customer").show();
         }
