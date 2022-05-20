@@ -66,7 +66,7 @@ public class ItemFormController implements Initializable {
         selectedUnitPrice = newValue.getUnitPrice();
         selectedMaxDiscount = newValue.getMaxDiscount();
         selectedQOH = newValue.getQoh();
-        LocalDate selectedAddedDate = newValue.getAddedDate();
+        selectedAddedDate = newValue.getAddedDate();
     }
 
     private void loadAllItems() {

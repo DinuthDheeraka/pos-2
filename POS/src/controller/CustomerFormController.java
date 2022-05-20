@@ -18,6 +18,7 @@ import view.tdm.CustomerTM;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -34,7 +35,17 @@ public class CustomerFormController implements Initializable {
     public TextField txtCustSearchBar;
     public Label lblCustCount;
 
+    private String selectedCustID;
+    private String selectedCusTitle;
+    private String selectedCustName;
+    private String selectedCustAddress;
+    private String selectedCity;
+    private String selectedProvince;
+    private String selectedPostalCode;
+    private LocalDate selectedJoinedDate;
+
     CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         colCustId.setCellValueFactory(new PropertyValueFactory<>("custID"));
@@ -46,7 +57,23 @@ public class CustomerFormController implements Initializable {
         colCustPostalCode.setCellValueFactory(new PropertyValueFactory("postalCode"));
         colCustJoinedDate.setCellValueFactory(new PropertyValueFactory("joinedDate"));
 
+        customerTbl.getSelectionModel().selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> {
+                    if(newValue!=null)setSelectedCustomerData(newValue);
+                });
+
         loadAllCustomers();
+    }
+
+    private void setSelectedCustomerData(CustomerTM newValue) {
+        selectedCustID = newValue.getCustID();
+        selectedCusTitle = newValue.getCusTitle();
+        selectedCustName = newValue.getCustName();
+        selectedCustAddress = newValue.getCustAddress();
+        selectedCity = newValue.getCity();
+        selectedProvince = newValue.getProvince();
+        selectedPostalCode = newValue.getPostalCode();
+        selectedJoinedDate = newValue.getJoinedDate();
     }
 
     private void loadAllCustomers() {
@@ -77,5 +104,14 @@ public class CustomerFormController implements Initializable {
 
     public void refreshCtxmOnAction(ActionEvent actionEvent) {
         loadAllCustomers();
+    }
+
+    public void deleteCtxmOnAction(ActionEvent actionEvent) {
+        try {
+            customerBO.deleteCustomer(selectedCustID);
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
