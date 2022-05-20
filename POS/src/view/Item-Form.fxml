@@ -2,6 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -47,6 +49,15 @@
                               <TableColumn fx:id="colItemPackSize" prefWidth="208.00003051757812" text="Pack Size" />
                               <TableColumn fx:id="colItemAddedDate" prefWidth="152.0" text="Added Date" />
                           </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Refresh" />
+                                    <MenuItem mnemonicParsing="false" text="Update" />
+                                    <MenuItem mnemonicParsing="false" onAction="#deleteCtxmOnAction" text="Delete" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
                         </TableView>
                         <TextField layoutX="5.0" layoutY="224.0" prefHeight="50.0" prefWidth="1383.0" promptText="Search Items" style="-fx-border-color: purple; -fx-background-color: null; -fx-border-radius: 20; -fx-text-fill: white;">
                            <font>

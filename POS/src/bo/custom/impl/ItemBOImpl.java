@@ -36,6 +36,11 @@ public class ItemBOImpl implements ItemBO {
     }
 
     @Override
+    public void deleteItem(String itemCode) throws SQLException, ClassNotFoundException {
+        itemDAO.delete(itemCode);
+    }
+
+    @Override
     public String getItemLastId() throws SQLException, ClassNotFoundException {
         return itemDAO.getLastId();
     }

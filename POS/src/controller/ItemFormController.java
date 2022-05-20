@@ -17,6 +17,7 @@ import view.tdm.ItemTM;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -30,6 +31,14 @@ public class ItemFormController implements Initializable {
     public TableColumn colItemPackSize;
     public TableColumn colItemAddedDate;
 
+    private String selectedItemCode;
+    private String selectedDescription;
+    private String selectedPackSize;
+    private double selectedUnitPrice;
+    private double selectedMaxDiscount;
+    private int selectedQOH;
+    private LocalDate selectedAddedDate;
+
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
 
     @Override
@@ -41,7 +50,23 @@ public class ItemFormController implements Initializable {
         colIteMaxDiscount.setCellValueFactory(new PropertyValueFactory("maxDiscount"));
         colItemPackSize.setCellValueFactory(new PropertyValueFactory("packSize"));
         colItemAddedDate.setCellValueFactory(new PropertyValueFactory("addedDate"));
+
+        itemTbl.getSelectionModel().selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> {
+                    if(newValue!=null)setSelectedItemData((ItemTM) newValue);
+                });
+
         loadAllItems();
+    }
+
+    private void setSelectedItemData(ItemTM newValue) {
+        String itemCode = newValue.getItemCode();
+        String description = newValue.getDescription();
+        String packSize = newValue.getPackSize();
+        double unitPrice = newValue.getUnitPrice();
+        double maxDiscount = newValue.getMaxDiscount();
+        int qoh = newValue.getQoh();
+        LocalDate addedDate = newValue.getAddedDate();
     }
 
     private void loadAllItems() {
@@ -65,6 +90,15 @@ public class ItemFormController implements Initializable {
         try {
             NavigateUI.getNavigateUI().setNewStage("Add-Item-Form");
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteCtxmOnAction(ActionEvent actionEvent) {
+        try {
+            itemBO.deleteItem(selectedItemCode);
+        }
+        catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
         }
     }
