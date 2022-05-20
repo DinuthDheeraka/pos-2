@@ -29,4 +29,9 @@ public class ItemDAOImpl implements ItemDAO {
     public void insert(Item item) throws SQLException, ClassNotFoundException {
 
     }
+
+    @Override
+    public String getLastId() {
+        return null;
+    }
 }

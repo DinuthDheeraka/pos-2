@@ -50,4 +50,10 @@ public class CustomerDAOImpl implements CustomerDAO {
             new Alert(Alert.AlertType.ERROR,"Couldn't Add Customer").show();
         }
     }
+
+    @Override
+    public String getLastId() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT CustID FROM Customer ORDER BY CustID DESC LIMIT 1");
+        return resultSet.next()? resultSet.getString("CustID") : null;
+    }
 }

@@ -7,4 +7,5 @@ public interface CrudDAO <DTO,ID> extends SuperDAO{
 
     ArrayList<DTO> getAll() throws SQLException,ClassNotFoundException;
     void insert(DTO dto) throws SQLException,ClassNotFoundException;
+    ID getLastId() throws SQLException, ClassNotFoundException;
 }
