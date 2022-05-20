@@ -39,6 +39,11 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
+    public void delete(String s) throws SQLException, ClassNotFoundException {
+
+    }
+
+    @Override
     public String getLastId() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("SELECT ItemCode FROM Item ORDER BY ItemCode DESC LIMIT 1");
         return resultSet.next()? resultSet.getString("ItemCode") : null;

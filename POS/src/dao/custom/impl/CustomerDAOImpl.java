@@ -52,6 +52,15 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
+    public void delete(String id) throws SQLException, ClassNotFoundException {
+        if(CrudUtil.execute("DELETE FROM Customer WHERE CustID = ?",id)){
+            new Alert(Alert.AlertType.CONFIRMATION,"Customer Deleted").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Couldn't Delete Customer").show();
+        }
+    }
+
+    @Override
     public String getLastId() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("SELECT CustID FROM Customer ORDER BY CustID DESC LIMIT 1");
         return resultSet.next()? resultSet.getString("CustID") : null;

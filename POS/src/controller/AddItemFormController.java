@@ -52,6 +52,13 @@ public class AddItemFormController implements Initializable {
                     Double.valueOf(txtItemUnitPrice.getText()),Double.valueOf(txtItemMaxDiscount.getText()),
                     Integer.valueOf(txtItemQOH.getText()), LocalDate.now()
             ));
+
+            txtItemCode.setText(IdsGenerator.generateId("I-",itemBO.getItemLastId()));
+            txtItemDescription.clear();
+            txtItemQOH.clear();
+            txtItemMaxDiscount.clear();
+            txtItemPackSize.clear();
+            txtItemUnitPrice.clear();
         }
         catch (SQLException|ClassNotFoundException e) {
             e.printStackTrace();
