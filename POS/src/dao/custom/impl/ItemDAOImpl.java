@@ -48,8 +48,15 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
+    //ItemCode | Description   | PackSize | UnitPrice | MaxDiscount | QOH  | AddedDate
     public void update(Item item) throws SQLException, ClassNotFoundException {
+        if(CrudUtil.execute("UPDATE Item SET Description=?,PackSize=?,UnitPrice=?,MaxDiscount=?,QOH=?,AddedDate=? WHERE ItemCode = ?",
+                item.getDescription(),item.getPackSize(),item.getUnitPrice(),item.getMaxDiscount(),item.getQoh(),item.getAddedDate())){
 
+            new Alert(Alert.AlertType.CONFIRMATION,"Item Updated").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Couldn't Update Item").show();
+        }
     }
 
     @Override

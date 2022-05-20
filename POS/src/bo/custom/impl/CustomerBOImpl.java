@@ -40,6 +40,15 @@ public class CustomerBOImpl implements CustomerBO {
     }
 
     @Override
+    public void updateCustomer(CustomerDTO customerDTO) throws SQLException, ClassNotFoundException {
+        customerDAO.update(new Customer(
+                customerDTO.getCustID(),customerDTO.getCusTitle(),customerDTO.getCustName(),
+                customerDTO.getCustAddress(),customerDTO.getCity(),customerDTO.getProvince(),
+                customerDTO.getPostalCode(),customerDTO.getJoinedDate()
+        ));
+    }
+
+    @Override
     public String getCustomerLastId() throws SQLException, ClassNotFoundException {
         return customerDAO.getLastId();
     }
