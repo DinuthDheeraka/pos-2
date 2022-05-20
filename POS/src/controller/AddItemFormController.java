@@ -1,5 +1,8 @@
 package controller;
 
+import bo.BOFactory;
+import bo.custom.ItemBO;
+import bo.custom.impl.ItemBOImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -19,6 +22,8 @@ public class AddItemFormController implements Initializable {
     public JFXTextField txtItemUnitPrice;
     public JFXTextField txtItemQOH;
     public JFXTextField txtItemMaxDiscount;
+
+    ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

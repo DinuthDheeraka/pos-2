@@ -9,4 +9,5 @@ import java.util.ArrayList;
 public interface ItemBO extends SuperBO {
     ArrayList<ItemDTO> getAllItems() throws SQLException, ClassNotFoundException;
     void insertItem(ItemDTO dto) throws SQLException, ClassNotFoundException;
+    String getItemLastId() throws SQLException, ClassNotFoundException;
 }

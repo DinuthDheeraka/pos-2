@@ -34,4 +34,9 @@ public class ItemBOImpl implements ItemBO {
                 dto.getAddedDate()
         ));
     }
+
+    @Override
+    public String getItemLastId() throws SQLException, ClassNotFoundException {
+        return itemDAO.getLastId();
+    }
 }
