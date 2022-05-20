@@ -35,6 +35,11 @@ public class CustomerBOImpl implements CustomerBO {
     }
 
     @Override
+    public void deleteCustomer(String custID) throws SQLException, ClassNotFoundException {
+        customerDAO.delete(custID);
+    }
+
+    @Override
     public String getCustomerLastId() throws SQLException, ClassNotFoundException {
         return customerDAO.getLastId();
     }
