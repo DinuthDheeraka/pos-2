@@ -14,9 +14,9 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#151617" height="35.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="626.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#151617" height="715.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="626.0" />
-      <VBox layoutX="7.0" layoutY="90.0" prefHeight="499.0" prefWidth="613.0" spacing="80.0">
+      <VBox layoutX="7.0" layoutY="90.0" prefHeight="564.0" prefWidth="613.0" spacing="60.0">
          <children>
-            <JFXTextField labelFloat="true" promptText="Item-Code" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemCode" labelFloat="true" promptText="Item-Code" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -37,7 +37,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField labelFloat="true" promptText="Description" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemDescription" labelFloat="true" promptText="Description" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -58,7 +58,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField labelFloat="true" promptText="Pack Size" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemPackSize" labelFloat="true" promptText="Pack Size" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -79,7 +79,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField labelFloat="true" promptText="Unit Price" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemUnitPrice" labelFloat="true" promptText="Unit Price" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -100,7 +100,28 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField labelFloat="true" promptText="QOH" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemQOH" labelFloat="true" promptText="QOH" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.4563106796116505">
+                     <stops>
+                        <Stop color="#cd098c" />
+                        <Stop color="#55d911" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#b90aaa" />
+                        <Stop color="#14f21c" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+            </JFXTextField>
+            <JFXTextField fx:id="txtItemMaxDiscount" labelFloat="true" layoutX="10.0" layoutY="426.0" promptText="Maximum Discount" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -125,7 +146,7 @@
       </VBox>
       <AnchorPane prefHeight="51.0" prefWidth="626.0" style="-fx-background-color: #151617; -fx-background-radius: 20;">
          <children>
-            <Label layoutX="14.0" layoutY="9.0" text="ADD ITEM">
+            <Label fx:id="lblTitle" layoutX="14.0" layoutY="9.0" text="ADD ITEM">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
@@ -140,7 +161,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <JFXButton buttonType="RAISED" layoutX="439.0" layoutY="708.0" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: #d7099c; -fx-background-radius: 20;" text="ADD ITEM" textFill="WHITE">
+      <JFXButton fx:id="addItemBtn" buttonType="RAISED" layoutX="439.0" layoutY="708.0" onAction="#addItemBtnOnAction" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: #d7099c; -fx-background-radius: 20;" text="ADD ITEM" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

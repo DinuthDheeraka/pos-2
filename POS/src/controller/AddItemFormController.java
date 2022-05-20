@@ -5,12 +5,16 @@ import bo.custom.ItemBO;
 import bo.custom.impl.ItemBOImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dto.ItemDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import util.IdsGenerator;
 import util.NavigateUI;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddItemFormController implements Initializable {
@@ -28,6 +32,13 @@ public class AddItemFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         txtItemMaxDiscount.setText(String.valueOf(0.00));
+        txtItemCode.setEditable(false);
+        try {
+            txtItemCode.setText(IdsGenerator.generateId("I-",itemBO.getItemLastId()));
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void canselBtnOnAction(ActionEvent actionEvent) {
@@ -35,5 +46,15 @@ public class AddItemFormController implements Initializable {
     }
 
     public void addItemBtnOnAction(ActionEvent actionEvent) {
+        try {
+            itemBO.insertItem(new ItemDTO(
+                    txtItemCode.getText(),txtItemDescription.getText(),txtItemPackSize.getText(),
+                    Double.valueOf(txtItemUnitPrice.getText()),Double.valueOf(txtItemMaxDiscount.getText()),
+                    Integer.valueOf(txtItemQOH.getText()), LocalDate.now()
+            ));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
