@@ -6,12 +6,16 @@ import dto.CustomerDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import util.NavigateUI;
 import view.tdm.CustomerTM;
 
@@ -43,6 +47,10 @@ public class CustomerFormController implements Initializable {
     private String selectedProvince;
     private String selectedPostalCode;
     private LocalDate selectedJoinedDate;
+
+    private Parent parent;
+    private Scene scene;
+    private Stage stage;
 
     CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
 
@@ -114,5 +122,27 @@ public class CustomerFormController implements Initializable {
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void updateCtxmOnAction(ActionEvent actionEvent) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/Add-Customer-Form.fxml"));
+        try {
+            parent = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        AddCustomerFormController controller = fxmlLoader.getController();
+        controller.setValuesForTextFields(
+                new CustomerDTO(
+                selectedCustID,selectedCusTitle,selectedCustName,selectedCustAddress,
+                selectedCity,selectedProvince,selectedPostalCode
+        ));
+
+        stage = new Stage();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+
+        NavigateUI.getNavigateUI().transparentUi(stage,scene);
     }
 }

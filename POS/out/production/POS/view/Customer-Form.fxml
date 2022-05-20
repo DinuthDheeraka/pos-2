@@ -60,7 +60,7 @@
                               <ContextMenu>
                                 <items>
                                   <MenuItem mnemonicParsing="false" onAction="#refreshCtxmOnAction" text="Refresh" />
-                                    <MenuItem mnemonicParsing="false" text="Update" />
+                                    <MenuItem mnemonicParsing="false" onAction="#updateCtxmOnAction" text="Update" />
                                     <MenuItem mnemonicParsing="false" onAction="#deleteCtxmOnAction" text="Delete" />
                                 </items>
                               </ContextMenu>

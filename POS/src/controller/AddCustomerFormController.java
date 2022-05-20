@@ -59,4 +59,15 @@ public class AddCustomerFormController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void setValuesForTextFields(CustomerDTO customerDTO) {
+        txtCustomerId.setText(customerDTO.getCustID());
+        txtCustomerTitle.setText(customerDTO.getCusTitle());
+        txtCustomerName.setText(customerDTO.getCustName());
+        txtCustomerAddress.setText(customerDTO.getCustAddress());
+        txtCustomerCity.setText(customerDTO.getCity());
+        txtCustomerProvince.setText(customerDTO.getProvince());
+        txtCustomerPostalCode.setText(customerDTO.getPostalCode());
+
+    }
 }

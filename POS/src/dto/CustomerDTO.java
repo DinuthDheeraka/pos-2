@@ -27,6 +27,17 @@ public class CustomerDTO {
         this.joinedDate = joinedDate;
     }
 
+    public CustomerDTO(String custID, String cusTitle, String custName, String custAddress,
+                       String city, String province, String postalCode) {
+        this.custID = custID;
+        this.cusTitle = cusTitle;
+        this.custName = custName;
+        this.custAddress = custAddress;
+        this.city = city;
+        this.province = province;
+        this.postalCode = postalCode;
+    }
+
     public String getCustID() {
         return custID;
     }

@@ -3,14 +3,19 @@ package controller;
 import bo.BOFactory;
 import bo.custom.ItemBO;
 import bo.custom.impl.ItemBOImpl;
+import dto.CustomerDTO;
 import dto.ItemDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import util.NavigateUI;
 import view.tdm.ItemTM;
 
@@ -38,6 +43,10 @@ public class ItemFormController implements Initializable {
     private double selectedMaxDiscount;
     private int selectedQOH;
     private LocalDate selectedAddedDate;
+
+    private Parent parent;
+    private Scene scene;
+    private Stage stage;
 
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
 
@@ -102,5 +111,30 @@ public class ItemFormController implements Initializable {
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void refreshCtxmOnAction(ActionEvent actionEvent) {
+        loadAllItems();
+    }
+
+    public void updateCtxmOnAction(ActionEvent actionEvent) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/Add-Item-Form.fxml"));
+        try {
+            parent = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        AddItemFormController controller = fxmlLoader.getController();
+        controller.setValuesForTextFields(new ItemDTO(
+                selectedItemCode,selectedDescription,selectedPackSize,
+                selectedUnitPrice,selectedMaxDiscount, selectedQOH
+        ));
+
+        stage = new Stage();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+
+        NavigateUI.getNavigateUI().transparentUi(stage,scene);
     }
 }

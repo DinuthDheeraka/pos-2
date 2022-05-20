@@ -64,4 +64,13 @@ public class AddItemFormController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void setValuesForTextFields(ItemDTO dto) {
+        txtItemCode.setText(dto.getItemCode());
+        txtItemDescription.setText(dto.getDescription());
+        txtItemUnitPrice.setText(String.valueOf(dto.getUnitPrice()));
+        txtItemQOH.setText(String.valueOf(dto.getQoh()));
+        txtItemMaxDiscount.setText(String.valueOf(dto.getMaxDiscount()));
+        txtItemPackSize.setText(dto.getPackSize());
+    }
 }
