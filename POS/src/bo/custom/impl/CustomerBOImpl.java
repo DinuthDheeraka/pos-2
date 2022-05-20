@@ -33,4 +33,9 @@ public class CustomerBOImpl implements CustomerBO {
                 customerDTO.getPostalCode(),customerDTO.getJoinedDate()
         ));
     }
+
+    @Override
+    public String getCustomerLastId() throws SQLException, ClassNotFoundException {
+        return customerDAO.getLastId();
+    }
 }

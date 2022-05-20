@@ -2,7 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -54,6 +56,13 @@
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#refreshCtxmOnAction" text="Refresh" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
                         </TableView>
                         <TextField fx:id="txtCustSearchBar" layoutX="6.0" layoutY="225.0" prefHeight="50.0" prefWidth="1387.0" promptText="Search Customer" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20; -fx-text-fill: white;">
                            <font>

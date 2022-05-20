@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import util.IdsGenerator;
 import util.NavigateUI;
 
 import java.net.URL;
@@ -30,7 +31,13 @@ public class AddCustomerFormController implements Initializable {
     CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        txtCustomerId.setEditable(false);
+        try {
+            txtCustomerId.setText(IdsGenerator.generateId("C-",customerBO.getCustomerLastId()));
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void canselBtnOnaction(ActionEvent actionEvent) {
