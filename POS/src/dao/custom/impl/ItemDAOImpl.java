@@ -2,6 +2,7 @@ package dao.custom.impl;
 
 import dao.custom.ItemDAO;
 import entity.Item;
+import javafx.scene.control.Alert;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -27,7 +28,14 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public void insert(Item item) throws SQLException, ClassNotFoundException {
-
+        if(CrudUtil.execute("INSERT INTO Item VALUES(?,?,?,?,?,?,?)",
+                item.getItemCode(),item.getDescription(),item.getPackSize(),
+                item.getUnitPrice(),item.getMaxDiscount(),item.getQoh(),
+                item.getAddedDate())){
+            new Alert(Alert.AlertType.CONFIRMATION,"Added Item").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Couldn't add Item").show();
+        }
     }
 
     @Override

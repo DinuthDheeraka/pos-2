@@ -25,4 +25,13 @@ public class ItemBOImpl implements ItemBO {
         }
         return itemDTOS;
     }
+
+    @Override
+    public void insertItem(ItemDTO dto) throws SQLException, ClassNotFoundException {
+        itemDAO.insert(new Item(
+                dto.getItemCode(),dto.getDescription(),dto.getPackSize(),
+                dto.getUnitPrice(),dto.getMaxDiscount(),dto.getQoh(),
+                dto.getAddedDate()
+        ));
+    }
 }
