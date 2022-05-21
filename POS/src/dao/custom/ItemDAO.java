@@ -8,4 +8,5 @@ import java.sql.SQLException;
 
 public interface ItemDAO extends CrudDAO<Item,String> {
     void subtractItemQOH(int amount) throws SQLException, ClassNotFoundException;
+    void increasetItemQOH(int amount) throws SQLException, ClassNotFoundException;
 }

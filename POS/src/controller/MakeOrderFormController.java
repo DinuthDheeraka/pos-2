@@ -179,4 +179,8 @@ public class MakeOrderFormController implements Initializable {
         }
         return null;
     }
+
+    public void ctxmRemoveItemOnAction(ActionEvent actionEvent) {
+
+    }
 }
