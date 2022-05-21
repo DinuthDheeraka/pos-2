@@ -12,5 +12,6 @@ public interface CustomerBO extends SuperBO {
     void insertCustomer(CustomerDTO customerDTO) throws SQLException, ClassNotFoundException;
     void deleteCustomer(String custID) throws SQLException, ClassNotFoundException;
     void updateCustomer(CustomerDTO customerDTO) throws SQLException, ClassNotFoundException;
+    ArrayList<String> getAllCustomerIds() throws SQLException, ClassNotFoundException;
     String getCustomerLastId() throws SQLException, ClassNotFoundException;
 }

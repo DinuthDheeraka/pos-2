@@ -49,6 +49,12 @@ public class ItemBOImpl implements ItemBO {
     }
 
     @Override
+    public ArrayList<String> getAllItemIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> itemCodes = itemDAO.getAllIds();
+        return itemCodes;
+    }
+
+    @Override
     public String getItemLastId() throws SQLException, ClassNotFoundException {
         return itemDAO.getLastId();
     }

@@ -49,6 +49,12 @@ public class CustomerBOImpl implements CustomerBO {
     }
 
     @Override
+    public ArrayList<String> getAllCustomerIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> custIds = customerDAO.getAllIds();
+        return custIds;
+    }
+
+    @Override
     public String getCustomerLastId() throws SQLException, ClassNotFoundException {
         return customerDAO.getLastId();
     }
