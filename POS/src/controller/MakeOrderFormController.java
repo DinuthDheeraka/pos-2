@@ -211,11 +211,21 @@ public class MakeOrderFormController implements Initializable {
 
     public void ctxmRemoveItemOnAction(ActionEvent actionEvent) {
         try {
-            itemBO.subtractItemQOH(cartItemCode,cartQty);
+            itemBO.increasetItemQOH(cartItemCode,cartQty);
             setItemDataToTextFileds(selectedItemCode);
+            removeItemFromCartTbl();
         }
         catch (SQLException|ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void removeItemFromCartTbl(){
+        for (CartTM cartTM : cartItems){
+            if(cartTM.getItemCode().equals(cartItemCode)){
+               cartItems.remove(cartTM);
+            }
+        }
+        cartTbl.setItems(cartItems);
     }
 }
