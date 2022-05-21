@@ -7,6 +7,7 @@ import bo.custom.impl.CustomerBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.CustomerDTO;
+import dto.ItemDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -45,6 +46,28 @@ public class MakeOrderFormController implements Initializable {
                     }
                 }
         );
+
+        cmbxItemCodes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
+                {
+                    if (newValue!=null){
+                        setItemDataToTextFileds((String) newValue);
+                    }
+                }
+        );
+    }
+
+    private void setItemDataToTextFileds(String selectedItemCode) {
+        try {
+            ItemDTO itemDTO = itemBO.getItem(selectedItemCode);
+            txtItemDescription.setText(itemDTO.getDescription());
+            txtItemPackSize.setText(itemDTO.getPackSize());
+            txtItemUnitPrice.setText(String.valueOf(itemDTO.getUnitPrice()));
+            txtItemMaxDiscount.setText(String.valueOf(itemDTO.getMaxDiscount()));
+            txtItemQOH.setText(String.valueOf(itemDTO.getQoh()));
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void setCustomerDataToTextFileds(String selectedCustId) {
