@@ -150,6 +150,7 @@ public class MakeOrderFormController implements Initializable {
             ));
             cartTbl.setItems(cartItems);
         }
+        //itemBO.increasetItemQOH();
         cartTbl.refresh();
         updateTotal();
         updateDiscount();

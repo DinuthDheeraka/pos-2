@@ -13,6 +13,7 @@ public interface ItemBO extends SuperBO {
     void updateItem(ItemDTO dto) throws SQLException, ClassNotFoundException;
     ItemDTO getItem(String itemCode) throws SQLException, ClassNotFoundException;
     ArrayList<String> getAllItemIds() throws SQLException, ClassNotFoundException;
-    void subtractItemQOH(int amount) throws SQLException, ClassNotFoundException;
+    void subtractItemQOH(String itemCode,int amount) throws SQLException, ClassNotFoundException;
+    void increasetItemQOH(String itemCode,int amount) throws SQLException, ClassNotFoundException;
     String getItemLastId() throws SQLException, ClassNotFoundException;
 }

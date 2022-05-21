@@ -89,14 +89,14 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public void subtractItemQOH(int amount) throws SQLException, ClassNotFoundException {
-        if(CrudUtil.execute("UPDATE Item SET QOH = QOH-?",amount)){
+    public void subtractItemQOH(String itemCode,int amount) throws SQLException, ClassNotFoundException {
+        if(CrudUtil.execute("UPDATE Item SET QOH = QOH-? WHERE ItemCode = ?",amount,itemCode)){
         }
     }
 
     @Override
-    public void increasetItemQOH(int amount) throws SQLException, ClassNotFoundException {
-        if(CrudUtil.execute("UPDATE Item SET QOH = QOH+?",amount)){
+    public void increasetItemQOH(String itemCode,int amount) throws SQLException, ClassNotFoundException {
+        if(CrudUtil.execute("UPDATE Item SET QOH = QOH+? WHERE ItemCode = ?",amount,itemCode)){
         }
     }
 }
