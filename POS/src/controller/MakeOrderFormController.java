@@ -48,7 +48,16 @@ public class MakeOrderFormController implements Initializable {
     }
 
     private void setCustomerDataToTextFileds(String selectedCustId) {
-        //CustomerDTO customerDTO = customerBO;
+        try {
+            CustomerDTO customerDTO = customerBO.getCustomer(selectedCustId);
+            txtCustName.setText(customerDTO.getCustName());
+            txtCustAddress.setText(customerDTO.getCustAddress());
+            txtCustCity.setText(customerDTO.getCity());
+            txtCustProvince.setText(customerDTO.getProvince());
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void addCustomerIds() {
