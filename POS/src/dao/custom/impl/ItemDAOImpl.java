@@ -87,4 +87,10 @@ public class ItemDAOImpl implements ItemDAO {
         ResultSet resultSet = CrudUtil.execute("SELECT ItemCode FROM Item ORDER BY ItemCode DESC LIMIT 1");
         return resultSet.next()? resultSet.getString("ItemCode") : null;
     }
+
+    @Override
+    public void subtractItemQOH(int amount) throws SQLException, ClassNotFoundException {
+        if(CrudUtil.execute("UPDATE Item SET QOH = QOH-?",amount)){
+        }
+    }
 }
