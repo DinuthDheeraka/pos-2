@@ -64,6 +64,11 @@ public class ItemBOImpl implements ItemBO {
     }
 
     @Override
+    public void subtractItemQOH(int amount) throws SQLException, ClassNotFoundException {
+        itemDAO.subtractItemQOH(amount);
+    }
+
+    @Override
     public String getItemLastId() throws SQLException, ClassNotFoundException {
         return itemDAO.getLastId();
     }
