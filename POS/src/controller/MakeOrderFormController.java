@@ -47,6 +47,13 @@ public class MakeOrderFormController implements Initializable {
     public Label lblTotal;
     public Label lblTotalDiscount;
 
+    private String cartItemCode;
+    private String cartDescription;
+    private double cartUnitPrice;
+    private int cartQty;
+    private double cartDiscount;
+    private double cartTotal;
+
     private String selectedItemCode;
     private double selectedItemUnitPrice;
     ObservableList<CartTM> cartItems = FXCollections.observableArrayList();
@@ -80,6 +87,20 @@ public class MakeOrderFormController implements Initializable {
                     }
                 }
         );
+
+        cartTbl.getSelectionModel().selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> {
+                    if(newValue!=null)setSelectedCartData(newValue);
+                });
+    }
+
+    private void setSelectedCartData(CartTM newValue) {
+        cartItemCode = newValue.getItemCode();
+        cartDescription = newValue.getDescription();
+        cartUnitPrice = newValue.getUnitPrice();
+        cartDiscount = newValue.getDiscount();
+        cartTotal = newValue.getTotal();
+        cartQty = newValue.getQty();
     }
 
     private void setItemDataToTextFileds(String selectedItemCode) {
@@ -150,7 +171,14 @@ public class MakeOrderFormController implements Initializable {
             ));
             cartTbl.setItems(cartItems);
         }
-        //itemBO.increasetItemQOH();
+
+        try {
+            itemBO.subtractItemQOH(selectedItemCode,Integer.valueOf(txtItemAmount.getText()));
+            setItemDataToTextFileds(selectedItemCode);
+        }catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+
         cartTbl.refresh();
         updateTotal();
         updateDiscount();
@@ -182,6 +210,12 @@ public class MakeOrderFormController implements Initializable {
     }
 
     public void ctxmRemoveItemOnAction(ActionEvent actionEvent) {
-
+        try {
+            itemBO.subtractItemQOH(cartItemCode,cartQty);
+            setItemDataToTextFileds(selectedItemCode);
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

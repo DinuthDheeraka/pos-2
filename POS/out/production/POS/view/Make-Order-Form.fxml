@@ -52,7 +52,7 @@
               <items>
                 <MenuItem mnemonicParsing="false" text="Refresh" />
                   <MenuItem mnemonicParsing="false" text="Update" />
-                  <MenuItem mnemonicParsing="false" text="Remove" />
+                  <MenuItem mnemonicParsing="false" onAction="#ctxmRemoveItemOnAction" text="Remove" />
               </items>
             </ContextMenu>
          </contextMenu>
