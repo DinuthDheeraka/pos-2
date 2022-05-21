@@ -68,6 +68,8 @@ public class AddCustomerFormController implements Initializable {
         txtCustomerCity.setText(customerDTO.getCity());
         txtCustomerProvince.setText(customerDTO.getProvince());
         txtCustomerPostalCode.setText(customerDTO.getPostalCode());
+        lblTitle.setText("UPDATE CUSTOMER");
+        addCustomerSaveBtn.setText("UPDATE CUSTOMER");
 
     }
 }

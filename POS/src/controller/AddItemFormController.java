@@ -46,22 +46,36 @@ public class AddItemFormController implements Initializable {
     }
 
     public void addItemBtnOnAction(ActionEvent actionEvent) {
-        try {
-            itemBO.insertItem(new ItemDTO(
-                    txtItemCode.getText(),txtItemDescription.getText(),txtItemPackSize.getText(),
-                    Double.valueOf(txtItemUnitPrice.getText()),Double.valueOf(txtItemMaxDiscount.getText()),
-                    Integer.valueOf(txtItemQOH.getText()), LocalDate.now()
-            ));
+        if(addItemBtn.getText().equals("ADD ITEM")){
+            try {
+                itemBO.insertItem(new ItemDTO(
+                        txtItemCode.getText(),txtItemDescription.getText(),txtItemPackSize.getText(),
+                        Double.valueOf(txtItemUnitPrice.getText()),Double.valueOf(txtItemMaxDiscount.getText()),
+                        Integer.valueOf(txtItemQOH.getText()), LocalDate.now()
+                ));
 
-            txtItemCode.setText(IdsGenerator.generateId("I-",itemBO.getItemLastId()));
-            txtItemDescription.clear();
-            txtItemQOH.clear();
-            txtItemMaxDiscount.clear();
-            txtItemPackSize.clear();
-            txtItemUnitPrice.clear();
-        }
-        catch (SQLException|ClassNotFoundException e) {
-            e.printStackTrace();
+                txtItemCode.setText(IdsGenerator.generateId("I-",itemBO.getItemLastId()));
+                txtItemDescription.clear();
+                txtItemQOH.clear();
+                txtItemMaxDiscount.clear();
+                txtItemPackSize.clear();
+                txtItemUnitPrice.clear();
+            }
+            catch (SQLException|ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }else{
+            try {
+                //(String itemCode, String description, String packSize, double unitPrice, double maxDiscount, int qoh)
+                itemBO.updateItem(new ItemDTO(
+                        txtItemCode.getText(),txtItemDescription.getText(),txtItemPackSize.getText(),
+                        Double.valueOf(txtItemUnitPrice.getText()),Double.valueOf(txtItemMaxDiscount.getText()),
+                        Integer.valueOf(txtItemQOH.getText())
+                ));
+            }
+            catch (ClassNotFoundException|SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -72,5 +86,7 @@ public class AddItemFormController implements Initializable {
         txtItemQOH.setText(String.valueOf(dto.getQoh()));
         txtItemMaxDiscount.setText(String.valueOf(dto.getMaxDiscount()));
         txtItemPackSize.setText(dto.getPackSize());
+        lblTitle.setText("UPDATE ITEM");
+        addItemBtn.setText("UPDATE ITEM");
     }
 }
