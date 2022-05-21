@@ -43,7 +43,7 @@ public class MakeOrderFormController implements Initializable {
             ObservableList<String> custIds = FXCollections.observableArrayList(
                     customerBO.getAllCustomerIds()
             );
-            cmbxCustomerIds.getItems().add(custIds);
+            cmbxCustomerIds.setItems(custIds);
         }
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
@@ -51,5 +51,14 @@ public class MakeOrderFormController implements Initializable {
     }
 
     private void addItemIds() {
+        try {
+            ObservableList<String> itemCodes = FXCollections.observableArrayList(
+                    itemBO.getAllItemIds()
+            );
+            cmbxItemCodes.setItems(itemCodes);
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
