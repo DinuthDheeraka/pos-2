@@ -10,7 +10,13 @@ import dto.CustomerDTO;
 import dto.ItemDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import view.tdm.CartTM;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -31,11 +37,31 @@ public class MakeOrderFormController implements Initializable {
     public JFXTextField txtItemGivenDiscount;
     public JFXTextField txtItemAmount;
 
+    public TableView<CartTM> cartTbl;
+    public TableColumn colItemCode;
+    public TableColumn colItemDescription;
+    public TableColumn colItemUnitPrice;
+    public TableColumn colItemQTY;
+    public TableColumn colItemDiscount;
+    public TableColumn colItemTotal;
+    public Label lblTotal;
+    public Label lblTotalDiscount;
+
+    private String selectedItemCode;
+    private double selectedItemUnitPrice;
+    ObservableList<CartTM> cartItems = FXCollections.observableArrayList();
+
     CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        colItemCode.setCellValueFactory(new PropertyValueFactory("itemCode"));
+        colItemDescription.setCellValueFactory(new PropertyValueFactory("description"));
+        colItemUnitPrice.setCellValueFactory(new PropertyValueFactory("unitPrice"));
+        colItemQTY.setCellValueFactory(new PropertyValueFactory("qty"));
+        colItemDiscount.setCellValueFactory(new PropertyValueFactory("discount"));
+        colItemTotal.setCellValueFactory(new PropertyValueFactory("total"));
         addItemCodes();
         addCustomerIds();
 
@@ -64,6 +90,8 @@ public class MakeOrderFormController implements Initializable {
             txtItemUnitPrice.setText(String.valueOf(itemDTO.getUnitPrice()));
             txtItemMaxDiscount.setText(String.valueOf(itemDTO.getMaxDiscount()));
             txtItemQOH.setText(String.valueOf(itemDTO.getQoh()));
+            this.selectedItemCode = selectedItemCode;
+            this.selectedItemUnitPrice = itemDTO.getUnitPrice();
         }
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
@@ -105,5 +133,50 @@ public class MakeOrderFormController implements Initializable {
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void addToCartBtnOnAction(ActionEvent actionEvent) {
+        if(getExistsCartTM()!=null){
+            CartTM cartTM = getExistsCartTM();
+            cartTM.setQty(cartTM.getQty()+Integer.valueOf(txtItemAmount.getText()));
+            cartTM.setDiscount(cartTM.getDiscount()+(Double.valueOf(txtItemGivenDiscount.getText())*Integer.valueOf(txtItemAmount.getText())));
+            cartTM.setTotal(cartTM.getTotal()+(this.selectedItemUnitPrice*Double.valueOf(txtItemAmount.getText()))- (Double.valueOf(txtItemGivenDiscount.getText())*Double.valueOf(txtItemAmount.getText())));
+        }else{
+            cartItems.add(new CartTM(
+                    selectedItemCode,txtItemDescription.getText(),
+                    Double.valueOf(txtItemUnitPrice.getText()),Integer.valueOf(txtItemAmount.getText()),
+                    Double.valueOf(txtItemGivenDiscount.getText())*Integer.valueOf(txtItemAmount.getText()),
+                    (this.selectedItemUnitPrice*Double.valueOf(txtItemAmount.getText()))- (Double.valueOf(txtItemGivenDiscount.getText())*Double.valueOf(txtItemAmount.getText()))
+            ));
+            cartTbl.setItems(cartItems);
+        }
+        cartTbl.refresh();
+        updateTotal();
+        updateDiscount();
+    }
+
+    private void updateDiscount() {
+        double discount = 0;
+        for (CartTM cartTM : cartItems){
+            discount+=cartTM.getDiscount();
+        }
+        lblTotalDiscount.setText(String.valueOf(discount));
+    }
+
+    private void updateTotal() {
+        double total = 0;
+        for (CartTM cartTM : cartItems){
+            total+=cartTM.getTotal();
+        }
+        lblTotal.setText(String.valueOf(total));
+    }
+
+    private CartTM getExistsCartTM(){
+        for(CartTM cartTM : cartItems){
+            if(cartTM.getItemCode().equals(selectedItemCode)){
+                return cartTM;
+            }
+        }
+        return null;
     }
 }
