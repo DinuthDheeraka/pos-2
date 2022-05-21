@@ -82,6 +82,20 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
+    public Customer get(String custId) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM Customer WHERE CustId = ?",custId);
+        if(resultSet.next()){
+            return new Customer(
+                    resultSet.getString("CustId"),resultSet.getString("CusTitle"),
+                    resultSet.getString("CustName"),resultSet.getString("CustAddress"),
+                    resultSet.getString("City"),resultSet.getString("Province"),
+                    resultSet.getString("PostalCode")
+            );
+        }
+        return null;
+    }
+
+    @Override
     public String getLastId() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("SELECT CustID FROM Customer ORDER BY CustID DESC LIMIT 1");
         return resultSet.next()? resultSet.getString("CustID") : null;

@@ -10,5 +10,6 @@ public interface CrudDAO <T,ID> extends SuperDAO{
     void delete(ID id) throws SQLException,ClassNotFoundException;
     void update(T t) throws SQLException,ClassNotFoundException;
     ArrayList<ID> getAllIds() throws SQLException, ClassNotFoundException;
+    T get(ID id) throws SQLException, ClassNotFoundException;
     ID getLastId() throws SQLException, ClassNotFoundException;
 }
