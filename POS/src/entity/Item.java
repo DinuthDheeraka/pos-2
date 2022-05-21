@@ -24,6 +24,15 @@ public class Item {
         this.setAddedDate(addedDate);
     }
 
+    public Item(String itemCode, String description, String packSize, double unitPrice, double maxDiscount, int qoh) {
+        this.itemCode = itemCode;
+        this.description = description;
+        this.packSize = packSize;
+        this.unitPrice = unitPrice;
+        this.maxDiscount = maxDiscount;
+        this.qoh = qoh;
+    }
+
     public String getItemCode() {
         return itemCode;
     }

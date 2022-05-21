@@ -71,6 +71,14 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public Item get(String s) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT ItemCode FROM Item");
+        if(resultSet.next()){
+            return new Item(
+                    resultSet.getString("ItemCode"),resultSet.getString("Description"),
+                    resultSet.getString("PackSize"),resultSet.getDouble("UnitPrice"),
+                    resultSet.getDouble("MaxDiscount"),resultSet.getInt("QOH")
+            );
+        }
         return null;
     }
 
