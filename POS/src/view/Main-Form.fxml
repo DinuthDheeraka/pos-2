@@ -97,7 +97,7 @@
                   </Lighting>
                </effect>
             </ImageView>
-            <Label layoutX="137.0" layoutY="86.0" text="ITEMS">
+            <Label layoutX="134.0" layoutY="86.0" text="ITEMS">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
@@ -110,7 +110,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="433.0" layoutY="86.0" text="CUSTOMERS">
+            <Label layoutX="429.0" layoutY="86.0" text="CUSTOMERS">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
@@ -123,7 +123,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="1070.0" layoutY="86.0" text="ORDER REPORTS">
+            <Label layoutX="1055.0" layoutY="86.0" text="ORDER REPORTS">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
@@ -136,7 +136,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="756.0" layoutY="87.0" text="MAKE ORDER">
+            <Label layoutX="749.0" layoutY="87.0" text="MAKE ORDER">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
@@ -149,7 +149,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="1390.0" layoutY="86.0" text="INCOME REPORTS">
+            <Label layoutX="1383.0" layoutY="86.0" text="INCOME REPORTS">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
@@ -237,37 +237,21 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <Label fx:id="lblTime" layoutX="1404.0" layoutY="19.0" text="10:30:20 PM">
+            <Label fx:id="lblTime" layoutX="1404.0" layoutY="19.0" text="10:30:20 PM" textFill="WHITE">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
                <effect>
                   <Glow level="0.0" />
                </effect>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#f5ece8" />
-                        <Stop color="#aeaaab" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
             </Label>
-            <Label fx:id="lblDate" layoutX="1270.0" layoutY="19.0" text="2020/01/01">
+            <Label fx:id="lblDate" layoutX="1270.0" layoutY="19.0" text="2020/01/01" textFill="WHITE">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
                <effect>
                   <Glow level="0.0" />
                </effect>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#f5ece8" />
-                        <Stop color="#aeaaab" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
             </Label>
             <ImageView fitHeight="56.0" fitWidth="54.0" layoutX="9.0" layoutY="-2.0" onMouseClicked="#imgHomeOnClick" pickOnBounds="true">
                <image>
@@ -306,7 +290,7 @@
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
                         <Stop color="#ff0095" />
-                        <Stop color="#1bff00" offset="1.0" />
+                        <Stop color="#d4ff00" offset="1.0" />
                      </stops>
                   </LinearGradient>
                </textFill>
@@ -324,7 +308,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label fx:id="lbl00000000000011" layoutX="96.0" layoutY="18.0" text="R">
+            <Label fx:id="lbl00000000000011" layoutX="96.0" layoutY="20.0" text="R">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
@@ -351,12 +335,12 @@
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
                         <Stop color="#ff0095" />
-                        <Stop color="#ff0010" offset="1.0" />
+                        <Stop color="#efff00" offset="1.0" />
                      </stops>
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label fx:id="lbl0000000000001111" layoutX="132.0" layoutY="18.0" text="I">
+            <Label fx:id="lbl0000000000001111" layoutX="132.0" layoutY="20.0" text="I">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
@@ -372,7 +356,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label fx:id="lbl00000000000011111" layoutX="148.0" layoutY="19.0" text="S">
+            <Label fx:id="lbl00000000000011111" layoutX="148.0" layoutY="20.0" text="S">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
@@ -388,7 +372,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label fx:id="lbl000000000000111111" layoutX="165.0" layoutY="19.0" text="O">
+            <Label fx:id="lbl000000000000111111" layoutX="165.0" layoutY="20.0" text="O">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
@@ -399,7 +383,7 @@
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
                         <Stop color="#ff0095" />
-                        <Stop color="#570aff" offset="1.0" />
+                        <Stop color="#ebff0a" offset="1.0" />
                      </stops>
                   </LinearGradient>
                </textFill>
@@ -420,7 +404,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label fx:id="lbl00000000000011111111" layoutX="207.0" layoutY="18.0" text="S">
+            <Label fx:id="lbl00000000000011111111" layoutX="207.0" layoutY="19.0" text="S">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>

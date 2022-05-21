@@ -48,15 +48,29 @@ public class AddCustomerFormController implements Initializable {
     }
 
     public void saveCustomerBtnOnAction(ActionEvent actionEvent) {
-        try {
-            customerBO.insertCustomer(new CustomerDTO(
-                    txtCustomerId.getText(),txtCustomerTitle.getText(),
-                    txtCustomerName.getText(),txtCustomerAddress.getText(),
-                    txtCustomerCity.getText(),txtCustomerProvince.getText(),
-                    txtCustomerPostalCode.getText(),LocalDate.now()
-            ));
-        } catch (ClassNotFoundException|SQLException e) {
-            e.printStackTrace();
+        if(addCustomerSaveBtn.getText().equals("SAVE CUSTOMER")){
+            try {
+                customerBO.insertCustomer(new CustomerDTO(
+                        txtCustomerId.getText(),txtCustomerTitle.getText(),
+                        txtCustomerName.getText(),txtCustomerAddress.getText(),
+                        txtCustomerCity.getText(),txtCustomerProvince.getText(),
+                        txtCustomerPostalCode.getText(),LocalDate.now()
+                ));
+            } catch (ClassNotFoundException|SQLException e) {
+                e.printStackTrace();
+            }
+        }else{
+            try {
+                //String custID, String cusTitle, String custName, String custAddress,String city, String province, String postalCode
+                customerBO.updateCustomer(new CustomerDTO(
+                       txtCustomerId.getText(),txtCustomerTitle.getText(),txtCustomerName.getText(),
+                       txtCustomerAddress.getText(),txtCustomerCity.getText(),txtCustomerProvince.getText(),
+                       txtCustomerPostalCode.getText()
+                ));
+            }
+            catch (ClassNotFoundException|SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

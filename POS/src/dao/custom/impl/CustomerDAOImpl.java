@@ -62,13 +62,23 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public void update(Customer customer) throws SQLException, ClassNotFoundException {
-        if(CrudUtil.execute("UPDATE Customer SET CusTitle=?,CustName=?,CustAddress=?,City=?,Province=?,PostalCode=?,JoinedDate=? WHERE CustID = ?",
-                customer.getCusTitle(),customer.getCustName(),customer.getCustAddress(),customer.getCity(),customer.getProvince(),customer.getPostalCode(),customer.getJoinedDate(),customer.getCustID())){
+        if(CrudUtil.execute("UPDATE Customer SET CusTitle=?,CustName=?,CustAddress=?,City=?,Province=?,PostalCode=? WHERE CustID = ?",
+                customer.getCusTitle(),customer.getCustName(),customer.getCustAddress(),customer.getCity(),customer.getProvince(),customer.getPostalCode(),customer.getCustID())){
 
             new Alert(Alert.AlertType.CONFIRMATION,"Customer Updated").show();
         }else{
             new Alert(Alert.AlertType.ERROR,"Couldn't Update Customer").show();
         }
+    }
+
+    @Override
+    public ArrayList<String> getAllIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> custIds = new ArrayList();
+        ResultSet resultSet = CrudUtil.execute("SELECT CustIds FROM Customer;");
+        while (resultSet.next()){
+            custIds.add(resultSet.getString("CustId"));
+        }
+        return  custIds;
     }
 
     @Override
