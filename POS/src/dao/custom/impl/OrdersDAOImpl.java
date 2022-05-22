@@ -5,6 +5,7 @@ import dto.OrdersDTO;
 import entity.Orders;
 import util.CrudUtil;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -44,6 +45,7 @@ public class OrdersDAOImpl implements OrderDAO {
 
     @Override
     public String getLastId() throws SQLException, ClassNotFoundException {
-        return null;
+        ResultSet resultSet = CrudUtil.execute("SELECT OrderId FROM Orders ORDER BY OrderId DESC LIMIT 1");
+        return resultSet.next()? resultSet.getString("OrderId") : null;
     }
 }
