@@ -7,7 +7,7 @@ public class Orders {
     private LocalDate date;
     private String custID;
 
-    Orders(){}
+    public Orders(){}
 
     public Orders(String orderId, LocalDate date, String custID) {
         this.setOrderId(orderId);

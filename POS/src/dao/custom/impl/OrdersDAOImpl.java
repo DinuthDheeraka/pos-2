@@ -8,7 +8,7 @@ import util.CrudUtil;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class PlaceOrderDAOImpl implements OrderDAO {
+public class OrdersDAOImpl implements OrderDAO {
 
     @Override
     public ArrayList<Orders> getAll() throws SQLException, ClassNotFoundException {
