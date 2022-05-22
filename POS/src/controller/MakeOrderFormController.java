@@ -46,6 +46,7 @@ public class MakeOrderFormController implements Initializable {
     public TableColumn colItemTotal;
     public Label lblTotal;
     public Label lblTotalDiscount;
+    public Label lblOrderId;
 
     private String cartItemCode;
     private String cartDescription;

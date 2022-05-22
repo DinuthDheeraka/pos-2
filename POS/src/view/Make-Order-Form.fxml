@@ -14,6 +14,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="862.0" prefWidth="1647.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MakeOrderFormController">
@@ -33,8 +35,8 @@
             </Lighting>
          </effect>
       </ImageView>
-      <JFXComboBox fx:id="cmbxCustomerIds" focusColor="#e8e3e4" layoutX="14.0" layoutY="22.0" prefHeight="42.0" prefWidth="288.0" promptText="Select Customer-Id" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="cmbxItemCodes" focusColor="#ebf2eb" layoutX="14.0" layoutY="110.0" prefHeight="42.0" prefWidth="288.0" promptText="Select Item-Code" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="cmbxCustomerIds" focusColor="#e8e3e4" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="288.0" promptText="Select Customer-Id" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="cmbxItemCodes" focusColor="#ebf2eb" layoutX="14.0" layoutY="106.0" prefHeight="31.0" prefWidth="288.0" promptText="Select Item-Code" unFocusColor="WHITE" />
       <TableView fx:id="cartTbl" layoutX="14.0" layoutY="279.0" prefHeight="472.0" prefWidth="1626.0">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="75.0" text="Item-Code" />
@@ -140,6 +142,24 @@
       <Label fx:id="lblTotalDiscount" layoutX="867.0" layoutY="817.0" text="RS.100.00" textFill="#00ffcd">
          <font>
             <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="250.0" text="ORDER-ID">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#05eb11" />
+                  <Stop color="#05ebbb" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderId" layoutX="109.0" layoutY="250.0" text="OR-000" textFill="#fff9f9">
+         <font>
+            <Font size="18.0" />
          </font>
       </Label>
    </children>
