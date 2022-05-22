@@ -7,7 +7,7 @@ public class OrderDetail {
     private double unitPrice;
     private double discount;
 
-    OrderDetail(){}
+    public OrderDetail(){}
 
     public OrderDetail(String orderId, String itemCode, int orderQTY, double unitPrice, double discount) {
         this.setOrderId(orderId);

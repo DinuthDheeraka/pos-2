@@ -1,4 +1,22 @@
 package bo.custom.impl;
 
-public class OrderDetailBOImpl {
+import bo.custom.OrderDetailBO;
+import dao.DAOFactory;
+import dao.custom.OrderDetailDAO;
+import dto.OrderDetailDTO;
+import entity.OrderDetail;
+
+import java.sql.SQLException;
+
+public class OrderDetailBOImpl implements OrderDetailBO {
+    OrderDetailDAO orderDetailDAO = (OrderDetailDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAO.ORDERDETAIL_IMPL);
+
+    @Override
+    public void insertOrderDetail(OrderDetailDTO orderDetailDTO) throws SQLException, ClassNotFoundException {
+        orderDetailDAO.insert(new OrderDetail(
+                orderDetailDTO.getOrderId(),orderDetailDTO.getItemCode(),
+                orderDetailDTO.getOrderQTY(),orderDetailDTO.getUnitPrice(),
+                orderDetailDTO.getDiscount()
+        ));
+    }
 }
