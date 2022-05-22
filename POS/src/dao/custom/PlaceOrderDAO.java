@@ -1,4 +1,7 @@
 package dao.custom;
 
-public interface PlaceOrderDAO {
+import dao.CrudDAO;
+import dto.OrdersDTO;
+
+public interface PlaceOrderDAO extends CrudDAO<OrdersDTO,String> {
 }
