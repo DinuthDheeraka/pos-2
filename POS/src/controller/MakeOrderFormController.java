@@ -3,11 +3,15 @@ package controller;
 import bo.BOFactory;
 import bo.custom.CustomerBO;
 import bo.custom.ItemBO;
+import bo.custom.OrderDetailBO;
+import bo.custom.OrdersBO;
 import bo.custom.impl.CustomerBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.CustomerDTO;
 import dto.ItemDTO;
+import dto.OrderDetailDTO;
+import dto.OrdersDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +24,7 @@ import view.tdm.CartTM;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class MakeOrderFormController implements Initializable {
@@ -55,12 +60,15 @@ public class MakeOrderFormController implements Initializable {
     private double cartDiscount;
     private double cartTotal;
 
+    private String selectedCustomerId;
     private String selectedItemCode;
     private double selectedItemUnitPrice;
     ObservableList<CartTM> cartItems = FXCollections.observableArrayList();
 
     CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
+    OrdersBO ordersBO = (OrdersBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ORDERBO_IMPL);
+    OrderDetailBO orderDetailBO = (OrderDetailBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ORDERDETAILBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -127,6 +135,7 @@ public class MakeOrderFormController implements Initializable {
             txtCustAddress.setText(customerDTO.getCustAddress());
             txtCustCity.setText(customerDTO.getCity());
             txtCustProvince.setText(customerDTO.getProvince());
+            this.selectedCustomerId = selectedCustomerId;
         }
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
@@ -228,5 +237,30 @@ public class MakeOrderFormController implements Initializable {
             }
         }
         cartTbl.setItems(cartItems);
+    }
+
+    public void placeOrderBtnOnAction(ActionEvent actionEvent) {
+        //Add order
+        try {
+            ordersBO.insertOrder(new OrdersDTO(
+                   lblOrderId.getId() , LocalDate.now(),selectedCustomerId
+            ));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        //Add Order Detail
+        for(CartTM cartTM : cartItems){
+            try {
+                orderDetailBO.insertOrderDetail(new OrderDetailDTO(
+                        lblOrderId.getText(),cartTM.getItemCode(),cartTM.getQty(),
+                        cartTM.getUnitPrice(),cartTM.getDiscount()
+                ));
+            }
+            catch (SQLException|ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

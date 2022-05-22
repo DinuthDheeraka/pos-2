@@ -119,7 +119,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1337.0" layoutY="792.0" prefHeight="57.0" prefWidth="295.0" style="-fx-background-color: #00b51b; -fx-background-radius: 20;" text="PLACE ORDER" textFill="WHITE">
+      <JFXButton layoutX="1337.0" layoutY="792.0" onAction="#placeOrderBtnOnAction" prefHeight="57.0" prefWidth="295.0" style="-fx-background-color: #00b51b; -fx-background-radius: 20;" text="PLACE ORDER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
