@@ -253,7 +253,6 @@ public class MakeOrderFormController implements Initializable {
 
     public void removeItemFromCartTbl(){
         Iterator<CartTM> iter = cartItems.iterator();
-
         while (iter.hasNext()) {
             CartTM cartTM = iter.next();
 
