@@ -17,4 +17,9 @@ public class OrdersBOImpl implements OrdersBO{
                 ordersDTO.getOrderId(), ordersDTO.getDate(),ordersDTO.getCustId()
         ));
     }
+
+    @Override
+    public String getLastOrderId() throws SQLException, ClassNotFoundException {
+        return orderDAO.getLastId();
+    }
 }

@@ -6,6 +6,7 @@ import bo.custom.ItemBO;
 import bo.custom.OrderDetailBO;
 import bo.custom.OrdersBO;
 import bo.custom.impl.CustomerBOImpl;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.CustomerDTO;
@@ -20,6 +21,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import util.IdsGenerator;
 import view.tdm.CartTM;
 
 import java.net.URL;
@@ -52,6 +55,8 @@ public class MakeOrderFormController implements Initializable {
     public Label lblTotal;
     public Label lblTotalDiscount;
     public Label lblOrderId;
+    public JFXButton addToCartBtn;
+    public JFXButton placeOrderBtn;
 
     private String cartItemCode;
     private String cartDescription;
@@ -80,6 +85,15 @@ public class MakeOrderFormController implements Initializable {
         colItemTotal.setCellValueFactory(new PropertyValueFactory("total"));
         addItemCodes();
         addCustomerIds();
+
+        addToCartBtn.setDisable(true);
+
+        try {
+            lblOrderId.setText(IdsGenerator.generateId("O-",ordersBO.getLastOrderId()));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         cmbxCustomerIds.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
                 {
@@ -130,12 +144,15 @@ public class MakeOrderFormController implements Initializable {
 
     private void setCustomerDataToTextFileds(String selectedCustId) {
         try {
+            if(selectedCustId.isEmpty()){
+                addToCartBtn.setDisable(true);
+            }
             CustomerDTO customerDTO = customerBO.getCustomer(selectedCustId);
             txtCustName.setText(customerDTO.getCustName());
             txtCustAddress.setText(customerDTO.getCustAddress());
             txtCustCity.setText(customerDTO.getCity());
             txtCustProvince.setText(customerDTO.getProvince());
-            this.selectedCustomerId = selectedCustomerId;
+            this.selectedCustomerId = selectedCustId;
         }
         catch (ClassNotFoundException|SQLException e) {
             e.printStackTrace();
@@ -243,7 +260,7 @@ public class MakeOrderFormController implements Initializable {
         //Add order
         try {
             ordersBO.insertOrder(new OrdersDTO(
-                   lblOrderId.getId() , LocalDate.now(),selectedCustomerId
+                   lblOrderId.getText() , LocalDate.now(),selectedCustomerId
             ));
         }
         catch (SQLException|ClassNotFoundException e) {
@@ -261,6 +278,30 @@ public class MakeOrderFormController implements Initializable {
             catch (SQLException|ClassNotFoundException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void txtAmountKeyReleased(KeyEvent keyEvent) {
+        if(!txtItemAmount.getText().isEmpty()){
+            if(Integer.valueOf(txtItemAmount.getText())<=Integer.valueOf(txtItemQOH.getText())&&(!txtItemGivenDiscount.getText().isEmpty())){
+                addToCartBtn.setDisable(false);
+            }else{
+                addToCartBtn.setDisable(true);
+            }
+        }else{
+            addToCartBtn.setDisable(true);
+        }
+    }
+
+    public void txtItemGivenDiscountKeyReleased(KeyEvent keyEvent) {
+        if(!txtItemGivenDiscount.getText().isEmpty()){
+            if(Double.valueOf(txtItemGivenDiscount.getText())<=Double.valueOf(txtItemMaxDiscount.getText())&&(!txtItemAmount.getText().isEmpty())){
+                addToCartBtn.setDisable(false);
+            }else{
+                addToCartBtn.setDisable(true);
+            }
+        }else{
+            addToCartBtn.setDisable(true);
         }
     }
 }

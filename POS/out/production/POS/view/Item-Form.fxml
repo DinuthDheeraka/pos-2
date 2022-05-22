@@ -69,7 +69,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" layoutX="1403.0" layoutY="14.0" onAction="#addNewItemOnAction" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: pink;" text="+ADD NEW ITEM">
+                        <JFXButton buttonType="RAISED" layoutX="1403.0" layoutY="14.0" onAction="#addNewItemOnAction" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: #ff22a3;" text="+ADD NEW ITEM" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>

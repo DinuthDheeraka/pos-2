@@ -79,22 +79,22 @@
             <Font size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtItemDescription" focusColor="#ffffff8f" labelFloat="true" layoutX="321.0" layoutY="109.0" prefHeight="31.0" prefWidth="378.0" promptText="Item Description" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #0bda1c;" unFocusColor="#ffffff00">
+      <JFXTextField fx:id="txtItemDescription" focusColor="#ffffff8f" labelFloat="true" layoutX="321.0" layoutY="109.0" prefHeight="31.0" prefWidth="378.0" promptText="Item Description" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #d507f4;" unFocusColor="#ffffff00">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtItemUnitPrice" focusColor="#ffffff8f" labelFloat="true" layoutX="716.0" layoutY="109.0" prefHeight="31.0" prefWidth="288.0" promptText="Unit Price" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #0bda1c;" unFocusColor="#ffffff00">
+      <JFXTextField fx:id="txtItemUnitPrice" focusColor="#ffffff8f" labelFloat="true" layoutX="716.0" layoutY="109.0" prefHeight="31.0" prefWidth="288.0" promptText="Unit Price" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #d507f4;" unFocusColor="#ffffff00">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtItemPackSize" focusColor="#ffffff8f" labelFloat="true" layoutX="1019.0" layoutY="109.0" prefHeight="31.0" prefWidth="302.0" promptText="Pack Size" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #0bda1c;" unFocusColor="#ffffff00">
+      <JFXTextField fx:id="txtItemPackSize" focusColor="#ffffff8f" labelFloat="true" layoutX="1019.0" layoutY="109.0" prefHeight="31.0" prefWidth="302.0" promptText="Pack Size" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #d507f4;" unFocusColor="#ffffff00">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtItemQOH" focusColor="#ffffff8f" labelFloat="true" layoutX="1337.0" layoutY="109.0" prefHeight="31.0" prefWidth="288.0" promptText="QOH" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #0bda1c;" unFocusColor="#ffffff00">
+      <JFXTextField fx:id="txtItemQOH" focusColor="#ffffff8f" labelFloat="true" layoutX="1337.0" layoutY="109.0" prefHeight="31.0" prefWidth="288.0" promptText="QOH" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #d507f4;" unFocusColor="#ffffff00">
          <font>
             <Font size="20.0" />
          </font>
@@ -104,22 +104,22 @@
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtItemGivenDiscount" focusColor="#ffffff8f" labelFloat="true" layoutX="716.0" layoutY="189.0" prefHeight="31.0" prefWidth="288.0" promptText="Given Discount" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #0bda1c;" unFocusColor="#ffffff3d">
+      <JFXTextField fx:id="txtItemGivenDiscount" focusColor="#ffffff8f" labelFloat="true" layoutX="716.0" layoutY="189.0" onKeyReleased="#txtItemGivenDiscountKeyReleased" prefHeight="31.0" prefWidth="288.0" promptText="Given Discount" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #d507f4;" unFocusColor="#ffffff3d">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtItemAmount" focusColor="#ffffff8f" labelFloat="true" layoutX="1021.0" layoutY="189.0" prefHeight="31.0" prefWidth="302.0" promptText="Amount" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #0bda1c;" unFocusColor="#ffffff3d">
+      <JFXTextField fx:id="txtItemAmount" focusColor="#ffffff8f" labelFloat="true" layoutX="1021.0" layoutY="189.0" onKeyReleased="#txtAmountKeyReleased" prefHeight="31.0" prefWidth="302.0" promptText="Amount" style="-fx-prompt-text-fill: #b5b9bb; -fx-text-fill: #d507f4;" unFocusColor="#ffffff3d">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXButton buttonType="RAISED" layoutX="1337.0" layoutY="184.0" onAction="#addToCartBtnOnAction" prefHeight="50.0" prefWidth="295.0" style="-fx-background-color: #5de73a; -fx-background-radius: 20;" text="ADD TO CART" textFill="WHITE">
+      <JFXButton fx:id="addToCartBtn" buttonType="RAISED" layoutX="1337.0" layoutY="184.0" onAction="#addToCartBtnOnAction" prefHeight="50.0" prefWidth="295.0" style="-fx-background-color: #07adf2; -fx-background-radius: 20;" text="ADD TO CART" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1337.0" layoutY="792.0" onAction="#placeOrderBtnOnAction" prefHeight="57.0" prefWidth="295.0" style="-fx-background-color: #00b51b; -fx-background-radius: 20;" text="PLACE ORDER" textFill="WHITE">
+      <JFXButton fx:id="placeOrderBtn" layoutX="1337.0" layoutY="792.0" onAction="#placeOrderBtnOnAction" prefHeight="57.0" prefWidth="295.0" style="-fx-background-color: #d507f4; -fx-background-radius: 20;" text="PLACE ORDER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -134,12 +134,12 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotal" layoutX="116.0" layoutY="820.0" text="RS.100.00" textFill="#08f200">
+      <Label fx:id="lblTotal" layoutX="116.0" layoutY="820.0" text="RS." textFill="#b400f0">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotalDiscount" layoutX="867.0" layoutY="817.0" text="RS.100.00" textFill="#00ffcd">
+      <Label fx:id="lblTotalDiscount" layoutX="867.0" layoutY="817.0" text="RS." textFill="#00ffed">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -148,18 +148,18 @@
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
-                  <Stop color="#05eb11" />
-                  <Stop color="#05ebbb" offset="1.0" />
+                  <Stop color="#d807eb" />
+                  <Stop color="#07c0eb" offset="1.0" />
                </stops>
             </LinearGradient>
          </textFill>
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrderId" layoutX="109.0" layoutY="250.0" text="OR-000" textFill="#fff9f9">
+      <Label fx:id="lblOrderId" layoutX="122.0" layoutY="250.0" prefHeight="30.0" prefWidth="73.0" text="OR-000" textFill="#fff9f9">
          <font>
-            <Font size="18.0" />
+            <Font size="20.0" />
          </font>
       </Label>
    </children>
