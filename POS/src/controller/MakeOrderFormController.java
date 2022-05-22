@@ -147,8 +147,8 @@ public class MakeOrderFormController implements Initializable {
 
     private void setCustomerDataToTextFileds(String selectedCustId) {
         try {
-            if(selectedCustId.isEmpty()){
-                addToCartBtn.setDisable(true);
+            if(cartItems.size()>0){
+                placeOrderBtn.setDisable(false);
             }
             CustomerDTO customerDTO = customerBO.getCustomer(selectedCustId);
             txtCustName.setText(customerDTO.getCustName());
@@ -212,7 +212,9 @@ public class MakeOrderFormController implements Initializable {
         cartTbl.refresh();
         updateTotal();
         updateDiscount();
-        placeOrderBtn.setDisable(false);
+        if(selectedCustomerId!=null){
+            placeOrderBtn.setDisable(false);
+        }
     }
 
     private void updateDiscount() {
