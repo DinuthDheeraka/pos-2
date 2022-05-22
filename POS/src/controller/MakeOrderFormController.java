@@ -28,6 +28,8 @@ import view.tdm.CartTM;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class MakeOrderFormController implements Initializable {
@@ -87,6 +89,7 @@ public class MakeOrderFormController implements Initializable {
         addCustomerIds();
 
         addToCartBtn.setDisable(true);
+        placeOrderBtn.setDisable(true);
 
         try {
             lblOrderId.setText(IdsGenerator.generateId("O-",ordersBO.getLastOrderId()));
@@ -209,6 +212,7 @@ public class MakeOrderFormController implements Initializable {
         cartTbl.refresh();
         updateTotal();
         updateDiscount();
+        placeOrderBtn.setDisable(false);
     }
 
     private void updateDiscount() {
@@ -248,10 +252,13 @@ public class MakeOrderFormController implements Initializable {
     }
 
     public void removeItemFromCartTbl(){
-        for (CartTM cartTM : cartItems){
-            if(cartTM.getItemCode().equals(cartItemCode)){
-               cartItems.remove(cartTM);
-            }
+        Iterator<CartTM> iter = cartItems.iterator();
+
+        while (iter.hasNext()) {
+            CartTM cartTM = iter.next();
+
+            if (cartTM.getItemCode().equals(cartItemCode))
+                iter.remove();
         }
         cartTbl.setItems(cartItems);
     }
@@ -283,7 +290,7 @@ public class MakeOrderFormController implements Initializable {
 
     public void txtAmountKeyReleased(KeyEvent keyEvent) {
         if(!txtItemAmount.getText().isEmpty()){
-            if(Integer.valueOf(txtItemAmount.getText())<=Integer.valueOf(txtItemQOH.getText())&&(!txtItemGivenDiscount.getText().isEmpty())){
+            if((Integer.valueOf(txtItemAmount.getText())>0)&&(!txtItemAmount.getText().startsWith("-"))&&Integer.valueOf(txtItemAmount.getText())<=Integer.valueOf(txtItemQOH.getText())&&(!txtItemGivenDiscount.getText().isEmpty())){
                 addToCartBtn.setDisable(false);
             }else{
                 addToCartBtn.setDisable(true);
@@ -295,7 +302,7 @@ public class MakeOrderFormController implements Initializable {
 
     public void txtItemGivenDiscountKeyReleased(KeyEvent keyEvent) {
         if(!txtItemGivenDiscount.getText().isEmpty()){
-            if(Double.valueOf(txtItemGivenDiscount.getText())<=Double.valueOf(txtItemMaxDiscount.getText())&&(!txtItemAmount.getText().isEmpty())){
+            if((!txtItemGivenDiscount.getText().startsWith("-"))&&Double.valueOf(txtItemGivenDiscount.getText())<=Double.valueOf(txtItemMaxDiscount.getText())&&(!txtItemAmount.getText().isEmpty())){
                 addToCartBtn.setDisable(false);
             }else{
                 addToCartBtn.setDisable(true);
