@@ -72,7 +72,16 @@ public class OrderReportsFormController implements Initializable {
     }
 
     private void setOrderData() {
-
+        try {
+            CustomDTO customDTO = joinQueryBO.getOrderByOrderId(txtSearchBar.getText());
+            System.out.println(customDTO);
+            txtCustomerId.setText(customDTO.getOrdersCustID());
+            txtCustomerName.setText(customDTO.getCustName());
+            txtOrderDate.setText(String.valueOf(customDTO.getOrdersDate()));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setTotalAndDiscount(){

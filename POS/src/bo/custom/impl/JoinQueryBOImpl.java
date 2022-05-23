@@ -29,7 +29,6 @@ public class JoinQueryBOImpl implements JoinQueryBO {
     @Override
     public CustomDTO getOrderByOrderId(String orderId) throws SQLException, ClassNotFoundException {
         CustomEntity customEntity = joinQueryDAO.getOrderByOrderId(orderId);
-        //String custName, String ordersOrderId, LocalDate ordersDate, String ordersCustID
         if(customEntity!=null){
             return new CustomDTO(
                   customEntity.getCustName(),customEntity.getOrdersOrderId(),customEntity.getOrdersDate(),

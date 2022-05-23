@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +35,12 @@ public class MainFormController implements Initializable {
     public ImageView imgIncomeReports;
     public AnchorPane mainFormContext;
 
+    public JFXButton itemsBtn;
+    public JFXButton customerBtn;
+    public JFXButton makeOrdersBtn;
+    public JFXButton orderReportBtn;
+    public JFXButton incomeReportBtn;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dbLineChart0.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
@@ -59,14 +66,6 @@ public class MainFormController implements Initializable {
         thread.start();
     }
 
-    public void imgItemsOnClick(MouseEvent mouseEvent) throws IOException {
-        NavigateUI.getNavigateUI().addParentToCurrentStage("Item-Form",mainFormContext);
-    }
-
-    public void imgCustomerOnClick(MouseEvent mouseEvent) throws IOException {
-        NavigateUI.getNavigateUI().addParentToCurrentStage("Customer-Form",mainFormContext);
-    }
-
     public void minimizeBtnOnAction(ActionEvent actionEvent) {
         NavigateUI.getNavigateUI().minimizeStage(actionEvent);
     }
@@ -85,7 +84,23 @@ public class MainFormController implements Initializable {
         }
     }
 
-    public void imgMakeOrderOnClick(MouseEvent mouseEvent) {
+    public void itemsBtnOnAction(ActionEvent actionEvent) {
+        try {
+            NavigateUI.getNavigateUI().addParentToCurrentStage("Item-Form",mainFormContext);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void customerBtnOnAction(ActionEvent actionEvent) {
+        try {
+            NavigateUI.getNavigateUI().addParentToCurrentStage("Customer-Form",mainFormContext);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void makeOrdersBtnOnAction(ActionEvent actionEvent) {
         try {
             NavigateUI.getNavigateUI().addParentToCurrentStage("Make-Order-Form",mainFormContext);
         } catch (IOException e) {
@@ -93,11 +108,14 @@ public class MainFormController implements Initializable {
         }
     }
 
-    public void imgOrderReportsOnClick(MouseEvent mouseEvent) {
+    public void orderReportBtnOnAction(ActionEvent actionEvent) {
         try {
             NavigateUI.getNavigateUI().addParentToCurrentStage("Order-Reports-Form",mainFormContext);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void incomeReportBtnOnAction(ActionEvent actionEvent) {
     }
 }

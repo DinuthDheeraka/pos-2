@@ -28,9 +28,9 @@ public class JoinQueryDAOImpl implements JoinQueryDAO {
 
     @Override
     public CustomEntity getOrderByOrderId(String orderId) throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = CrudUtil.execute("select Orders.CustID,orders.OrderId,orders.Date,Customer.CustName FROM orders INNER JOIN Customer ON Customer.CustId = orders.CustId WHERE OrderId = ?;",orderId);
+        ResultSet resultSet = CrudUtil.execute("SELECT Orders.CustID,orders.OrderId,orders.Date,Customer.CustName FROM orders INNER JOIN Customer ON Customer.CustId = orders.CustId WHERE OrderId = ?;",orderId);
         if(resultSet.next()){
-            new CustomEntity(
+            return new CustomEntity(
                     resultSet.getString("CustName"),resultSet.getString("OrderId"),
                     LocalDate.parse(String.valueOf(resultSet.getDate("Date"))),resultSet.getString("CustId")
             );

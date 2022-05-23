@@ -60,7 +60,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXButton>
-                        <JFXTextField fx:id="txtCustomerId" labelFloat="true" layoutX="14.0" layoutY="26.0" prefHeight="45.0" prefWidth="302.0" promptText="Customer-ID" style="-fx-text-fill: white;">
+                        <JFXTextField fx:id="txtCustomerId" labelFloat="true" layoutX="14.0" layoutY="26.0" prefHeight="45.0" prefWidth="302.0" promptText="Customer ID" style="-fx-text-fill: white;">
                            <font>
                               <Font size="21.0" />
                            </font>
