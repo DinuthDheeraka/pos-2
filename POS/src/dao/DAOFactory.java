@@ -1,9 +1,6 @@
 package dao;
 
-import dao.custom.impl.CustomerDAOImpl;
-import dao.custom.impl.ItemDAOImpl;
-import dao.custom.impl.OrderDetailDAOImpl;
-import dao.custom.impl.OrdersDAOImpl;
+import dao.custom.impl.*;
 
 public class DAOFactory {
 
@@ -16,7 +13,7 @@ public class DAOFactory {
     }
 
     public enum DAO{
-        CUSTOMER_IMPL,ITEM_IMPL,ORDERS_IMPL,ORDERDETAIL_IMPL
+        CUSTOMER_IMPL,ITEM_IMPL,ORDERS_IMPL,ORDERDETAIL_IMPL,JOINQUERY_IMPL
     }
 
     public SuperDAO getDAO(DAO daoType){
@@ -25,6 +22,7 @@ public class DAOFactory {
             case ITEM_IMPL:return new ItemDAOImpl();
             case ORDERS_IMPL:return new OrdersDAOImpl();
             case ORDERDETAIL_IMPL:return new OrderDetailDAOImpl();
+            case JOINQUERY_IMPL:return new JoinQueryDAOImpl();
             default:return null;
         }
     }

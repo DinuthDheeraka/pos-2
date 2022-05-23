@@ -19,6 +19,7 @@ public class OrderReportsFormController {
     public JFXTextField txtOrderDate;
     public JFXTextField txtTotalCost;
     public JFXTextField txtTotalDiscount;
+    public TableColumn colItemPackSize;
 
     public void searchBtnOnAction(ActionEvent actionEvent) {
     }
