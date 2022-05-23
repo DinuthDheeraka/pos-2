@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="862.0" prefWidth="1647.0" stylesheets="@assets/styles/Tab-pain.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderReportsFormController">
    <children>
       <JFXTabPane prefHeight="862.0" prefWidth="1647.0" tabMinWidth="1637.0">
@@ -43,18 +42,20 @@
                           <columns>
                             <TableColumn fx:id="colItemCode" prefWidth="187.00003051757812" text="Item-Code" />
                             <TableColumn fx:id="colItemDescription" prefWidth="471.9999694824219" text="Description" />
-                              <TableColumn fx:id="colItemPackSize" prefWidth="243.0" text="Pack Size" />
                               <TableColumn fx:id="colItemUnitPrice" prefWidth="262.0" text="Unit Price" />
                               <TableColumn fx:id="colItemQTY" prefWidth="197.0" text="QTY" />
                               <TableColumn fx:id="colItemDiscount" prefWidth="276.0" text="Discount" />
                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
                         </TableView>
-                        <TextField fx:id="txtSearchBar" layoutX="5.0" layoutY="247.0" prefHeight="50.0" prefWidth="1360.0" promptText="SEARCH" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20;">
+                        <TextField fx:id="txtSearchBar" layoutX="5.0" layoutY="247.0" onAction="#txtSearchBarOnAction" prefHeight="50.0" prefWidth="1360.0" promptText="SEARCH" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20;">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </TextField>
-                        <JFXButton layoutX="1383.0" layoutY="247.0" prefHeight="50.0" prefWidth="257.0" style="-fx-background-color: white;" text="SEARCH">
+                        <JFXButton layoutX="1383.0" layoutY="247.0" onAction="#searchBtnOnAction" prefHeight="50.0" prefWidth="257.0" style="-fx-background-color: white;" text="SEARCH">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
