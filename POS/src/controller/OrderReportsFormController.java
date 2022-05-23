@@ -64,10 +64,15 @@ public class OrderReportsFormController implements Initializable {
             }
             itemTbl.setItems(orderReportTMS);
             setTotalAndDiscount();
+            setOrderData();
         }
         catch (SQLException|ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    private void setOrderData() {
+
     }
 
     public void setTotalAndDiscount(){

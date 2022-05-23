@@ -31,8 +31,8 @@ public class JoinQueryDAOImpl implements JoinQueryDAO {
         ResultSet resultSet = CrudUtil.execute("select Orders.CustID,orders.OrderId,orders.Date,Customer.CustName FROM orders INNER JOIN Customer ON Customer.CustId = orders.CustId WHERE OrderId = ?;",orderId);
         if(resultSet.next()){
             new CustomEntity(
-                    resultSet.getString("CustId"),resultSet.getString("OrderId"),
-                    LocalDate.parse(String.valueOf(resultSet.getDate("Date"))),resultSet.getString("CustName")
+                    resultSet.getString("CustName"),resultSet.getString("OrderId"),
+                    LocalDate.parse(String.valueOf(resultSet.getDate("Date"))),resultSet.getString("CustId")
             );
         }
         return null;
