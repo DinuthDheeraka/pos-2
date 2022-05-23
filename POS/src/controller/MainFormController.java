@@ -92,4 +92,12 @@ public class MainFormController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void imgOrderReportsOnClick(MouseEvent mouseEvent) {
+        try {
+            NavigateUI.getNavigateUI().addParentToCurrentStage("Order-Reports-Form",mainFormContext);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

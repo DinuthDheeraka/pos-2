@@ -287,6 +287,7 @@ public class MakeOrderFormController implements Initializable {
                 e.printStackTrace();
             }
         }
+        resetValues();
     }
 
     public void txtAmountKeyReleased(KeyEvent keyEvent) {
@@ -311,5 +312,32 @@ public class MakeOrderFormController implements Initializable {
         }else{
             addToCartBtn.setDisable(true);
         }
+    }
+
+    public void resetValues(){
+        txtItemAmount.clear();
+        txtItemDescription.clear();
+        txtItemUnitPrice.clear();
+        txtItemMaxDiscount.clear();
+        txtItemGivenDiscount.clear();
+        txtItemQOH.clear();
+        txtItemPackSize.clear();
+
+        txtCustProvince.clear();
+        txtCustCity.clear();
+        txtCustAddress.clear();
+        txtCustName.clear();
+        txtItemPackSize.clear();
+
+        try {
+            lblOrderId.setText(IdsGenerator.generateId("O-",ordersBO.getLastOrderId()));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        cartTbl.getItems().clear();
+        addToCartBtn.setDisable(true);
+        placeOrderBtn.setDisable(true);
     }
 }

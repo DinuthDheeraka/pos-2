@@ -52,7 +52,7 @@
                   </Lighting>
                </effect>
             </ImageView>
-            <ImageView fx:id="imgOrderReports" fitHeight="184.0" fitWidth="322.0" layoutX="991.0" layoutY="9.0" pickOnBounds="true">
+            <ImageView fx:id="imgOrderReports" fitHeight="184.0" fitWidth="322.0" layoutX="991.0" layoutY="9.0" onMouseClicked="#imgOrderReportsOnClick" pickOnBounds="true">
                <image>
                   <Image url="@assets/images/orderReports.jpg" />
                </image>
