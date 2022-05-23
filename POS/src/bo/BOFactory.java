@@ -1,9 +1,6 @@
 package bo;
 
-import bo.custom.impl.CustomerBOImpl;
-import bo.custom.impl.ItemBOImpl;
-import bo.custom.impl.OrderDetailBOImpl;
-import bo.custom.impl.OrdersBOImpl;
+import bo.custom.impl.*;
 
 public class BOFactory {
 
@@ -16,7 +13,7 @@ public class BOFactory {
     }
 
     public enum BO{
-        CUSTOMERBO_IMPL,ITEMBO_IMPL,ORDERBO_IMPL,ORDERDETAILBO_IMPL
+        CUSTOMERBO_IMPL,ITEMBO_IMPL,ORDERBO_IMPL,ORDERDETAILBO_IMPL,JOINQUERYBO_IMPL
     }
 
     public SuperBO getBO(BO boType){
@@ -25,6 +22,7 @@ public class BOFactory {
             case ITEMBO_IMPL:return new ItemBOImpl();
             case ORDERBO_IMPL:return new OrdersBOImpl();
             case ORDERDETAILBO_IMPL:return new OrderDetailBOImpl();
+            case JOINQUERYBO_IMPL:return new JoinQueryBOImpl();
             default:return null;
         }
     }

@@ -6,16 +6,18 @@ public class OrderReportTM {
     private double unitPrice;
     private int qty;
     private double discount;
+    private String packSize;
 
     public OrderReportTM() {
     }
 
-    public OrderReportTM(String itemCode, String description, double unitPrice, int qty, double discount) {
+    public OrderReportTM(String itemCode, String description, double unitPrice, int qty, double discount,String packSize) {
         this.itemCode = itemCode;
         this.description = description;
         this.unitPrice = unitPrice;
         this.qty = qty;
         this.discount = discount;
+        this.packSize = packSize;
     }
 
     public String getItemCode() {
@@ -56,5 +58,13 @@ public class OrderReportTM {
 
     public void setDiscount(double discount) {
         this.discount = discount;
+    }
+
+    public String getPackSize() {
+        return packSize;
+    }
+
+    public void setPackSize(String packSize) {
+        this.packSize = packSize;
     }
 }

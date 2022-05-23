@@ -1,13 +1,26 @@
 package controller;
 
+import bo.BOFactory;
+import bo.custom.JoinQueryBO;
 import com.jfoenix.controls.JFXTextField;
+import dto.CustomDTO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import view.tdm.OrderReportTM;
 
-public class OrderReportsFormController {
-    public TableView itemTbl;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+public class OrderReportsFormController implements Initializable {
+    public TableView<OrderReportTM> itemTbl;
     public TableColumn colItemCode;
     public TableColumn colItemDescription;
     public TableColumn colItemUnitPrice;
@@ -21,9 +34,40 @@ public class OrderReportsFormController {
     public JFXTextField txtTotalDiscount;
     public TableColumn colItemPackSize;
 
+    ObservableList<OrderReportTM> orderReportTMS = FXCollections.observableArrayList();
+
+    JoinQueryBO joinQueryBO = (JoinQueryBO) BOFactory.getBoFactory().getBO(BOFactory.BO.JOINQUERYBO_IMPL);
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        colItemCode.setCellValueFactory(new PropertyValueFactory("itemCode"));
+        colItemDescription.setCellValueFactory(new PropertyValueFactory("description"));
+        colItemPackSize.setCellValueFactory(new PropertyValueFactory("packSize"));
+        colItemUnitPrice.setCellValueFactory(new PropertyValueFactory("unitPrice"));
+        colItemQTY.setCellValueFactory(new PropertyValueFactory("qty"));
+        colItemDiscount.setCellValueFactory(new PropertyValueFactory("discount"));
+    }
+
     public void searchBtnOnAction(ActionEvent actionEvent) {
     }
 
     public void txtSearchBarOnAction(ActionEvent actionEvent) {
+        try {
+            ArrayList<CustomDTO> customDTOS = joinQueryBO.getOrderDetailByOrderId(txtSearchBar.getText());
+            for(CustomDTO customDTO : customDTOS){
+                orderReportTMS.add(new OrderReportTM(
+                        customDTO.getOrderDetailitemCode(),customDTO.getDescription(),
+                        customDTO.getOrderDetailunitPrice(),customDTO.getOrderDetailorderQTY(),
+                        customDTO.getOrderDetaildiscount(),customDTO.getPackSize()
+
+                ));
+            }
+            itemTbl.setItems(orderReportTMS);
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
+
+
 }
