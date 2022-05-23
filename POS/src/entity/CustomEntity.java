@@ -39,6 +39,13 @@ public class CustomEntity {
         this.orderDetaildiscount = orderDetaildiscount;
     }
 
+    public CustomEntity(String custName, String ordersOrderId, LocalDate ordersDate, String ordersCustID) {
+        this.custName = custName;
+        this.ordersOrderId = ordersOrderId;
+        this.ordersDate = ordersDate;
+        this.ordersCustID = ordersCustID;
+    }
+
     public String getCustID() {
         return custID;
     }

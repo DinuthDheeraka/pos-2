@@ -1,11 +1,13 @@
 package dao.custom.impl;
 
 import dao.custom.JoinQueryDAO;
+import dto.CustomDTO;
 import entity.CustomEntity;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class JoinQueryDAOImpl implements JoinQueryDAO {
@@ -22,5 +24,17 @@ public class JoinQueryDAOImpl implements JoinQueryDAO {
             ));
         }
         return entityArrayList;
+    }
+
+    @Override
+    public CustomEntity getOrderByOrderId(String orderId) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("select Orders.CustID,orders.OrderId,orders.Date,Customer.CustName FROM orders INNER JOIN Customer ON Customer.CustId = orders.CustId WHERE OrderId = ?;",orderId);
+        if(resultSet.next()){
+            new CustomEntity(
+                    resultSet.getString("CustId"),resultSet.getString("OrderId"),
+                    LocalDate.parse(String.valueOf(resultSet.getDate("Date"))),resultSet.getString("CustName")
+            );
+        }
+        return null;
     }
 }
