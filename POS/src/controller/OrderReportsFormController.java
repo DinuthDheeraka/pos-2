@@ -63,11 +63,23 @@ public class OrderReportsFormController implements Initializable {
                 ));
             }
             itemTbl.setItems(orderReportTMS);
+            setTotalAndDiscount();
         }
         catch (SQLException|ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
+    public void setTotalAndDiscount(){
+        double total = 0;
+        double discount = 0;
 
+        for(OrderReportTM orderReportTM : orderReportTMS){
+            total+=(orderReportTM.getUnitPrice()*orderReportTM.getQty());
+            discount+=(orderReportTM.getDiscount()*orderReportTM.getQty());
+        }
+
+        txtTotalCost.setText(String.valueOf(total-discount));
+        txtTotalDiscount.setText(String.valueOf(discount));
+    }
 }

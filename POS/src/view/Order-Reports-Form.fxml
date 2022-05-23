@@ -13,6 +13,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="862.0" prefWidth="1647.0" stylesheets="@assets/styles/Tab-pain.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderReportsFormController">
@@ -48,40 +50,125 @@
                               <TableColumn fx:id="colItemDiscount" prefWidth="276.0" text="Discount" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="txtSearchBar" layoutX="5.0" layoutY="247.0" onAction="#txtSearchBarOnAction" prefHeight="50.0" prefWidth="1360.0" promptText="SEARCH" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20;">
+                        <TextField fx:id="txtSearchBar" layoutX="5.0" layoutY="247.0" onAction="#txtSearchBarOnAction" prefHeight="50.0" prefWidth="1360.0" promptText="SEARCH" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20; -fx-text-fill: white;">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </TextField>
-                        <JFXButton layoutX="1383.0" layoutY="247.0" onAction="#searchBtnOnAction" prefHeight="50.0" prefWidth="257.0" style="-fx-background-color: white;" text="SEARCH">
+                        <JFXButton layoutX="1383.0" layoutY="247.0" onAction="#searchBtnOnAction" prefHeight="50.0" prefWidth="257.0" style="-fx-background-color: #ce1eff;" text="SEARCH" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXButton>
-                        <JFXTextField fx:id="txtCustomerId" focusColor="#f7f8fad3" labelFloat="true" layoutX="14.0" layoutY="26.0" prefHeight="45.0" prefWidth="302.0" promptText="Customer-ID" unFocusColor="#ffffff02">
+                        <JFXTextField fx:id="txtCustomerId" labelFloat="true" layoutX="14.0" layoutY="26.0" prefHeight="45.0" prefWidth="302.0" promptText="Customer-ID" style="-fx-text-fill: white;">
                            <font>
                               <Font size="21.0" />
                            </font>
+                           <unFocusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f200ff" />
+                                    <Stop color="#ff6a00" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </unFocusColor>
+                           <focusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#e103d6" />
+                                    <Stop color="#d7bb09" offset="0.9963768115942029" />
+                                    <Stop color="#d7bb09" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </focusColor>
                         </JFXTextField>
-                        <JFXTextField fx:id="txtCustomerName" focusColor="#f7f8fad3" labelFloat="true" layoutX="335.0" layoutY="26.0" prefHeight="45.0" prefWidth="342.0" promptText="Customer Name" unFocusColor="#fff5f501">
+                        <JFXTextField fx:id="txtCustomerName" labelFloat="true" layoutX="335.0" layoutY="26.0" prefHeight="45.0" prefWidth="342.0" promptText="Customer Name" style="-fx-text-fill: white;">
                            <font>
                               <Font size="21.0" />
                            </font>
+                           <unFocusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f200ff" />
+                                    <Stop color="#ff6a00" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </unFocusColor>
+                           <focusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#e103d6" />
+                                    <Stop color="#d7bb09" offset="0.9963768115942029" />
+                                    <Stop color="#d7bb09" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </focusColor>
                         </JFXTextField>
-                        <JFXTextField fx:id="txtOrderDate" focusColor="#f7f8fad3" labelFloat="true" layoutX="689.0" layoutY="26.0" prefHeight="45.0" prefWidth="340.0" promptText="Order Date" unFocusColor="#fff5f501">
+                        <JFXTextField fx:id="txtOrderDate" labelFloat="true" layoutX="689.0" layoutY="26.0" prefHeight="45.0" prefWidth="340.0" promptText="Order Date" style="-fx-text-fill: white;">
                            <font>
                               <Font size="21.0" />
                            </font>
+                           <unFocusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f200ff" />
+                                    <Stop color="#ff6a00" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </unFocusColor>
+                           <focusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#e103d6" />
+                                    <Stop color="#d7bb09" offset="0.9963768115942029" />
+                                    <Stop color="#d7bb09" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </focusColor>
                         </JFXTextField>
-                        <JFXTextField fx:id="txtTotalCost" focusColor="#f7f8fad3" labelFloat="true" layoutX="1042.0" layoutY="26.0" prefHeight="45.0" prefWidth="286.0" promptText="Total Cost" unFocusColor="#fff5f501">
+                        <JFXTextField fx:id="txtTotalCost" labelFloat="true" layoutX="1042.0" layoutY="26.0" prefHeight="45.0" prefWidth="286.0" promptText="Total Cost" style="-fx-text-fill: white;">
                            <font>
                               <Font size="21.0" />
                            </font>
+                           <unFocusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f200ff" />
+                                    <Stop color="#ff6a00" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </unFocusColor>
+                           <focusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#e103d6" />
+                                    <Stop color="#d7bb09" offset="0.9963768115942029" />
+                                    <Stop color="#d7bb09" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </focusColor>
                         </JFXTextField>
-                        <JFXTextField fx:id="txtTotalDiscount" focusColor="#f7f8fad3" labelFloat="true" layoutX="1345.0" layoutY="26.0" prefHeight="45.0" prefWidth="288.0" promptText="Total Discount" unFocusColor="#fff5f501">
+                        <JFXTextField fx:id="txtTotalDiscount" labelFloat="true" layoutX="1345.0" layoutY="26.0" prefHeight="45.0" prefWidth="288.0" promptText="Total Discount" style="-fx-text-fill: white;">
                            <font>
                               <Font size="21.0" />
                            </font>
+                           <unFocusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f200ff" />
+                                    <Stop color="#ff6a00" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </unFocusColor>
+                           <focusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#e103d6" />
+                                    <Stop color="#d7bb09" offset="0.9963768115942029" />
+                                    <Stop color="#d7bb09" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </focusColor>
                         </JFXTextField>
                      </children>
                   </AnchorPane>
