@@ -7,6 +7,7 @@ import dto.OrderDetailDTO;
 import entity.OrderDetail;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class OrderDetailBOImpl implements OrderDetailBO {
     OrderDetailDAO orderDetailDAO = (OrderDetailDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAO.ORDERDETAIL_IMPL);
@@ -18,5 +19,10 @@ public class OrderDetailBOImpl implements OrderDetailBO {
                 orderDetailDTO.getOrderQTY(),orderDetailDTO.getUnitPrice(),
                 orderDetailDTO.getDiscount()
         ));
+    }
+
+    @Override
+    public ArrayList<OrderDetailDTO> getOrderDetail(String orderId) {
+        return null;
     }
 }

@@ -4,6 +4,7 @@ import dao.custom.OrderDetailDAO;
 import entity.OrderDetail;
 import util.CrudUtil;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -44,6 +45,11 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 
     @Override
     public String getLastId() throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public ArrayList<OrderDetail> searchOrderDetail(String orderId) throws SQLException, ClassNotFoundException {
         return null;
     }
 }
