@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
@@ -40,13 +41,15 @@ public class MainFormController implements Initializable {
     public JFXButton makeOrdersBtn;
     public JFXButton orderReportBtn;
     public JFXButton incomeReportBtn;
+    public LineChart chart3;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dbLineChart0.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
-        dbLineChart2.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
         showTime();
         lblDate.setText(String.valueOf(LocalDate.now()));
+        setTestData();
+        setTestData1();
+        setTestData2();
     }
     public void showTime(){
         Thread thread = new Thread(()->{
@@ -117,5 +120,52 @@ public class MainFormController implements Initializable {
     }
 
     public void incomeReportBtnOnAction(ActionEvent actionEvent) {
+    }
+
+    public void setTestData(){
+        //dbLineChart0.setTitle("Customers Joining Rate By Month");
+        XYChart.Series s = new XYChart.Series();
+        //s.setName("Member rate");
+
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep",
+                "Oct","Nov","Dec"};
+
+        for(int i = 1; i<=12; i++){
+            s.getData().add(new XYChart.Data<>(months[i-1],i));
+        }
+
+        dbLineChart0.getData().add(s);
+    }
+
+    public void setTestData1(){
+        //dbLineChart0.setTitle("Customers Joining Rate By Month");
+        XYChart.Series s = new XYChart.Series();
+        //s.setName("Member rate");
+
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep",
+                "Oct","Nov","Dec"};
+
+        for(int i = 12,j = 0; i>1; i--){
+            s.getData().add(new XYChart.Data<>(months[j],i));
+            j++;
+        }
+
+        dbLineChart2.getData().add(s);
+    }
+
+    public void setTestData2(){
+        //dbLineChart0.setTitle("Customers Joining Rate By Month");
+        XYChart.Series s = new XYChart.Series();
+        //s.setName("Member rate");
+
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep",
+                "Oct","Nov","Dec"};
+
+        for(int i = 12,j = 0; i>1; i--){
+            s.getData().add(new XYChart.Data<>(months[j],i));
+            j++;
+        }
+
+        chart3.getData().add(s);
     }
 }

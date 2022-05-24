@@ -24,15 +24,15 @@
          <children>
             <ImageView fx:id="imgItems" fitHeight="184.0" fitWidth="322.0" layoutX="7.0" layoutY="9.0" pickOnBounds="true">
                <image>
-                  <Image url="@assets/images/items.jpg" />
+                  <Image url="@assets/images/WAREHOUSE-DISTRIBUTION.jpg" />
                </image>
                <effect>
-                  <Lighting diffuseConstant="1.17">
+                  <Lighting diffuseConstant="0.68">
                      <bumpInput>
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant color="#403b3b" />
+                        <Light.Distant color="#6f6c6c" />
                      </light>
                   </Lighting>
                </effect>
@@ -162,9 +162,9 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <HBox layoutX="6.0" layoutY="200.0" prefHeight="343.0" prefWidth="822.0" styleClass="container" stylesheets="@assets/styles/Main-form.css">
+            <HBox layoutX="6.0" layoutY="200.0" prefHeight="327.0" prefWidth="822.0" styleClass="container" stylesheets="@assets/styles/Main-form.css">
                <children>
-                  <LineChart fx:id="dbLineChart0" horizontalGridLinesVisible="false" prefHeight="407.0" prefWidth="826.0" verticalGridLinesVisible="false">
+                  <LineChart fx:id="dbLineChart0" horizontalGridLinesVisible="false" prefHeight="407.0" prefWidth="826.0" styleClass="container" stylesheets="@assets/styles/Main-Form-Chart-1.css" verticalGridLinesVisible="false">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -174,9 +174,9 @@
                   </LineChart>
                </children>
             </HBox>
-            <HBox layoutX="834.0" layoutY="200.0" prefHeight="343.0" prefWidth="806.0" style="-fx-background-color: white;">
+            <HBox layoutX="834.0" layoutY="200.0" prefHeight="327.0" prefWidth="806.0" style="-fx-background-color: white;">
                <children>
-                  <LineChart fx:id="dbLineChart2" horizontalGridLinesVisible="false" prefHeight="407.0" prefWidth="806.0" styleClass="container" verticalGridLinesVisible="false">
+                  <LineChart fx:id="dbLineChart2" horizontalGridLinesVisible="false" prefHeight="407.0" prefWidth="806.0" styleClass="container" stylesheets="@assets/styles/Main-Form-Chart-2.css" verticalGridLinesVisible="false">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -186,7 +186,84 @@
                   </LineChart>
                </children>
             </HBox>
-            <Label layoutX="14.0" layoutY="8.0" text="20+">
+            <HBox layoutX="6.0" layoutY="533.0" prefHeight="322.0" prefWidth="822.0" styleClass="container">
+               <children>
+                  <LineChart fx:id="chart3" horizontalGridLinesVisible="false" prefHeight="308.0" prefWidth="823.0" stylesheets="@assets/styles/Main-Form-Chart-3.css" verticalGridLinesVisible="false">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children></HBox>
+            <HBox layoutX="834.0" layoutY="533.0" prefHeight="322.0" prefWidth="806.0" styleClass="container" />
+            <JFXButton fx:id="itemsBtn" buttonType="RAISED" layoutX="7.0" layoutY="9.0" onAction="#itemsBtnOnAction" prefHeight="184.0" prefWidth="322.0" styleClass="mainBtn" text="ITEMS">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#b400ff" />
+                        <Stop color="#0cf571" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </JFXButton>
+            <JFXButton fx:id="customerBtn" buttonType="RAISED" layoutX="335.0" layoutY="9.0" onAction="#customerBtnOnAction" prefHeight="184.0" prefWidth="322.0" styleClass="mainBtn" text="CUSTOMERS">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff04dd" />
+                        <Stop color="#f7e739" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </JFXButton>
+            <JFXButton fx:id="makeOrdersBtn" buttonType="RAISED" layoutX="663.0" layoutY="9.0" onAction="#makeOrdersBtnOnAction" prefHeight="184.0" prefWidth="322.0" styleClass="mainBtn" text="MAKE ORDERS">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#bd21e4" />
+                        <Stop color="#0dd0dd" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </JFXButton>
+            <JFXButton fx:id="orderReportBtn" buttonType="RAISED" layoutX="991.0" layoutY="9.0" onAction="#orderReportBtnOnAction" prefHeight="184.0" prefWidth="322.0" styleClass="mainBtn" text="ORDER REPORTS">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#bd21e4" />
+                        <Stop color="#ff9900" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </JFXButton>
+            <JFXButton fx:id="incomeReportBtn" buttonType="RAISED" layoutX="1319.0" layoutY="9.0" onAction="#incomeReportBtnOnAction" prefHeight="184.0" prefWidth="322.0" styleClass="mainBtn" text="INCOME REPORTS">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff04dd" />
+                        <Stop color="#00ff20" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </JFXButton>
+            <Label layoutX="11.0" layoutY="11.0" text="20+">
                <font>
                   <Font name="Arial Bold" size="29.0" />
                </font>
@@ -199,7 +276,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="339.0" layoutY="10.0" text="40+">
+            <Label layoutX="340.0" layoutY="9.0" text="40+">
                <font>
                   <Font name="Arial Bold" size="29.0" />
                </font>
@@ -212,7 +289,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="668.0" layoutY="12.0" text="50+">
+            <Label layoutX="670.0" layoutY="9.0" text="50+">
                <font>
                   <Font name="Arial Bold" size="29.0" />
                </font>
@@ -225,79 +302,12 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <HBox layoutX="7.0" layoutY="549.0" prefHeight="308.0" prefWidth="822.0" styleClass="container" />
-            <HBox layoutX="835.0" layoutY="549.0" prefHeight="308.0" prefWidth="806.0" styleClass="container" />
-            <JFXButton fx:id="itemsBtn" buttonType="RAISED" layoutX="7.0" layoutY="9.0" onAction="#itemsBtnOnAction" prefHeight="184.0" prefWidth="322.0" text="ITEMS">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#d315bd" />
-                        <Stop color="#0af822" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </JFXButton>
-            <JFXButton fx:id="customerBtn" buttonType="RAISED" layoutX="336.0" layoutY="9.0" onAction="#customerBtnOnAction" prefHeight="184.0" prefWidth="322.0" text="CUSTOMERS">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#ff04dd" />
-                        <Stop color="#f7e739" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </JFXButton>
-            <JFXButton fx:id="makeOrdersBtn" buttonType="RAISED" layoutX="664.0" layoutY="9.0" onAction="#makeOrdersBtnOnAction" prefHeight="184.0" prefWidth="322.0" text="MAKE ORDERS">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#bd21e4" />
-                        <Stop color="#0dd0dd" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </JFXButton>
-            <JFXButton fx:id="orderReportBtn" buttonType="RAISED" layoutX="991.0" layoutY="9.0" onAction="#orderReportBtnOnAction" prefHeight="184.0" prefWidth="322.0" text="ORDER REPORTS">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#bd21e4" />
-                        <Stop color="#ff9900" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </JFXButton>
-            <JFXButton fx:id="incomeReportBtn" buttonType="RAISED" layoutX="1319.0" layoutY="10.0" onAction="#incomeReportBtnOnAction" prefHeight="184.0" prefWidth="322.0" text="INCOME REPORTS">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#ff04dd" />
-                        <Stop color="#00ff20" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </JFXButton>
          </children></AnchorPane>
       <AnchorPane prefHeight="56.0" prefWidth="1647.0" style="-fx-background-color: #0c0c0f; -fx-background-radius: 15;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0c0c0f" height="13.0" layoutY="43.0" stroke="#0c0c0f" strokeType="INSIDE" width="1647.0" />
-            <JFXButton layoutX="1536.0" layoutY="12.0" onAction="#minimizeBtnOnAction" prefHeight="33.0" prefWidth="47.0" style="-fx-border-color: #ff0f8f;" text="-" textFill="#ddd1d1" />
-            <JFXButton layoutX="1590.0" layoutY="12.0" onAction="#closeBtnOnAction" prefHeight="33.0" prefWidth="47.0" style="-fx-border-color: #ff0f8f;" text="x" textFill="#e4d3d3">
+            <JFXButton layoutX="1536.0" layoutY="12.0" onAction="#minimizeBtnOnAction" prefHeight="33.0" prefWidth="47.0" style="-fx-border-color: #ff0f8f;" styleClass="closeAndMinBtn" text="-" textFill="#ddd1d1" />
+            <JFXButton layoutX="1590.0" layoutY="12.0" onAction="#closeBtnOnAction" prefHeight="33.0" prefWidth="47.0" style="-fx-border-color: #ff0f8f;" styleClass="closeAndMinBtn" text="x" textFill="#e4d3d3">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

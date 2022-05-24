@@ -32,12 +32,12 @@
                               <Image url="@assets/images/customersTab.jpg" />
                            </image>
                            <effect>
-                              <Lighting diffuseConstant="0.22">
+                              <Lighting diffuseConstant="0.19">
                                  <bumpInput>
                                     <Shadow />
                                  </bumpInput>
                                  <light>
-                                    <Light.Distant />
+                                    <Light.Distant color="#bfb6b6" />
                                  </light>
                               </Lighting>
                            </effect>
@@ -66,16 +66,16 @@
                               </ContextMenu>
                            </contextMenu>
                         </TableView>
-                        <TextField fx:id="txtCustSearchBar" layoutX="6.0" layoutY="225.0" prefHeight="50.0" prefWidth="1387.0" promptText="Search Customer" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20; -fx-text-fill: white;">
+                        <TextField fx:id="txtCustSearchBar" layoutX="6.0" layoutY="225.0" prefHeight="50.0" prefWidth="1387.0" promptText="Search Customer" style="-fx-background-color: null; -fx-border-color: #ffdf2a; -fx-border-radius: 20; -fx-text-fill: white;">
                            <font>
                               <Font size="19.0" />
                            </font></TextField>
-                        <JFXButton buttonType="RAISED" layoutX="1405.0" layoutY="225.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: orange;" text="SEARCH" textFill="#363601">
+                        <JFXButton buttonType="RAISED" layoutX="1405.0" layoutY="225.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: #ffdf2a;" text="SEARCH" textFill="#141401">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" layoutX="1407.0" layoutY="14.0" onAction="#addNewCustomerOnAction" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #ff1ea6;" text="+ADD NEW CUSTOMER" textFill="#402907">
+                        <JFXButton buttonType="RAISED" layoutX="1407.0" layoutY="14.0" onAction="#addNewCustomerOnAction" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #ff1ea6;" text="+ADD NEW CUSTOMER" textFill="#170f02">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>

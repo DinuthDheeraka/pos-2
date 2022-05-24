@@ -5,3 +5,12 @@
     -fx-background-color:  #0c0c0f;
     -fx-background-radius: 0;
 }
+
+.closeAndMinBtn:hover{
+    -fx-background-color:  #ff0f8f;
+    -fx-text-fill: black;
+}
+
+.mainBtn:hover {
+    -fx-background-color: #0c0c0f;
+}
