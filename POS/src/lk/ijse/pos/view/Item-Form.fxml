@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="862.0" prefWidth="1647.0" stylesheets="@assets/styles/Tab-pain.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.ItemFormController">
+   <children>
+      <JFXTabPane layoutY="-1.0" prefHeight="862.0" prefWidth="1647.0" tabMinWidth="818.0">
+         <tabs>
+            <Tab text="MANAGE ITEMS">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="827.0" fitWidth="1647.0" layoutY="-1.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@assets/images/storeItems.jpg" />
+                           </image>
+                           <effect>
+                              <Lighting diffuseConstant="0.15">
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </ImageView>
+                        <TableView fx:id="itemTbl" layoutX="5.0" layoutY="295.0" prefHeight="525.0" prefWidth="1637.0">
+                          <columns>
+                            <TableColumn fx:id="colItemCode" prefWidth="204.00003051757812" text="Item-Code" />
+                            <TableColumn fx:id="colItemDesc" prefWidth="418.0" text="Description" />
+                              <TableColumn fx:id="colItemUnitPrice" prefWidth="264.9999694824219" text="Unit Price" />
+                              <TableColumn fx:id="colItemQOH" prefWidth="160.0" text="QOH" />
+                              <TableColumn fx:id="colIteMaxDiscount" prefWidth="230.0" text="Max Discount" />
+                              <TableColumn fx:id="colItemPackSize" prefWidth="208.00003051757812" text="Pack Size" />
+                              <TableColumn fx:id="colItemAddedDate" prefWidth="152.0" text="Added Date" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#refreshCtxmOnAction" text="Refresh" />
+                                    <MenuItem mnemonicParsing="false" onAction="#updateCtxmOnAction" text="Update" />
+                                    <MenuItem mnemonicParsing="false" onAction="#deleteCtxmOnAction" text="Delete" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        <TextField layoutX="5.0" layoutY="224.0" prefHeight="50.0" prefWidth="1383.0" promptText="Search Items" style="-fx-border-color: purple; -fx-background-color: null; -fx-border-radius: 20; -fx-text-fill: white;">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <JFXButton buttonType="RAISED" layoutX="1404.0" layoutY="223.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: purple;" text="SEARCH ITEM" textFill="#f2ebeb">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="1403.0" layoutY="14.0" onAction="#addNewItemOnAction" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: #ff22a3;" text="+ADD NEW ITEM" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="ANALYZE ITEMS">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>
