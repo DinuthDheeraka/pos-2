@@ -17,7 +17,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#151617" height="717.0" layoutY="58.0" stroke="#151617" strokeType="INSIDE" width="626.0" />
       <VBox layoutX="6.0" layoutY="83.0" prefHeight="568.0" prefWidth="615.0" spacing="45.0" style="-fx-background-color: #151617;">
          <children>
-            <JFXTextField fx:id="txtCustomerId" labelFloat="true" promptText="Customer-Id" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerId" labelFloat="true" onKeyReleased="#validate" promptText="Customer-Id" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -38,7 +38,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtCustomerName" labelFloat="true" promptText="Name" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerName" labelFloat="true" onKeyReleased="#validate" promptText="Name" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -59,7 +59,7 @@
                   </LinearGradient>
                </unFocusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtCustomerAddress" labelFloat="true" layoutX="10.0" layoutY="41.0" promptText="Address" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerAddress" labelFloat="true" layoutX="10.0" layoutY="41.0" onKeyReleased="#validate" promptText="Address" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -80,7 +80,7 @@
                   </LinearGradient>
                </unFocusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtCustomerTitle" labelFloat="true" layoutX="10.0" layoutY="72.0" promptText="Title" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerTitle" labelFloat="true" layoutX="10.0" layoutY="72.0" onKeyReleased="#validate" promptText="Title" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -101,7 +101,7 @@
                   </LinearGradient>
                </unFocusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtCustomerCity" labelFloat="true" layoutX="10.0" layoutY="103.0" promptText="City" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerCity" labelFloat="true" layoutX="10.0" layoutY="103.0" onKeyReleased="#validate" promptText="City" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -122,7 +122,7 @@
                   </LinearGradient>
                </unFocusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtCustomerProvince" labelFloat="true" layoutX="10.0" layoutY="134.0" promptText="Province" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerProvince" labelFloat="true" layoutX="10.0" layoutY="134.0" onKeyReleased="#validate" promptText="Province" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -143,7 +143,7 @@
                   </LinearGradient>
                </unFocusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtCustomerPostalCode" labelFloat="true" layoutX="10.0" layoutY="165.0" promptText="Postal Code" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerPostalCode" labelFloat="true" layoutX="10.0" layoutY="165.0" onKeyReleased="#validate" promptText="Postal Code" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>

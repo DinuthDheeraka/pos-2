@@ -46,6 +46,7 @@ public class OrderReportsFormController implements Initializable {
         colItemUnitPrice.setCellValueFactory(new PropertyValueFactory("unitPrice"));
         colItemQTY.setCellValueFactory(new PropertyValueFactory("qty"));
         colItemDiscount.setCellValueFactory(new PropertyValueFactory("discount"));
+        System.out.println("val"+txtCustomerId.getText());
     }
 
     public void searchBtnOnAction(ActionEvent actionEvent) {

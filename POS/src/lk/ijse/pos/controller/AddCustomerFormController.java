@@ -1,5 +1,7 @@
 package lk.ijse.pos.controller;
 
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.CustomerBO;
 import com.jfoenix.controls.JFXButton;
@@ -11,11 +13,14 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.pos.util.IdsGenerator;
 import lk.ijse.pos.util.NavigateUI;
+import lk.ijse.pos.util.Validator;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class AddCustomerFormController implements Initializable {
     public JFXTextField txtCustomerId;
@@ -32,6 +37,7 @@ public class AddCustomerFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         txtCustomerId.setEditable(false);
+        addCustomerSaveBtn.setDisable(true);
         try {
             txtCustomerId.setText(IdsGenerator.generateId("C-",customerBO.getCustomerLastId()));
         }
@@ -85,5 +91,29 @@ public class AddCustomerFormController implements Initializable {
         lblTitle.setText("UPDATE CUSTOMER");
         addCustomerSaveBtn.setText("UPDATE CUSTOMER");
 
+    }
+
+    public void validate(KeyEvent keyEvent) {
+        LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+        Pattern name = Pattern.compile("[A-Za-z .]{3,}");
+        map.put(txtCustomerName,name);
+
+        Pattern title = Pattern.compile("(Mrs||Mr)");
+        map.put(txtCustomerTitle,name);
+
+        Pattern address = Pattern.compile("[A-Za-z0-9 .,/-]{5,}");
+        map.put(txtCustomerAddress,address);
+
+        Pattern city = Pattern.compile("[A-za-z ]{3,}");
+        map.put(txtCustomerCity,city);
+
+        Pattern province = Pattern.compile("(western|suthern|north)");
+        map.put(txtCustomerProvince,province);
+
+        Pattern postalCode = Pattern.compile("[0-9]{5}$");
+        map.put(txtCustomerPostalCode,postalCode);
+
+
+        Validator.validate(map,addCustomerSaveBtn);
     }
 }
