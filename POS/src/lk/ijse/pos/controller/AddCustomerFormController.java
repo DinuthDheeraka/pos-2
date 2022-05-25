@@ -98,7 +98,7 @@ public class AddCustomerFormController implements Initializable {
         Pattern name = Pattern.compile("[A-Za-z .]{3,}");
         map.put(txtCustomerName,name);
 
-        Pattern title = Pattern.compile("(Mrs||Mr)");
+        Pattern title = Pattern.compile("(Mr|Mrs|Ms|Miss)");
         map.put(txtCustomerTitle,name);
 
         Pattern address = Pattern.compile("[A-Za-z0-9 .,/-]{5,}");

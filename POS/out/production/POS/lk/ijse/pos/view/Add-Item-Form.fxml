@@ -16,7 +16,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#151617" height="715.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="626.0" />
       <VBox layoutX="7.0" layoutY="90.0" prefHeight="564.0" prefWidth="613.0" spacing="60.0">
          <children>
-            <JFXTextField fx:id="txtItemCode" labelFloat="true" promptText="Item-Code" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemCode" labelFloat="true" onKeyReleased="#validate" promptText="Item-Code" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -37,7 +37,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtItemDescription" labelFloat="true" promptText="Description" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemDescription" labelFloat="true" onKeyReleased="#validate" promptText="Description" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -58,7 +58,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtItemPackSize" labelFloat="true" promptText="Pack Size" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemPackSize" labelFloat="true" onKeyReleased="#validate" promptText="Pack Size" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -79,7 +79,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtItemUnitPrice" labelFloat="true" promptText="Unit Price" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemUnitPrice" labelFloat="true" onKeyReleased="#validate" promptText="Unit Price" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -100,7 +100,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtItemQOH" labelFloat="true" promptText="QOH" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemQOH" labelFloat="true" onKeyReleased="#validate" promptText="QOH" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -121,7 +121,7 @@
                   </LinearGradient>
                </focusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtItemMaxDiscount" labelFloat="true" layoutX="10.0" layoutY="426.0" promptText="Maximum Discount" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtItemMaxDiscount" labelFloat="true" layoutX="10.0" layoutY="426.0" onKeyReleased="#validate" promptText="Maximum Discount" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>

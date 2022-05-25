@@ -1,5 +1,7 @@
 package lk.ijse.pos.controller;
 
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.ItemBO;
 import com.jfoenix.controls.JFXButton;
@@ -10,11 +12,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import lk.ijse.pos.util.IdsGenerator;
 import lk.ijse.pos.util.NavigateUI;
+import lk.ijse.pos.util.Validator;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class AddItemFormController implements Initializable {
     public JFXButton addItemBtn;
@@ -32,6 +37,7 @@ public class AddItemFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         txtItemMaxDiscount.setText(String.valueOf(0.00));
         txtItemCode.setEditable(false);
+        addItemBtn.setDisable(true);
         try {
             txtItemCode.setText(IdsGenerator.generateId("I-",itemBO.getItemLastId()));
         }
@@ -87,5 +93,26 @@ public class AddItemFormController implements Initializable {
         txtItemPackSize.setText(dto.getPackSize());
         lblTitle.setText("UPDATE ITEM");
         addItemBtn.setText("UPDATE ITEM");
+    }
+
+    public void validate(KeyEvent keyEvent) {
+        LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+
+        Pattern description = Pattern.compile("[A-Za-z0-9 ,-,(,)/.]{1,}");
+        map.put(txtItemDescription,description);
+
+        Pattern packSize = Pattern.compile("[0-9]{1,}.[0-9]{2,3}(Kg|g|ml|l)");
+        map.put(txtItemPackSize,packSize);
+
+        Pattern unitPrice = Pattern.compile("[0-9]{1,}.[0-9]{2}");
+        map.put(txtItemUnitPrice,unitPrice);
+
+        Pattern maxDiscount = Pattern.compile("[0-9]{1,}.[0-9]{2}");
+        map.put(txtItemMaxDiscount,maxDiscount);
+
+        Pattern qoh = Pattern.compile("[0-9]{1,}");
+        map.put(txtItemQOH,qoh);
+
+        Validator.validate(map,addItemBtn);
     }
 }
