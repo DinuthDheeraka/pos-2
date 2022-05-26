@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import java.net.URL?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="862.0" prefWidth="1647.0" stylesheets="@assets/styles/Tab-pain.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.ItemFormController">
+<AnchorPane prefHeight="862.0" prefWidth="1647.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.ItemFormController">
    <children>
       <JFXTabPane layoutY="-1.0" prefHeight="862.0" prefWidth="1647.0" tabMinWidth="818.0">
          <tabs>
@@ -64,7 +65,7 @@
                               <Font size="19.0" />
                            </font>
                         </TextField>
-                        <JFXButton buttonType="RAISED" layoutX="1404.0" layoutY="223.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: purple;" text="SEARCH ITEM" textFill="#f2ebeb">
+                        <JFXButton buttonType="RAISED" layoutX="1404.0" layoutY="223.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: purple;" styleClass="searchBtn" text="SEARCH ITEM" textFill="#f2ebeb">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -86,4 +87,8 @@
          </tabs>
       </JFXTabPane>
    </children>
+   <stylesheets>
+      <URL value="@assets/styles/Tab-pain.css" />
+      <URL value="@assets/styles/Item-Form.css" />
+   </stylesheets>
 </AnchorPane>

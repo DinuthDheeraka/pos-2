@@ -66,11 +66,11 @@
                               </ContextMenu>
                            </contextMenu>
                         </TableView>
-                        <TextField fx:id="txtCustSearchBar" layoutX="6.0" layoutY="225.0" prefHeight="50.0" prefWidth="1387.0" promptText="Search Customer" style="-fx-background-color: null; -fx-border-color: #ffdf2a; -fx-border-radius: 20; -fx-text-fill: white;">
+                        <TextField fx:id="txtCustSearchBar" layoutX="6.0" layoutY="225.0" prefHeight="50.0" prefWidth="1387.0" promptText="Search Customer" style="-fx-background-color: null; -fx-border-color: #ff7a00; -fx-border-radius: 20; -fx-text-fill: white;">
                            <font>
                               <Font size="19.0" />
                            </font></TextField>
-                        <JFXButton buttonType="RAISED" layoutX="1405.0" layoutY="225.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: #ffdf2a;" text="SEARCH" textFill="#141401">
+                        <JFXButton buttonType="RAISED" layoutX="1405.0" layoutY="225.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: #ff7a00;" text="SEARCH" textFill="#141401">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -85,7 +85,7 @@
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>
                                     <Stop color="#ff00df" />
-                                    <Stop color="#d4b500" offset="1.0" />
+                                    <Stop color="#d46a00" offset="1.0" />
                                  </stops>
                               </LinearGradient>
                            </textFill>

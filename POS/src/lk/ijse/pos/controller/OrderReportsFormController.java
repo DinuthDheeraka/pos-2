@@ -53,6 +53,8 @@ public class OrderReportsFormController implements Initializable {
     }
 
     public void txtSearchBarOnAction(ActionEvent actionEvent) {
+        itemTbl.getItems().clear();
+        clearOrderData();
         try {
             ArrayList<CustomDTO> customDTOS = joinQueryBO.getOrderDetailByOrderId(txtSearchBar.getText());
             for(CustomDTO customDTO : customDTOS){
@@ -70,6 +72,14 @@ public class OrderReportsFormController implements Initializable {
         catch (SQLException|ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    private void clearOrderData() {
+        txtCustomerId.clear();
+        txtCustomerName.clear();
+        txtOrderDate.clear();
+        txtTotalCost.clear();
+        txtTotalDiscount.clear();
     }
 
     private void setOrderData() {

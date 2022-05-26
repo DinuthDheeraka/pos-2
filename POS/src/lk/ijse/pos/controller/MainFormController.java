@@ -116,6 +116,11 @@ public class MainFormController implements Initializable {
     }
 
     public void incomeReportBtnOnAction(ActionEvent actionEvent) {
+        try {
+            NavigateUI.getNavigateUI().addParentToCurrentStage("Income-Reports-Form",mainFormContext);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setTestData(){
