@@ -1,5 +1,6 @@
 package lk.ijse.pos.controller;
 
+import javafx.scene.control.Alert;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.bo.custom.ItemBO;
@@ -265,13 +266,16 @@ public class MakeOrderFormController implements Initializable {
     }
 
     public void placeOrderBtnOnAction(ActionEvent actionEvent) {
+        boolean isAdded = true;
         //Add order
         try {
             ordersBO.insertOrder(new OrdersDTO(
                    lblOrderId.getText() , LocalDate.now(),selectedCustomerId
             ));
+            isAdded&=true;
         }
         catch (SQLException|ClassNotFoundException e) {
+            isAdded&=false;
             e.printStackTrace();
         }
 
@@ -282,10 +286,17 @@ public class MakeOrderFormController implements Initializable {
                         lblOrderId.getText(),cartTM.getItemCode(),cartTM.getQty(),
                         cartTM.getUnitPrice(),cartTM.getDiscount()
                 ));
+                isAdded&=true;
             }
             catch (SQLException|ClassNotFoundException e) {
+                isAdded&=false;
                 e.printStackTrace();
             }
+        }
+        if(isAdded){
+            new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully").show();
+        }else{
+            new Alert(Alert.AlertType.CONFIRMATION,"Couldn't place Order").show();
         }
         resetValues();
     }

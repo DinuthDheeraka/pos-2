@@ -65,7 +65,7 @@
                               <Font size="19.0" />
                            </font>
                         </TextField>
-                        <JFXButton buttonType="RAISED" layoutX="1404.0" layoutY="223.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: purple;" styleClass="searchBtn" text="SEARCH ITEM" textFill="#f2ebeb">
+                        <JFXButton buttonType="RAISED" layoutX="1404.0" layoutY="223.0" prefHeight="50.0" prefWidth="235.0" style="-fx-background-color: purple;" text="SEARCH ITEM" textFill="#f2ebeb">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>

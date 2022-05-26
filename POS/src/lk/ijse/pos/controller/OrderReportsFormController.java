@@ -46,7 +46,6 @@ public class OrderReportsFormController implements Initializable {
         colItemUnitPrice.setCellValueFactory(new PropertyValueFactory("unitPrice"));
         colItemQTY.setCellValueFactory(new PropertyValueFactory("qty"));
         colItemDiscount.setCellValueFactory(new PropertyValueFactory("discount"));
-        System.out.println("val"+txtCustomerId.getText());
     }
 
     public void searchBtnOnAction(ActionEvent actionEvent) {
@@ -102,7 +101,7 @@ public class OrderReportsFormController implements Initializable {
 
         for(OrderReportTM orderReportTM : orderReportTMS){
             total+=(orderReportTM.getUnitPrice()*orderReportTM.getQty());
-            discount+=(orderReportTM.getDiscount()*orderReportTM.getQty());
+            discount+=(orderReportTM.getDiscount());
         }
 
         txtTotalCost.setText(String.valueOf(total-discount));
