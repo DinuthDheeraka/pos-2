@@ -99,4 +99,10 @@ public class CustomerDAOImpl implements CustomerDAO {
         ResultSet resultSet = CrudUtil.execute("SELECT CustID FROM Customer ORDER BY CustID DESC LIMIT 1");
         return resultSet.next()? resultSet.getString("CustID") : null;
     }
+
+    @Override
+    public int getCustomerCountByMonth(String month) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(CustID) FROM customer WHERE JoinedDate LIKE ?",month);
+        return resultSet.next()? resultSet.getInt(0) : 0;
+    }
 }

@@ -124,9 +124,9 @@ public class MainFormController implements Initializable {
     }
 
     public void setTestData(){
-        //dbLineChart0.setTitle("Customers Joining Rate By Month");
+        dbLineChart0.setTitle("Growth of members in this year & Last year");
         XYChart.Series s = new XYChart.Series();
-        //s.setName("Member rate");
+        s.setName("Members count for each month");
 
         String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep",
                 "Oct","Nov","Dec"};
