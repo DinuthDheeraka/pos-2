@@ -39,6 +39,9 @@ public class MainFormController implements Initializable {
     public JFXButton incomeReportBtn;
     public LineChart chart3;
 
+    private String year;
+    private String lastYear;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showTime();
@@ -46,6 +49,8 @@ public class MainFormController implements Initializable {
         setTestData();
         setTestData1();
         setTestData2();
+        year = String.valueOf(LocalDate.now().getYear());
+        lastYear = String.valueOf(LocalDate.now().minusYears(1)).substring(0,4);
     }
     public void showTime(){
         Thread thread = new Thread(()->{
@@ -125,17 +130,21 @@ public class MainFormController implements Initializable {
 
     public void setTestData(){
         dbLineChart0.setTitle("Growth of members in this year & Last year");
-        XYChart.Series s = new XYChart.Series();
-        s.setName("Members count for each month");
+        XYChart.Series customerGrowthChart = new XYChart.Series();
+        customerGrowthChart.setName("Members count for each month");
 
-        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep",
-                "Oct","Nov","Dec"};
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 
         for(int i = 1; i<=12; i++){
-            s.getData().add(new XYChart.Data<>(months[i-1],i));
+            String month = getMonthLikeValue("",i);
+            customerGrowthChart.getData().add(new XYChart.Data<>(months[i-1],i));
         }
 
-        dbLineChart0.getData().add(s);
+        dbLineChart0.getData().add(customerGrowthChart);
+    }
+
+    private String getMonthLikeValue(String year,int month) {
+        return month<10? year+"-"+0+month+"%" : year+"-"+month+"%";
     }
 
     public void setTestData1(){

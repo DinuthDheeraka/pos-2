@@ -68,4 +68,9 @@ public class CustomerBOImpl implements CustomerBO {
     public String getCustomerLastId() throws SQLException, ClassNotFoundException {
         return customerDAO.getLastId();
     }
+
+    @Override
+    public int getCustomerCountByMonth(String month) throws SQLException, ClassNotFoundException {
+        return customerDAO.getCustomerCountByMonth(month);
+    }
 }
