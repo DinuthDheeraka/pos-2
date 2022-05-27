@@ -60,7 +60,7 @@
                               </ContextMenu>
                            </contextMenu>
                         </TableView>
-                        <TextField layoutX="5.0" layoutY="224.0" prefHeight="50.0" prefWidth="1383.0" promptText="Search Items" style="-fx-border-color: purple; -fx-background-color: null; -fx-border-radius: 20; -fx-text-fill: white;">
+                        <TextField fx:id="txtItemSearchBar" layoutX="5.0" layoutY="224.0" onAction="#itemsSearchBarOnAction" prefHeight="50.0" prefWidth="1383.0" promptText="Search Items" style="-fx-border-color: purple; -fx-background-color: null; -fx-border-radius: 20; -fx-text-fill: white;">
                            <font>
                               <Font size="19.0" />
                            </font>

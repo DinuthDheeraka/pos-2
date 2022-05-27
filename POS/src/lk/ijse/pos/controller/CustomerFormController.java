@@ -147,20 +147,22 @@ public class CustomerFormController implements Initializable {
     }
 
     public void customerSearchBar(ActionEvent actionEvent) {
-        customerTbl.getItems().clear();
-        try {
-            CustomerDTO customerDTO = customerBO.getCustomer(txtCustSearchBar.getText());
-            ObservableList<CustomerTM> customer = FXCollections.observableArrayList(
-                    new CustomerTM(
-                            customerDTO.getCustID(),customerDTO.getCusTitle(),customerDTO.getCustName(),
-                            customerDTO.getCustAddress(),customerDTO.getCity(),customerDTO.getProvince(),
-                            customerDTO.getPostalCode(),customerDTO.getJoinedDate()
-                    )
-            );
-            customerTbl.setItems(customer);
-        }
-        catch (SQLException|ClassNotFoundException e) {
-            e.printStackTrace();
+        if(!txtCustSearchBar.getText().isEmpty()){
+            customerTbl.getItems().clear();
+            try {
+                CustomerDTO customerDTO = customerBO.getCustomer(txtCustSearchBar.getText());
+                ObservableList<CustomerTM> customer = FXCollections.observableArrayList(
+                        new CustomerTM(
+                                customerDTO.getCustID(),customerDTO.getCusTitle(),customerDTO.getCustName(),
+                                customerDTO.getCustAddress(),customerDTO.getCity(),customerDTO.getProvince(),
+                                customerDTO.getPostalCode(),customerDTO.getJoinedDate()
+                        )
+                );
+                customerTbl.setItems(customer);
+            }
+            catch (SQLException|ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

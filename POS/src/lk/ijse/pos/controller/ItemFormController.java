@@ -1,5 +1,6 @@
 package lk.ijse.pos.controller;
 
+import javafx.scene.control.TextField;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.ItemBO;
 import lk.ijse.pos.dto.ItemDTO;
@@ -33,6 +34,7 @@ public class ItemFormController implements Initializable {
     public TableColumn colIteMaxDiscount;
     public TableColumn colItemPackSize;
     public TableColumn colItemAddedDate;
+    public TextField txtItemSearchBar;
 
     private String selectedItemCode;
     private String selectedDescription;
@@ -134,5 +136,25 @@ public class ItemFormController implements Initializable {
         stage.setScene(scene);
 
         NavigateUI.getNavigateUI().transparentUi(stage,scene);
+    }
+
+    public void itemsSearchBarOnAction(ActionEvent actionEvent) {
+        if(!txtItemSearchBar.getText().isEmpty()){
+            itemTbl.getItems().clear();
+            try {
+                ItemDTO itemDTO = itemBO.getItem(txtItemSearchBar.getText());
+                ObservableList<ItemTM> item = FXCollections.observableArrayList(
+                        new ItemTM(
+                                itemDTO.getItemCode(),itemDTO.getDescription(),itemDTO.getPackSize(),
+                                itemDTO.getUnitPrice(),itemDTO.getMaxDiscount(),itemDTO.getQoh(),
+                                itemDTO.getAddedDate()
+                        )
+                );
+                itemTbl.setItems(item);
+            }
+            catch (SQLException|ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
