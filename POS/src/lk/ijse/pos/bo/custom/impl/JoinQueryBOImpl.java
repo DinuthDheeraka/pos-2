@@ -43,4 +43,14 @@ public class JoinQueryBOImpl implements JoinQueryBO {
     public double getIncomeByYearForEachMonth(String year) throws SQLException, ClassNotFoundException {
         return joinQueryDAO.getIncomeByYearForEachMonth(year);
     }
+
+    @Override
+    public double getDiscountByYear(String year) throws SQLException, ClassNotFoundException {
+        return joinQueryDAO.getDiscountByYear(year);
+    }
+
+    @Override
+    public double getTotalIncomeByYear(String year) throws SQLException, ClassNotFoundException {
+        return joinQueryDAO.getTotalIncomeByYear(year);
+    }
 }

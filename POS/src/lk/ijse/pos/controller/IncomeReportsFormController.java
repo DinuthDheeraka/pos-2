@@ -40,11 +40,14 @@ public class IncomeReportsFormController implements Initializable {
 
         year = String.valueOf(LocalDate.now().getYear());
         setDataToIncomeChart(this.year);
+        setAnnualIncomeAndDiscount(this.year);
     }
 
     public void txtSearchBarOnAction(ActionEvent actionEvent) {
-        incomeChart.getData().clear();
-        setDataToIncomeChart(txtSearchBar.getText());
+        if(!txtSearchBar.getText().isEmpty()){
+            incomeChart.getData().clear();
+            setDataToIncomeChart(txtSearchBar.getText());
+        }
     }
 
     public void setDataToIncomeChart(String year){
@@ -73,6 +76,21 @@ public class IncomeReportsFormController implements Initializable {
                     txtMonthlyIncome.setText(String.valueOf(data.getYValue()));
                 }
             });
+        }
+
+        setAnnualIncomeAndDiscount(year);
+    }
+
+    public void setAnnualIncomeAndDiscount(String year){
+        try {
+            double discount = joinQueryBO.getDiscountByYear(year);
+            double income = joinQueryBO.getTotalIncomeByYear(year);
+
+            txtTotalDiscount.setText(String.valueOf(discount));
+            txtTotalIncome.setText(String.valueOf(income));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

@@ -10,4 +10,6 @@ public interface JoinQueryBO extends SuperBO {
     ArrayList<CustomDTO> getOrderDetailByOrderId(String orderId) throws SQLException, ClassNotFoundException;
     CustomDTO getOrderByOrderId(String orderId) throws SQLException, ClassNotFoundException;
     public double getIncomeByYearForEachMonth(String year) throws SQLException, ClassNotFoundException;
+    public double getDiscountByYear(String year) throws SQLException, ClassNotFoundException;
+    public double getTotalIncomeByYear(String year) throws SQLException, ClassNotFoundException;
 }
