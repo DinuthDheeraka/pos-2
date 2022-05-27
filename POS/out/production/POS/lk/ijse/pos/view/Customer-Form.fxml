@@ -42,7 +42,7 @@
                               </Lighting>
                            </effect>
                         </ImageView>
-                        <TableView fx:id="customerTbl" layoutX="6.0" layoutY="293.0" prefHeight="525.0" prefWidth="1635.0">
+                        <TableView fx:id="customerTbl" layoutX="6.0" layoutY="293.0" prefHeight="525.0" prefWidth="1635.0" stylesheets="@assets/styles/Tables-Styles.css">
                           <columns>
                             <TableColumn fx:id="colCustId" prefWidth="75.0" text="ID" />
                             <TableColumn fx:id="colCustTitle" prefWidth="75.0" text="Title" />
@@ -80,7 +80,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXButton>
-                        <Label fx:id="lblCustCount" layoutX="21.0" layoutY="16.0" text="100+ TOTAL CUSTOMERS">
+                        <Label fx:id="lblCustCount" layoutX="22.0" layoutY="16.0" text="100+ TOTAL CUSTOMERS">
                            <textFill>
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>

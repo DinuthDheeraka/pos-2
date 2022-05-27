@@ -40,7 +40,7 @@
                               </Lighting>
                            </effect>
                         </ImageView>
-                        <TableView fx:id="itemTbl" layoutX="5.0" layoutY="295.0" prefHeight="525.0" prefWidth="1637.0">
+                        <TableView fx:id="itemTbl" layoutX="5.0" layoutY="295.0" prefHeight="525.0" prefWidth="1637.0" stylesheets="@assets/styles/Tables-Styles.css">
                           <columns>
                             <TableColumn fx:id="colItemCode" prefWidth="204.00003051757812" text="Item-Code" />
                             <TableColumn fx:id="colItemDesc" prefWidth="418.0" text="Description" />

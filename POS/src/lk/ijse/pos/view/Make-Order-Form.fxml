@@ -37,7 +37,7 @@
       </ImageView>
       <JFXComboBox fx:id="cmbxCustomerIds" focusColor="#e8e3e4" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="288.0" promptText="Select Customer-Id" unFocusColor="WHITE" />
       <JFXComboBox fx:id="cmbxItemCodes" focusColor="#ebf2eb" layoutX="14.0" layoutY="106.0" prefHeight="31.0" prefWidth="288.0" promptText="Select Item-Code" unFocusColor="WHITE" />
-      <TableView fx:id="cartTbl" layoutX="14.0" layoutY="279.0" prefHeight="472.0" prefWidth="1626.0">
+      <TableView fx:id="cartTbl" layoutX="14.0" layoutY="279.0" prefHeight="472.0" prefWidth="1626.0" stylesheets="@assets/styles/Tables-Styles.css">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="75.0" text="Item-Code" />
           <TableColumn fx:id="colItemDescription" prefWidth="75.0" text="Description" />

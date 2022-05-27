@@ -38,7 +38,7 @@
                               </Lighting>
                            </effect>
                         </ImageView>
-                        <TableView fx:id="itemTbl" layoutX="4.0" layoutY="320.0" prefHeight="500.0" prefWidth="1638.0">
+                        <TableView fx:id="itemTbl" layoutX="4.0" layoutY="320.0" prefHeight="500.0" prefWidth="1638.0" stylesheets="@assets/styles/Tables-Styles.css">
                           <columns>
                             <TableColumn fx:id="colItemCode" prefWidth="187.00003051757812" text="Item-Code" />
                             <TableColumn fx:id="colItemDescription" prefWidth="471.9999694824219" text="Description" />

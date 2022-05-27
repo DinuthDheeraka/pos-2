@@ -10,10 +10,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.pos.bo.BOFactory;
+import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.util.NavigateUI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -42,15 +45,17 @@ public class MainFormController implements Initializable {
     private String year;
     private String lastYear;
 
+    CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        year = String.valueOf(LocalDate.now().getYear());
+        lastYear = String.valueOf(LocalDate.now().minusYears(1)).substring(0,4);
         showTime();
         lblDate.setText(String.valueOf(LocalDate.now()));
         setTestData();
         setTestData1();
         setTestData2();
-        year = String.valueOf(LocalDate.now().getYear());
-        lastYear = String.valueOf(LocalDate.now().minusYears(1)).substring(0,4);
     }
     public void showTime(){
         Thread thread = new Thread(()->{
@@ -129,22 +134,38 @@ public class MainFormController implements Initializable {
     }
 
     public void setTestData(){
-        dbLineChart0.setTitle("Growth of members in this year & Last year");
-        XYChart.Series customerGrowthChart = new XYChart.Series();
-        customerGrowthChart.setName("Members count for each month");
+        dbLineChart0.setTitle("Growth of members in this year and last year");
+
+        XYChart.Series thisYearCustGrowthChart = new XYChart.Series();
+        XYChart.Series lastYearCustGrowthChart = new XYChart.Series();
+
+        thisYearCustGrowthChart.setName("Members count for each month in this year");
+        lastYearCustGrowthChart.setName("Members count for each month last year");
 
         String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 
+        //getting this year member growth data
         for(int i = 1; i<=12; i++){
-            String month = getMonthLikeValue("",i);
-            customerGrowthChart.getData().add(new XYChart.Data<>(months[i-1],i));
+            try {
+                int customerCountThisYear = customerBO.getCustomerCountByMonth(getMonthLikeValue(year,i));
+                thisYearCustGrowthChart.getData().add(new XYChart.Data<>(months[i-1],customerCountThisYear));
+
+                int customerCountLastYear = customerBO.getCustomerCountByMonth(getMonthLikeValue(lastYear,i));
+                lastYearCustGrowthChart.getData().add(new XYChart.Data<>(months[i-1],customerCountLastYear));
+            }
+            catch (SQLException|ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
-        dbLineChart0.getData().add(customerGrowthChart);
+        dbLineChart0.getData().add(thisYearCustGrowthChart);
+        dbLineChart0.getData().add(lastYearCustGrowthChart);
     }
 
     private String getMonthLikeValue(String year,int month) {
-        return month<10? year+"-"+0+month+"%" : year+"-"+month+"%";
+        String val =  month<10? year+"-"+0+month+"%" : year+"-"+month+"%";
+        System.out.println(val);
+        return val;
     }
 
     public void setTestData1(){
