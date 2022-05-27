@@ -7,11 +7,13 @@
 package lk.ijse.pos.controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.pos.bo.custom.JoinQueryBO;
 import lk.ijse.pos.bo.custom.impl.JoinQueryBOImpl;
 
@@ -41,23 +43,37 @@ public class IncomeReportsFormController implements Initializable {
     }
 
     public void txtSearchBarOnAction(ActionEvent actionEvent) {
+        incomeChart.getData().clear();
         setDataToIncomeChart(txtSearchBar.getText());
     }
 
     public void setDataToIncomeChart(String year){
-        XYChart.Series incomeChartSeries = new XYChart.Series();
-        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+        incomeChart.setTitle("Income Chart for "+year);
+
+        XYChart.Series<String,Double> incomeChartSeries = new XYChart.Series();
+        incomeChartSeries.setName("Income for each month");
+        String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
         for(int i = 1; i<=12; i++){
             try {
                 double thisYearIncome = joinQueryBO.getIncomeByYearForEachMonth(getMonthLikeValue(year,i));
-                incomeChartSeries.getData().add(new XYChart.Data<>(months[i-1],thisYearIncome));
+                incomeChartSeries.getData().add(new XYChart.Data(months[i-1],thisYearIncome));
             }
             catch (SQLException |ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
         incomeChart.getData().add(incomeChartSeries);
+
+        for (XYChart.Data<String,Double> data: incomeChartSeries.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    txtMonth.setText(data.getXValue());
+                    txtMonthlyIncome.setText(String.valueOf(data.getYValue()));
+                }
+            });
+        }
     }
 
     private String getMonthLikeValue(String year,int month) {

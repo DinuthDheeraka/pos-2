@@ -41,7 +41,7 @@
                               </Lighting>
                            </effect>
                         </ImageView>
-                        <LineChart fx:id="incomeChart" horizontalGridLinesVisible="false" layoutX="-10.0" layoutY="131.0" prefHeight="483.0" prefWidth="1661.0" stylesheets="@assets/styles/Main-Form-Chart-2.css" verticalGridLinesVisible="false">
+                        <LineChart fx:id="incomeChart" horizontalGridLinesVisible="false" layoutX="-10.0" layoutY="131.0" prefHeight="483.0" prefWidth="1661.0" stylesheets="@assets/styles/Main-Form-Chart-1.css" verticalGridLinesVisible="false">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
