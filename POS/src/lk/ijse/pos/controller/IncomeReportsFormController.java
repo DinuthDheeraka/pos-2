@@ -83,8 +83,8 @@ public class IncomeReportsFormController implements Initializable {
 
     public void setAnnualIncomeAndDiscount(String year){
         try {
-            double discount = joinQueryBO.getDiscountByYear(year);
-            double income = joinQueryBO.getTotalIncomeByYear(year);
+            double discount = joinQueryBO.getDiscountByYear(year+"%");
+            double income = joinQueryBO.getTotalIncomeByYear(year+"%");
 
             txtTotalDiscount.setText(String.valueOf(discount));
             txtTotalIncome.setText(String.valueOf(income));

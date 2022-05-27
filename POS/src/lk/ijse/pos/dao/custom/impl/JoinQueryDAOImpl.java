@@ -50,7 +50,7 @@ public class JoinQueryDAOImpl implements JoinQueryDAO {
 
     @Override
     public double getTotalIncomeByYear(String year) throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = CrudUtil.execute("SELECT SUM((OrderQTY*orderdetail.UnitPrice))-Discount orderdetail INNER JOIN orders on orders.OrderId = orderdetail.OrderId WHERE orders.Date LIKE ?;",year);
+        ResultSet resultSet = CrudUtil.execute("SELECT SUM((orderdetail.OrderQTY*orderdetail.UnitPrice))-orderdetail.Discount FROM orderdetail INNER JOIN orders on orders.OrderId = orderdetail.OrderId WHERE orders.Date LIKE ?",year);
         return resultSet.next()? resultSet.getDouble(1):0;
     }
 }
