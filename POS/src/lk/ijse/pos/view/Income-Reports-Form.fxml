@@ -41,7 +41,7 @@
                               </Lighting>
                            </effect>
                         </ImageView>
-                        <LineChart horizontalGridLinesVisible="false" layoutX="-10.0" layoutY="131.0" prefHeight="483.0" prefWidth="1661.0" stylesheets="@assets/styles/Main-Form-Chart-2.css" verticalGridLinesVisible="false">
+                        <LineChart fx:id="incomeChart" horizontalGridLinesVisible="false" layoutX="-10.0" layoutY="131.0" prefHeight="483.0" prefWidth="1661.0" stylesheets="@assets/styles/Main-Form-Chart-2.css" verticalGridLinesVisible="false">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -49,7 +49,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </LineChart>
-                        <TextField layoutX="11.0" layoutY="8.0" prefHeight="50.0" prefWidth="1370.0" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20;" />
+                        <TextField fx:id="txtSearchBar" layoutX="11.0" layoutY="8.0" onAction="#txtSearchBarOnAction" prefHeight="50.0" prefWidth="1370.0" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20;" />
                         <JFXButton layoutX="1389.0" layoutY="8.0" prefHeight="50.0" prefWidth="251.0" style="-fx-background-color: purple;" text="SEARCH" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
