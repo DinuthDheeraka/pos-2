@@ -9,4 +9,5 @@ import java.util.ArrayList;
 public interface JoinQueryBO extends SuperBO {
     ArrayList<CustomDTO> getOrderDetailByOrderId(String orderId) throws SQLException, ClassNotFoundException;
     CustomDTO getOrderByOrderId(String orderId) throws SQLException, ClassNotFoundException;
+    public double getIncomeByYearForEachMonth(String year) throws SQLException, ClassNotFoundException;
 }

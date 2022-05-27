@@ -9,4 +9,5 @@ import java.util.ArrayList;
 public interface JoinQueryDAO extends SuperDAO {
     ArrayList<CustomEntity> getOrderDetailByOrderId(String orderId) throws SQLException, ClassNotFoundException;
     CustomEntity getOrderByOrderId(String orderId) throws SQLException, ClassNotFoundException;
+    double getIncomeByYearForEachMonth(String year) throws SQLException, ClassNotFoundException;
 }

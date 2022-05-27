@@ -36,4 +36,10 @@ public class JoinQueryDAOImpl implements JoinQueryDAO {
         }
         return null;
     }
+
+    @Override
+    public double getIncomeByYearForEachMonth(String year) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT SUM((OrderQTY*orderdetail.UnitPrice))-Discount FROM  orderdetail INNER JOIN orders on orders.OrderId = orderdetail.OrderId WHERE orders.Date LIKE ?;",year);
+        return resultSet.next()? resultSet.getDouble(1):0;
+    }
 }
