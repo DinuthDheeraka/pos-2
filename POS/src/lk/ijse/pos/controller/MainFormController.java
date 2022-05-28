@@ -51,6 +51,7 @@ public class MainFormController implements Initializable {
     private String year;
     private String lastYear;
 
+    //Dependencies
     CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
     OrdersBO ordersBO = (OrdersBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ORDERBO_IMPL);
@@ -60,17 +61,17 @@ public class MainFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         year = String.valueOf(LocalDate.now().getYear());
         lastYear = String.valueOf(LocalDate.now().minusYears(1)).substring(0,4);
-        showTime();
         lblDate.setText(String.valueOf(LocalDate.now()));
+        showTime();
         setTestData();
         setDataToIncomeChart();
-        setTestData2();
+        setTestDataToOrderChart();
         setItemCustomerOrdersCounts();
     }
 
     private void setItemCustomerOrdersCounts() {
         try {
-            lblOrdersCount.setText(String.format("%02d+",customerBO.getCustomerCount()));
+            lblCustomerCount.setText(String.format("%02d+",customerBO.getCustomerCount()));
             lblItemsCount.setText(String.format("%02d+",itemBO.getItemsCount()));
             lblOrdersCount.setText(String.format("%02d+",ordersBO.getOrdersCount()));
         }
@@ -217,7 +218,7 @@ public class MainFormController implements Initializable {
         dbLineChart2.getData().add(thisYearIncomeChartSerie);
     }
 
-    public void setTestData2(){
+    public void setTestDataToOrderChart(){
         //dbLineChart0.setTitle("Customers Joining Rate By Month");
         XYChart.Series s = new XYChart.Series();
         //s.setName("Member rate");
