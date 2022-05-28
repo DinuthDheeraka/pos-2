@@ -22,4 +22,9 @@ public class OrdersBOImpl implements OrdersBO{
     public String getLastOrderId() throws SQLException, ClassNotFoundException {
         return orderDAO.getLastId();
     }
+
+    @Override
+    public int getOrdersCount() throws SQLException, ClassNotFoundException {
+        return orderDAO.getCount();
+    }
 }

@@ -9,4 +9,5 @@ public interface OrdersBO extends SuperBO {
 
     void insertOrder(OrdersDTO ordersDTO) throws SQLException, ClassNotFoundException;
     String getLastOrderId() throws SQLException, ClassNotFoundException;
+    int getOrdersCount() throws SQLException, ClassNotFoundException:
 }

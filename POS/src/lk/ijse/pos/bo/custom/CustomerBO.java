@@ -16,4 +16,5 @@ public interface CustomerBO extends SuperBO {
     CustomerDTO getCustomer(String custId) throws SQLException, ClassNotFoundException;
     String getCustomerLastId() throws SQLException, ClassNotFoundException;
     int getCustomerCountByMonth(String month) throws SQLException, ClassNotFoundException;
+    int getCustomerCount() throws SQLException, ClassNotFoundException;
 }

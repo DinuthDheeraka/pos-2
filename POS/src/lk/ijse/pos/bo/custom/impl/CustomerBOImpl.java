@@ -73,4 +73,9 @@ public class CustomerBOImpl implements CustomerBO {
     public int getCustomerCountByMonth(String month) throws SQLException, ClassNotFoundException {
         return customerDAO.getCustomerCountByMonth(month);
     }
+
+    @Override
+    public int getCustomerCount() throws SQLException, ClassNotFoundException {
+        return customerDAO.getCount();
+    }
 }

@@ -77,4 +77,9 @@ public class ItemBOImpl implements ItemBO {
     public String getItemLastId() throws SQLException, ClassNotFoundException {
         return itemDAO.getLastId();
     }
+
+    @Override
+    public int getItemsCount() throws SQLException, ClassNotFoundException {
+        return itemDAO.getCount();
+    }
 }
