@@ -89,6 +89,11 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
+    public int getCount() {
+        return 0;
+    }
+
+    @Override
     public void subtractItemQOH(String itemCode,int amount) throws SQLException, ClassNotFoundException {
         if(CrudUtil.execute("UPDATE Item SET QOH = QOH-? WHERE ItemCode = ?",amount,itemCode)){
         }

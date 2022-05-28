@@ -49,6 +49,11 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
     }
 
     @Override
+    public int getCount() {
+        return 0;
+    }
+
+    @Override
     public ArrayList<OrderDetail> searchOrderDetail(String orderId) throws SQLException, ClassNotFoundException {
         return null;
     }

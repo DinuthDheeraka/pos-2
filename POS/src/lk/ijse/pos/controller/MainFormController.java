@@ -41,6 +41,9 @@ public class MainFormController implements Initializable {
     public JFXButton orderReportBtn;
     public JFXButton incomeReportBtn;
     public LineChart chart3;
+    public Label lblCustomerCount;
+    public Label lblOrdersCount;
+    public Label lblItemsCount;
 
     private String year;
     private String lastYear;
@@ -164,7 +167,6 @@ public class MainFormController implements Initializable {
 
     private String getMonthLikeValue(String year,int month) {
         String val =  month<10? year+"-"+0+month+"%" : year+"-"+month+"%";
-        System.out.println(val);
         return val;
     }
 

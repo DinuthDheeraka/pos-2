@@ -47,4 +47,9 @@ public class OrdersDAOImpl implements OrderDAO {
         ResultSet resultSet = CrudUtil.execute("SELECT OrderId FROM Orders ORDER BY OrderId DESC LIMIT 1");
         return resultSet.next()? resultSet.getString("OrderId") : null;
     }
+
+    @Override
+    public int getCount() {
+        return 0;
+    }
 }

@@ -101,6 +101,12 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
+    public int getCount() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(CustID) FROM Customer;");
+        return resultSet.next()? resultSet.getInt(1) : 0;
+    }
+
+    @Override
     public int getCustomerCountByMonth(String month) throws SQLException, ClassNotFoundException {
         ResultSet resultSet = CrudUtil.execute("SELECT COUNT(CustID) FROM customer WHERE JoinedDate LIKE ?",month);
         return resultSet.next()? resultSet.getInt(1) : 0;
