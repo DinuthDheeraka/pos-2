@@ -199,7 +199,7 @@ public class MainFormController implements Initializable {
         thisYearIncomeChartSerie.setName("Income of each month in this year");
         lastYearIncomeChartSerie.setName("Income of each month last year");
 
-        String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 
         for(int i = 1; i<=12; i++){
             try {
@@ -219,18 +219,31 @@ public class MainFormController implements Initializable {
     }
 
     public void setTestDataToOrderChart(){
-        //dbLineChart0.setTitle("Customers Joining Rate By Month");
-        XYChart.Series s = new XYChart.Series();
-        //s.setName("Member rate");
+        chart3.setTitle("Orders Count of this and last year");
 
-        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep",
-                "Oct","Nov","Dec"};
+        XYChart.Series<String,Double> thisYearOrderCount = new XYChart.Series();
+        XYChart.Series<String,Double> lastYearOrderCount = new XYChart.Series();
 
-        for(int i = 12,j = 0; i>1; i--){
-            s.getData().add(new XYChart.Data<>(months[j],i));
-            j++;
+        thisYearOrderCount.setName("Orders Count of this year");
+        lastYearOrderCount.setName("Orders Count of last year");
+
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+
+        for(int i = 1; i<=12; i++){
+            try {
+                double thisYearIncome = ordersBO.getOrderCountForMonthOf(getMonthLikeValue(year,i));
+                thisYearOrderCount.getData().add(new XYChart.Data(months[i-1],thisYearIncome));
+
+                double lastYearIncome = ordersBO.getOrderCountForMonthOf(getMonthLikeValue(lastYear,i));
+                lastYearOrderCount.getData().add(new XYChart.Data(months[i-1],thisYearIncome));
+            }
+            catch (SQLException |ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
-        chart3.getData().add(s);
+        chart3.getData().add(lastYearOrderCount);
+        chart3.getData().add(thisYearOrderCount);
+
     }
 }

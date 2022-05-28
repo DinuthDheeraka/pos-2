@@ -7,14 +7,32 @@
 }
 
 .default-color0.chart-series-line{
-    -fx-stroke:#f77707 ;
+    -fx-stroke:#0db7dd ;
 }
 
 .default-color0.chart-line-symbol{
-    -fx-background-color:#f79f07;
+    -fx-background-color:#0dd0dd;
+}
+
+.default-color1.chart-series-line{
+    -fx-stroke:#bd21e4 ;
+}
+
+.default-color1.chart-line-symbol{
+    -fx-background-color:#ce3ff2;
 }
 
 .chart-line-symbol{
     -fx-pref-height: 10px;
     -fx-pref-width: 10px;
+}
+
+.chart-legend {
+    -fx-background-color:  transparent;
+    -fx-padding: 20px;
+    -fx-font-size: 17px;
+}
+
+.chart-title{
+    -fx-font-size: 19px;
 }

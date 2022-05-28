@@ -56,7 +56,7 @@ public class OrdersDAOImpl implements OrderDAO {
 
     @Override
     public int getOrderCountForMonthOf(String month) throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(OrderId) FROM Orders WHERE Date LIKE ?");
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(OrderId) FROM Orders WHERE Date LIKE ?",month);
         return resultSet.next()? resultSet.getInt(1) : 0;
     }
 }
