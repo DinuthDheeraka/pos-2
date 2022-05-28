@@ -263,7 +263,7 @@
                   </LinearGradient>
                </textFill>
             </JFXButton>
-            <Label layoutX="11.0" layoutY="11.0" text="20+">
+            <Label fx:id="lblItemsCount" layoutX="11.0" layoutY="11.0" text="20+">
                <font>
                   <Font name="Arial Bold" size="29.0" />
                </font>
@@ -276,7 +276,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="340.0" layoutY="9.0" text="40+">
+            <Label fx:id="lblCustomerCount" layoutX="340.0" layoutY="9.0" text="40+">
                <font>
                   <Font name="Arial Bold" size="29.0" />
                </font>
@@ -289,7 +289,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label layoutX="670.0" layoutY="9.0" text="50+">
+            <Label fx:id="lblOrdersCount" layoutX="670.0" layoutY="9.0" text="50+">
                <font>
                   <Font name="Arial Bold" size="29.0" />
                </font>

@@ -12,6 +12,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.CustomerBO;
+import lk.ijse.pos.bo.custom.ItemBO;
+import lk.ijse.pos.bo.custom.OrdersBO;
 import lk.ijse.pos.util.NavigateUI;
 
 import java.io.IOException;
@@ -49,6 +51,8 @@ public class MainFormController implements Initializable {
     private String lastYear;
 
     CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
+    ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
+    OrdersBO ordersBO = (OrdersBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ORDERBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,7 +63,20 @@ public class MainFormController implements Initializable {
         setTestData();
         setTestData1();
         setTestData2();
+        setItemCustomerOrdersCounts();
     }
+
+    private void setItemCustomerOrdersCounts() {
+        try {
+            lblOrdersCount.setText(String.format("%02d+",customerBO.getCustomerCount()));
+            lblItemsCount.setText(String.format("%02d+",itemBO.getItemsCount()));
+            lblOrdersCount.setText(String.format("%02d+",ordersBO.getOrdersCount()));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void showTime(){
         Thread thread = new Thread(()->{
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss a");
