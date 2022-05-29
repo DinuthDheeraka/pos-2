@@ -30,6 +30,7 @@ public class IncomeReportsFormController implements Initializable {
     public Label txtMonth;
     public Label txtMonthlyIncome;
     public LineChart incomeChart;
+    public Label txtTodayIncome;
 
     private String year;
 
@@ -41,6 +42,16 @@ public class IncomeReportsFormController implements Initializable {
         year = String.valueOf(LocalDate.now().getYear());
         setDataToIncomeChart(this.year);
         setAnnualIncomeAndDiscount(this.year);
+        setTodayIncome();
+    }
+
+    private void setTodayIncome() {
+        try {
+            txtTodayIncome.setText(String.valueOf(joinQueryBO.getTotalIncomeByYear(String.valueOf(LocalDate.now()))));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void txtSearchBarOnAction(ActionEvent actionEvent) {

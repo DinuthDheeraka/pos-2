@@ -41,7 +41,7 @@
                               </Lighting>
                            </effect>
                         </ImageView>
-                        <LineChart fx:id="incomeChart" horizontalGridLinesVisible="false" layoutX="-10.0" layoutY="131.0" prefHeight="483.0" prefWidth="1661.0" stylesheets="@assets/styles/Main-Form-Chart-1.css" verticalGridLinesVisible="false">
+                        <LineChart fx:id="incomeChart" horizontalGridLinesVisible="false" layoutX="-10.0" layoutY="180.0" prefHeight="483.0" prefWidth="1661.0" stylesheets="@assets/styles/Main-Form-Chart-1.css" verticalGridLinesVisible="false">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -55,7 +55,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXButton>
-                        <Label layoutX="24.0" layoutY="777.0" text="TOTAL INCOME">
+                        <Label layoutX="40.0" layoutY="777.0" text="TOTAL INCOME">
                            <font>
                               <Font size="28.0" />
                            </font>
@@ -86,7 +86,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </JFXButton>
-                        <Label layoutX="24.0" layoutY="645.0" text="MONTH">
+                        <Label layoutX="40.0" layoutY="700.0" text="MONTH">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -100,7 +100,7 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Label layoutX="711.0" layoutY="643.0" text="INCOME">
+                        <Label layoutX="711.0" layoutY="698.0" text="INCOME">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -114,25 +114,51 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Label fx:id="txtTotalIncome" layoutX="240.0" layoutY="775.0" text="RS. 100000.00" textFill="WHITE">
+                        <Label fx:id="txtTotalIncome" layoutX="256.0" layoutY="775.0" textFill="WHITE">
                            <font>
                               <Font size="29.0" />
                            </font>
                         </Label>
-                        <Label fx:id="txtTotalDiscount" layoutX="949.0" layoutY="777.0" text="RS. 5000.00" textFill="#fffdf9">
+                        <Label fx:id="txtTotalDiscount" layoutX="949.0" layoutY="777.0" textFill="#fffdf9">
                            <font>
                               <Font size="28.0" />
                            </font>
                         </Label>
-                        <Label fx:id="txtMonth" layoutX="122.0" layoutY="641.0" text="January" textFill="WHITE">
+                        <Label fx:id="txtMonth" layoutX="138.0" layoutY="696.0" textFill="WHITE">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label fx:id="txtMonthlyIncome" layoutX="822.0" layoutY="640.0" text="RS. 100000.00" textFill="WHITE">
+                        <Label fx:id="txtMonthlyIncome" layoutX="822.0" layoutY="695.0" textFill="WHITE">
                            <font>
                               <Font size="25.0" />
                            </font>
+                        </Label>
+                        <Label layoutX="37.0" layoutY="97.0" text="TODAY TOTAL INCOME">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f807dc" />
+                                    <Stop color="AQUA" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Label fx:id="txtTodayIncome" layoutX="342.0" layoutY="98.0">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f807dc" />
+                                    <Stop color="AQUA" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
                         </Label>
                      </children>
                   </AnchorPane>
