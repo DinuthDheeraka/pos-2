@@ -56,7 +56,7 @@ public class JoinQueryDAOImpl implements JoinQueryDAO {
 
     @Override
     public double getTotalOrderQTYByDateLike(String itemCode,String date) throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = CrudUtil.execute("SELECT SUM(orderdetail.orderQTY) FROM orderdetail INNER JOIN orders o on orderdetail.OrderId = o.OrderId WHERE o.Date = ? && ItemCode = ?;",date,itemCode);
+        ResultSet resultSet = CrudUtil.execute("SELECT SUM(orderdetail.orderQTY) FROM orderdetail INNER JOIN orders o on orderdetail.OrderId = o.OrderId WHERE o.Date LIKE ? && ItemCode = ?;",date,itemCode);
         return resultSet.next()? resultSet.getDouble(1):0;
     }
 }

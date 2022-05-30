@@ -1,8 +1,11 @@
 package lk.ijse.pos.controller;
 
+import javafx.event.EventHandler;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.ItemBO;
 import lk.ijse.pos.bo.custom.JoinQueryBO;
@@ -58,6 +61,8 @@ public class ItemFormController implements Initializable {
     private Scene scene;
     private Stage stage;
 
+    String year;
+
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
     JoinQueryBO joinQueryBO = (JoinQueryBO) BOFactory.getBoFactory().getBO(BOFactory.BO.JOINQUERYBO_IMPL);
     OrderDetailBO orderDetailBO = (OrderDetailBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ORDERDETAILBO_IMPL);
@@ -78,6 +83,8 @@ public class ItemFormController implements Initializable {
                 });
 
         loadAllItems();
+
+        this.year = String.valueOf(LocalDate.now().getYear());
     }
 
     private void setSelectedItemData(ItemTM newValue) {
@@ -175,11 +182,58 @@ public class ItemFormController implements Initializable {
             try {
                 lblTotalTodaySales.setText(String.valueOf(joinQueryBO.getTotalOrderQTYByDateLike(txtAnalyzeItemSearchBar.getText(),String.valueOf(LocalDate.now()))));
                 lblTotalUnits.setText(String.valueOf(orderDetailBO.getItemAllTimeSales(txtAnalyzeItemSearchBar.getText())));
+                setDataItemAnalyzeChart(txtAnalyzeItemSearchBar.getText());
             }
             catch (SQLException|ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void setDataItemAnalyzeChart(String itemCode) {
+
+        itemAnalyzeChart.getData().clear();
+
+        itemAnalyzeChart.setTitle("Income of this year and last year");
+
+        XYChart.Series<String,Double> thisYearSalesChartSerie = new XYChart.Series();
+       // XYChart.Series<String,Double> lastYearIncomeChartSerie = new XYChart.Series();
+
+        thisYearSalesChartSerie.setName("Income of each month in this year");
+       // lastYearIncomeChartSerie.setName("Income of each month last year");
+
+        String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+
+        for(int i = 1; i<=12; i++){
+            try {
+                double thisYearIncome = joinQueryBO.getTotalOrderQTYByDateLike(itemCode,getMonthLikeValue(year, i));
+                thisYearSalesChartSerie.getData().add(new XYChart.Data(months[i-1],thisYearIncome));
+
+              //  double lastYearIncome = joinQueryBO.getIncomeByYearForEachMonth(getMonthLikeValue(lastYear,i));
+              //  lastYearIncomeChartSerie.getData().add(new XYChart.Data(months[i-1],thisYearIncome));
+            }
+            catch (SQLException |ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+       // dbLineChart2.getData().add(lastYearIncomeChartSerie);
+        itemAnalyzeChart.getData().add(thisYearSalesChartSerie);
+
+        for (XYChart.Data<String,Double> data: thisYearSalesChartSerie.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    lblMonth.setText(data.getXValue());
+                    lblUnits.setText(String.valueOf(data.getYValue()));
+                }
+            });
+        }
+    }
+
+    private String getMonthLikeValue(String year,int month) {
+        String val =  month<10? year+"-"+0+month+"%" : year+"-"+month+"%";
+        return val;
     }
 
     public void itemAnalyzeSearchBtn(ActionEvent actionEvent) {

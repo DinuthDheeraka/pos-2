@@ -119,7 +119,7 @@
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </JFXButton>
-                                          <LineChart fx:id="itemAnalyzeChart" horizontalGridLinesVisible="false" layoutX="-9.0" layoutY="138.0" prefHeight="540.0" prefWidth="1659.0" verticalGridLinesVisible="false">
+                                          <LineChart fx:id="itemAnalyzeChart" horizontalGridLinesVisible="false" layoutX="-9.0" layoutY="138.0" prefHeight="540.0" prefWidth="1659.0" stylesheets="@assets/styles/Main-Form-Chart-1.css" verticalGridLinesVisible="false">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
@@ -176,7 +176,7 @@
                                                 <Font size="24.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="lblTotalUnits" layoutX="284.0" layoutY="741.0" text="1000" textFill="WHITE">
+                                          <Label fx:id="lblTotalUnits" layoutX="284.0" layoutY="741.0" textFill="WHITE">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
