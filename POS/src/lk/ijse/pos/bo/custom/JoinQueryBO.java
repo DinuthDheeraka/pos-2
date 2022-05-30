@@ -12,4 +12,5 @@ public interface JoinQueryBO extends SuperBO {
     public double getIncomeByYearForEachMonth(String year) throws SQLException, ClassNotFoundException;
     public double getDiscountByYear(String year) throws SQLException, ClassNotFoundException;
     public double getTotalIncomeByYear(String year) throws SQLException, ClassNotFoundException;
+    double getTotalOrderQTYByDateLike(String itemCode,String date) throws SQLException, ClassNotFoundException;
 }

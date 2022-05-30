@@ -8,4 +8,5 @@ import java.util.ArrayList;
 
 public interface OrderDetailDAO extends CrudDAO<OrderDetail,String> {
     ArrayList<OrderDetail> searchOrderDetail(String orderId) throws SQLException, ClassNotFoundException;
+    double getItemAllTimeSales(String itemCode) throws SQLException, ClassNotFoundException;
 }

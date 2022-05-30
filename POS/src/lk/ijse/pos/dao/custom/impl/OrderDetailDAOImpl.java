@@ -57,4 +57,10 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
     public ArrayList<OrderDetail> searchOrderDetail(String orderId) throws SQLException, ClassNotFoundException {
         return null;
     }
+
+    @Override
+    public double getItemAllTimeSales(String itemCode) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT SUM(orderdetail.orderQTY) FROM orderdetail WHERE ItemCode = ?;",itemCode);
+        return resultSet.next()? resultSet.getDouble(1):0;
+    }
 }

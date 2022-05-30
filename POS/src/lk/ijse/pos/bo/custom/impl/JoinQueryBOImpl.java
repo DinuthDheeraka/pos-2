@@ -53,4 +53,9 @@ public class JoinQueryBOImpl implements JoinQueryBO {
     public double getTotalIncomeByYear(String year) throws SQLException, ClassNotFoundException {
         return joinQueryDAO.getTotalIncomeByYear(year);
     }
+
+    @Override
+    public double getTotalOrderQTYByDateLike(String itemCode, String date) throws SQLException, ClassNotFoundException {
+        return joinQueryDAO.getTotalOrderQTYByDateLike(itemCode,date);
+    }
 }

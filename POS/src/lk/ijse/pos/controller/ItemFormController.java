@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.ItemBO;
+import lk.ijse.pos.bo.custom.JoinQueryBO;
 import lk.ijse.pos.dto.ItemDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,7 +43,7 @@ public class ItemFormController implements Initializable {
     public Label lblMonth;
     public Label lblUnits;
     public Label lblTotalUnits;
-    public Label lblTotalUnits1;
+    public Label lblTotalTodaySales;
 
     private String selectedItemCode;
     private String selectedDescription;
@@ -57,6 +58,7 @@ public class ItemFormController implements Initializable {
     private Stage stage;
 
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
+    JoinQueryBO joinQueryBO = (JoinQueryBO) BOFactory.getBoFactory().getBO(BOFactory.BO.JOINQUERYBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -167,10 +169,16 @@ public class ItemFormController implements Initializable {
     }
 
     public void txtAnalyzeItemSearchBarOnAction(ActionEvent actionEvent) {
-
+        if(!txtAnalyzeItemSearchBar.getText().isEmpty()){
+            try {
+                lblTotalTodaySales.setText(String.valueOf(joinQueryBO.getTotalOrderQTYByDateLike(txtAnalyzeItemSearchBar.getText(),String.valueOf(LocalDate.now()))));
+            }
+            catch (SQLException|ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void itemAnalyzeSearchBtn(ActionEvent actionEvent) {
-
     }
 }

@@ -191,7 +191,7 @@
                                                 </LinearGradient>
                                              </textFill>
                                           </Label>
-                                          <Label fx:id="lblTotalUnits1" layoutX="212.0" layoutY="80.0" text="1000" textFill="WHITE">
+                                          <Label fx:id="lblTotalTodaySales" layoutX="212.0" layoutY="80.0" text="1000" textFill="WHITE">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
