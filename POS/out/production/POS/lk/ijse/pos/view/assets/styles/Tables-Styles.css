@@ -1,5 +1,5 @@
 .table-view{
-    -fx-background-color: transparent;
+    -fx-background-color: #0c0c0f;
 }
 
 .table-view:focused{

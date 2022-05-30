@@ -1,5 +1,7 @@
 package lk.ijse.pos.controller;
 
+import javafx.scene.chart.LineChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.ItemBO;
@@ -35,6 +37,12 @@ public class ItemFormController implements Initializable {
     public TableColumn colItemPackSize;
     public TableColumn colItemAddedDate;
     public TextField txtItemSearchBar;
+    public TextField txtAnalyzeItemSearchBar;
+    public LineChart itemAnalyzeChart;
+    public Label lblMonth;
+    public Label lblUnits;
+    public Label lblTotalUnits;
+    public Label lblTotalUnits1;
 
     private String selectedItemCode;
     private String selectedDescription;
@@ -156,5 +164,13 @@ public class ItemFormController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void txtAnalyzeItemSearchBarOnAction(ActionEvent actionEvent) {
+
+    }
+
+    public void itemAnalyzeSearchBtn(ActionEvent actionEvent) {
+
     }
 }

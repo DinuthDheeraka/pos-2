@@ -3,7 +3,11 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import java.net.URL?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,6 +19,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="862.0" prefWidth="1647.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.ItemFormController">
@@ -81,7 +87,126 @@
             </Tab>
             <Tab text="ANALYZE ITEMS">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="832.0" fitWidth="1647.0" layoutY="-2.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@assets/images/interpret-survey-results.jpg" />
+                           </image>
+                           <effect>
+                              <Lighting diffuseConstant="0.12">
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </ImageView>
+                        <JFXTabPane prefHeight="825.0" prefWidth="1647.0" tabMinWidth="818.0">
+                           <tabs>
+                              <Tab text="BY ITEMS">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="txtAnalyzeItemSearchBar" layoutX="8.0" layoutY="15.0" minHeight="50.0" onAction="#txtAnalyzeItemSearchBarOnAction" prefHeight="50.0" prefWidth="1388.0" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20;" />
+                                          <JFXButton layoutX="1408.0" layoutY="16.0" onAction="#itemAnalyzeSearchBtn" prefHeight="49.0" prefWidth="232.0" style="-fx-background-color: purple;" text="SEARCH ITEM" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <LineChart fx:id="itemAnalyzeChart" horizontalGridLinesVisible="false" layoutX="-9.0" layoutY="138.0" prefHeight="540.0" prefWidth="1659.0" verticalGridLinesVisible="false">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                          <Label layoutX="21.0" layoutY="678.0" text="Month">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#bf06ad" />
+                                                      <Stop color="#20b1ff" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="571.0" layoutY="678.0" text="Units">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#bf06ad" />
+                                                      <Stop color="#20b1ff" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="21.0" layoutY="746.0" text="SOLD TOTAL UNITS">
+                                             <font>
+                                                <Font name="System Bold" size="26.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#bf06ad" />
+                                                      <Stop color="#00b9f0" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label fx:id="lblMonth" layoutX="105.0" layoutY="679.0" text="January" textFill="WHITE">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblUnits" layoutX="642.0" layoutY="680.0" text="1000" textFill="WHITE">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblTotalUnits" layoutX="284.0" layoutY="741.0" text="1000" textFill="WHITE">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="85.0" text="TODAY SALES">
+                                             <font>
+                                                <Font name="System Bold" size="26.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#bf06ad" />
+                                                      <Stop color="#00b9f0" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label fx:id="lblTotalUnits1" layoutX="212.0" layoutY="80.0" text="1000" textFill="WHITE">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Label>
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="BY DATE">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                </content>
+                              </Tab>
+                           </tabs>
+                        </JFXTabPane>
+                     </children></AnchorPane>
               </content>
             </Tab>
          </tabs>

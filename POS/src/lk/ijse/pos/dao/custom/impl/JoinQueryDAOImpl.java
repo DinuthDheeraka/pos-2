@@ -53,4 +53,10 @@ public class JoinQueryDAOImpl implements JoinQueryDAO {
         ResultSet resultSet = CrudUtil.execute("SELECT SUM((orderdetail.OrderQTY*orderdetail.UnitPrice))-orderdetail.Discount FROM orderdetail INNER JOIN orders on orders.OrderId = orderdetail.OrderId WHERE orders.Date LIKE ?",year);
         return resultSet.next()? resultSet.getDouble(1):0;
     }
+
+    @Override
+    public double getTotalOrderQTYByDateLike(String itemCode,String date) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT SUM(orderdetail.orderQTY) FROM orderdetail INNER JOIN orders o on orderdetail.OrderId = o.OrderId WHERE o.Date = ? && ItemCode = ?;");
+        return resultSet.next()? resultSet.getDouble(1):0;
+    }
 }
