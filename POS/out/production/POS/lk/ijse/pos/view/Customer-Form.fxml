@@ -2,6 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
@@ -99,7 +102,216 @@
             </Tab>
             <Tab text="ANALYZE CUSTOMERS">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="831.0" fitWidth="1647.0" layoutY="-4.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@assets/images/interpret-survey-results.jpg" />
+                           </image>
+                           <effect>
+                              <Lighting diffuseConstant="0.12">
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </ImageView>
+                        <JFXTabPane layoutX="-1.0" prefHeight="827.0" prefWidth="1647.0" tabMinWidth="818.0">
+                           <tabs>
+                              <Tab text="CUSTOMERS ORDER">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="txtCustomerOrderSearchBar" layoutX="10.0" layoutY="12.0" minHeight="50.0" onAction="#txtCustomerOrderSearchBarOnAction" prefHeight="50.0" prefWidth="1374.0" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20;" />
+                                          <JFXButton buttonType="RAISED" layoutX="1402.0" layoutY="11.0" onAction="#customerOrderSearcgBtnOnAction" prefHeight="50.0" prefWidth="231.0" style="-fx-background-color: orange;" text="SEARCH" textFill="#2c2a2a">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <LineChart fx:id="customerOrderChart" horizontalGridLinesVisible="false" layoutX="-5.0" layoutY="129.0" prefHeight="508.0" prefWidth="1647.0" stylesheets="@assets/styles/Main-Form-Chart-2.css" verticalGridLinesVisible="false">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                          <Label layoutX="24.0" layoutY="661.0" text="Month">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#c29019" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblMonth" layoutX="105.0" layoutY="659.0" text="January" textFill="#cdcdcd">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="426.0" layoutY="661.0" text="No of orders">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#c29019" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblNoOfOrdersForMonth" layoutX="567.0" layoutY="660.0" text="10" textFill="#cdcdcd">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="24.0" layoutY="746.0" text="TOTAL ORDERS">
+                                             <font>
+                                                <Font name="System Bold" size="28.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#1bbf82" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label fx:id="lblTotalOrders" layoutX="242.0" layoutY="743.0" text="00" textFill="WHITE">
+                                             <font>
+                                                <Font size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="78.0" text="TODAY ORDERS">
+                                             <font>
+                                                <Font name="System Bold" size="28.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#1bbf82" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label fx:id="lblTodayOrders" layoutX="234.0" layoutY="75.0" text="00" textFill="WHITE">
+                                             <font>
+                                                <Font size="32.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="CUSTOMERS GROWTH">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="txtCustomerGrowthSearchBar" layoutX="7.0" layoutY="14.0" minHeight="50.0" onAction="#txtCustomerGrowthSearchBarOnAction" prefHeight="50.0" prefWidth="1386.0" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20;" />
+                                          <JFXButton buttonType="RAISED" layoutX="1408.0" layoutY="14.0" onAction="#customerGrowthOnAction" prefHeight="50.0" prefWidth="231.0" style="-fx-background-color: orange;" text="SEARCH" textFill="#2c2a2a">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <LineChart fx:id="customerGrowthChart" horizontalGridLinesVisible="false" layoutX="-9.0" layoutY="139.0" prefHeight="526.0" prefWidth="1662.0" stylesheets="@assets/styles/Main-Form-Chart-1.css" verticalGridLinesVisible="false">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                          <Label layoutX="21.0" layoutY="666.0" text="Month">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#c29019" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblCustMonth" layoutX="100.0" layoutY="664.0" text="January" textFill="#cdcdcd">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="396.0" layoutY="666.0" text="No of customers">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#c29019" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblNoOfCustomers" layoutX="573.0" layoutY="664.0" text="10" textFill="#cdcdcd">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="21.0" layoutY="730.0" text="TOTAL CUSTOMERS">
+                                             <font>
+                                                <Font name="System Bold" size="28.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#1bbf82" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label fx:id="lblTotalCustomers" layoutX="292.0" layoutY="727.0" text="00" textFill="WHITE">
+                                             <font>
+                                                <Font size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="11.0" layoutY="87.0" text="TODAY NEW CUSTOMERS">
+                                             <font>
+                                                <Font name="System Bold" size="28.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#1bbf82" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                          <Label fx:id="lblTodayNewCustomers" layoutX="363.0" layoutY="84.0" text="00" textFill="WHITE">
+                                             <font>
+                                                <Font size="32.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                           </tabs>
+                        </JFXTabPane>
+                     </children></AnchorPane>
               </content>
             </Tab>
          </tabs>

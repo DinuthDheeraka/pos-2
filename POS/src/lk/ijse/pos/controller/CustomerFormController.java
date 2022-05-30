@@ -1,5 +1,6 @@
 package lk.ijse.pos.controller;
 
+import javafx.scene.chart.LineChart;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.dto.CustomerDTO;
@@ -38,6 +39,18 @@ public class CustomerFormController implements Initializable {
     public TableColumn colCustJoinedDate;
     public TextField txtCustSearchBar;
     public Label lblCustCount;
+    public TextField txtCustomerOrderSearchBar;
+    public LineChart customerOrderChart;
+    public Label lblMonth;
+    public Label lblNoOfOrdersForMonth;
+    public Label lblTotalOrders;
+    public Label lblTodayOrders;
+    public TextField txtCustomerGrowthSearchBar;
+    public LineChart customerGrowthChart;
+    public Label lblCustMonth;
+    public Label lblNoOfCustomers;
+    public Label lblTotalCustomers;
+    public Label lblTodayNewCustomers;
 
     private String selectedCustID;
     private String selectedCusTitle;
@@ -164,5 +177,17 @@ public class CustomerFormController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void txtCustomerOrderSearchBarOnAction(ActionEvent actionEvent) {
+    }
+
+    public void customerOrderSearcgBtnOnAction(ActionEvent actionEvent) {
+    }
+
+    public void txtCustomerGrowthSearchBarOnAction(ActionEvent actionEvent) {
+    }
+
+    public void customerGrowthOnAction(ActionEvent actionEvent) {
     }
 }
