@@ -81,7 +81,7 @@
                               <Font size="28.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="1389.0" layoutY="761.0" prefHeight="50.0" prefWidth="251.0" style="-fx-background-color: purple;" text="VIEW REPORTS" textFill="WHITE">
+                        <JFXButton layoutX="1389.0" layoutY="761.0" onAction="#viewReportBtnOnAction" prefHeight="50.0" prefWidth="251.0" style="-fx-background-color: purple;" text="VIEW REPORTS" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>

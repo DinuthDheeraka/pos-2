@@ -16,10 +16,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.pos.bo.custom.JoinQueryBO;
 import lk.ijse.pos.bo.custom.impl.JoinQueryBOImpl;
+import lk.ijse.pos.view.jaspertm.IncomeJTM;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class IncomeReportsFormController implements Initializable {
@@ -108,5 +118,14 @@ public class IncomeReportsFormController implements Initializable {
     private String getMonthLikeValue(String year,int month) {
         String val =  month<10? year+"-"+0+month+"%" : year+"-"+month+"%";
         return val;
+    }
+
+    public void viewReportBtnOnAction(ActionEvent actionEvent) throws JRException {
+
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/pos/view/reports/MemberSchedule.jasper"));
+
+        JasperPrint print = JasperFillManager.fillReport(jasperReport,null,new JRBeanCollectionDataSource(null));
+
+        JasperViewer.viewReport(print,false);
     }
 }
