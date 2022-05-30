@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.ItemBO;
 import lk.ijse.pos.bo.custom.JoinQueryBO;
+import lk.ijse.pos.bo.custom.OrderDetailBO;
 import lk.ijse.pos.dto.ItemDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,6 +60,7 @@ public class ItemFormController implements Initializable {
 
     ItemBO itemBO = (ItemBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ITEMBO_IMPL);
     JoinQueryBO joinQueryBO = (JoinQueryBO) BOFactory.getBoFactory().getBO(BOFactory.BO.JOINQUERYBO_IMPL);
+    OrderDetailBO orderDetailBO = (OrderDetailBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ORDERDETAILBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -172,6 +174,7 @@ public class ItemFormController implements Initializable {
         if(!txtAnalyzeItemSearchBar.getText().isEmpty()){
             try {
                 lblTotalTodaySales.setText(String.valueOf(joinQueryBO.getTotalOrderQTYByDateLike(txtAnalyzeItemSearchBar.getText(),String.valueOf(LocalDate.now()))));
+                lblTotalUnits.setText(String.valueOf(orderDetailBO.getItemAllTimeSales(txtAnalyzeItemSearchBar.getText())));
             }
             catch (SQLException|ClassNotFoundException e) {
                 e.printStackTrace();

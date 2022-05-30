@@ -110,7 +110,10 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TextField fx:id="txtAnalyzeItemSearchBar" layoutX="8.0" layoutY="15.0" minHeight="50.0" onAction="#txtAnalyzeItemSearchBarOnAction" prefHeight="50.0" prefWidth="1388.0" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20;" />
+                                          <TextField fx:id="txtAnalyzeItemSearchBar" layoutX="8.0" layoutY="15.0" minHeight="50.0" onAction="#txtAnalyzeItemSearchBarOnAction" prefHeight="50.0" prefWidth="1388.0" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20; -fx-text-fill: white;">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font></TextField>
                                           <JFXButton layoutX="1408.0" layoutY="16.0" onAction="#itemAnalyzeSearchBtn" prefHeight="49.0" prefWidth="232.0" style="-fx-background-color: purple;" text="SEARCH ITEM" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
@@ -191,7 +194,7 @@
                                                 </LinearGradient>
                                              </textFill>
                                           </Label>
-                                          <Label fx:id="lblTotalTodaySales" layoutX="212.0" layoutY="80.0" text="1000" textFill="WHITE">
+                                          <Label fx:id="lblTotalTodaySales" layoutX="212.0" layoutY="80.0" textFill="WHITE">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>

@@ -25,4 +25,9 @@ public class OrderDetailBOImpl implements OrderDetailBO {
     public ArrayList<OrderDetailDTO> getOrderDetail(String orderId) {
         return null;
     }
+
+    @Override
+    public double getItemAllTimeSales(String itemCode) throws SQLException, ClassNotFoundException {
+        return orderDetailDAO.getItemAllTimeSales(itemCode);
+    }
 }
