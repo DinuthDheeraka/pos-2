@@ -9,6 +9,7 @@ import lk.ijse.pos.entity.CustomEntity;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 public class JoinQueryBOImpl implements JoinQueryBO {
     JoinQueryDAO joinQueryDAO = (JoinQueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAO.JOINQUERY_IMPL);
@@ -62,6 +63,16 @@ public class JoinQueryBOImpl implements JoinQueryBO {
 
     @Override
     public LinkedList<CustomDTO> getSalesByDateForEachItemOrderBySalesDESC(String date) throws SQLException, ClassNotFoundException {
-        return joinQueryDAO.getSalesByDateForEachItemOrderBySalesDESC(date);
+        LinkedList<CustomEntity> customEntities = joinQueryDAO.getSalesByDateForEachItemOrderBySalesDESC(date);
+        LinkedList<CustomDTO> customDTOS = new LinkedList();
+
+        for(CustomEntity customEntity : customEntities){
+            customDTOS.add(new CustomDTO(
+                    customEntity.getItemCode(),customEntity.getDescription(),
+                    customEntity.getPackSize(),customEntity.getTotalSales()
+            ));
+        }
+
+        return customDTOS;
     }
 }

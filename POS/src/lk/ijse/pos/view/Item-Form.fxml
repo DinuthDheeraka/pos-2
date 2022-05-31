@@ -219,10 +219,10 @@
                                           </JFXButton>
                                           <TableView fx:id="salesTable" layoutX="6.0" layoutY="352.0" prefHeight="429.0" prefWidth="1634.0">
                                             <columns>
-                                              <TableColumn prefWidth="75.0" text="Item Code" />
-                                              <TableColumn prefWidth="75.0" text="Description" />
-                                                <TableColumn prefWidth="75.0" text="Pack Size" />
-                                                <TableColumn prefWidth="75.0" text="Total sales" />
+                                              <TableColumn fx:id="analyzecolItemCode" prefWidth="75.0" text="Item Code" />
+                                              <TableColumn fx:id="analyzecolItemDescription" prefWidth="75.0" text="Description" />
+                                                <TableColumn fx:id="analyzecolItemPackSize" prefWidth="75.0" text="Pack Size" />
+                                                <TableColumn fx:id="analyzecolItemTotalSales" prefWidth="75.0" text="Total sales" />
                                             </columns>
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

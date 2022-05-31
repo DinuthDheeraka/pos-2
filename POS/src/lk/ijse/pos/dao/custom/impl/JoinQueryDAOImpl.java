@@ -64,15 +64,15 @@ public class JoinQueryDAOImpl implements JoinQueryDAO {
     }
 
     @Override
-    public LinkedList<CustomDTO> getSalesByDateForEachItemOrderBySalesDESC(String date) throws SQLException, ClassNotFoundException {
-        LinkedList<CustomDTO> customDTOS = new LinkedList();
+    public LinkedList<CustomEntity> getSalesByDateForEachItemOrderBySalesDESC(String date) throws SQLException, ClassNotFoundException {
+        LinkedList<CustomEntity> customEntities = new LinkedList();
         ResultSet resultSet = CrudUtil.execute("SELECT orderdetail.ItemCode,i.description,i.PackSize,SUM(orderdetail.orderQTY) as 's' FROM (orderdetail INNER JOIN orders o on orderdetail.OrderId = o.OrderId) INNER JOIN item i on orderdetail.ItemCode = i.ItemCode WHERE o.Date LIKE ? GROUP BY orderdetail.ItemCode ORDER BY s DESC;",date);
         while(resultSet.next()){
-           customDTOS.add(new CustomDTO(
+           customEntities.add(new CustomEntity(
                resultSet.getString(1),resultSet.getString(2),
                resultSet.getString(3),resultSet.getDouble(4)
            ));
         }
-        return customDTOS;
+        return customEntities;
     }
 }

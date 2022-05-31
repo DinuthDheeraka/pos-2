@@ -11,6 +11,7 @@ import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.ItemBO;
 import lk.ijse.pos.bo.custom.JoinQueryBO;
 import lk.ijse.pos.bo.custom.OrderDetailBO;
+import lk.ijse.pos.dto.CustomDTO;
 import lk.ijse.pos.dto.ItemDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.ijse.pos.util.NavigateUI;
+import lk.ijse.pos.view.tdm.AnalyzeItemTM;
 import lk.ijse.pos.view.tdm.ItemTM;
 
 import java.io.IOException;
@@ -31,6 +33,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 public class ItemFormController implements Initializable {
@@ -50,10 +53,15 @@ public class ItemFormController implements Initializable {
     public Label lblTotalUnits;
     public Label lblTotalTodaySales;
     public TextField txtAnalyzeItemByDateSearchBar;
-    public TableView salesTable;
+    public TableView<AnalyzeItemTM> salesTable;
     public LineChart topSellingChart;
     public JFXComboBox cmbxMonths;
     public JFXComboBox cmbxOrderBy;
+
+    public TableColumn analyzecolItemCode;
+    public TableColumn analyzecolItemDescription;
+    public TableColumn analyzecolItemPackSize;
+    public TableColumn analyzecolItemTotalSales;
 
     private String selectedItemCode;
     private String selectedDescription;
@@ -82,6 +90,11 @@ public class ItemFormController implements Initializable {
         colIteMaxDiscount.setCellValueFactory(new PropertyValueFactory("maxDiscount"));
         colItemPackSize.setCellValueFactory(new PropertyValueFactory("packSize"));
         colItemAddedDate.setCellValueFactory(new PropertyValueFactory("addedDate"));
+
+        analyzecolItemCode.setCellValueFactory(new PropertyValueFactory("itemCode"));
+        analyzecolItemDescription.setCellValueFactory(new PropertyValueFactory("description"));
+        analyzecolItemPackSize.setCellValueFactory(new PropertyValueFactory("packSize"));
+        analyzecolItemTotalSales.setCellValueFactory(new PropertyValueFactory("totalSales"));
 
         itemTbl.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> {
@@ -242,12 +255,35 @@ public class ItemFormController implements Initializable {
         return val;
     }
 
+    public void txtAnalyzeItemByDateSearchBarOnAction(ActionEvent actionEvent) {
+        try {
+            LinkedList<CustomDTO> customDTOS = joinQueryBO.getSalesByDateForEachItemOrderBySalesDESC(txtAnalyzeItemByDateSearchBar.getText()+"%");
+            setDataToSalaesTable(customDTOS);
+            setDataToSalesChart(customDTOS);
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        System.out.println(1);
+    }
+
     public void itemAnalyzeSearchBtn(ActionEvent actionEvent) {
     }
 
     public void itemAnalyzeByDateSearchBtnOnAction(ActionEvent actionEvent) {
     }
 
-    public void txtAnalyzeItemByDateSearchBarOnAction(ActionEvent actionEvent) {
+    private void setDataToSalaesTable(LinkedList<CustomDTO> customDTOS) {
+        ObservableList<AnalyzeItemTM> itemTMS = FXCollections.observableArrayList();
+        for(CustomDTO customDTO : customDTOS){
+            itemTMS.add(new AnalyzeItemTM(
+               customDTO.getItemCode(),customDTO.getDescription(),
+               customDTO.getPackSize(),customDTO.getTotalSales()
+            ));
+        };
+        salesTable.setItems(itemTMS);
+    }
+
+    private void setDataToSalesChart(LinkedList<CustomDTO> customDTOS) {
     }
 }

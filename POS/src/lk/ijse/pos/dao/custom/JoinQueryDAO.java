@@ -16,5 +16,5 @@ public interface JoinQueryDAO extends SuperDAO {
     double getDiscountByYear(String year) throws SQLException, ClassNotFoundException;
     double getTotalIncomeByYear(String year) throws SQLException, ClassNotFoundException;
     double getTotalOrderQTYByDateLike(String itemCode,String date) throws SQLException, ClassNotFoundException;
-    LinkedList<CustomDTO> getSalesByDateForEachItemOrderBySalesDESC(String date) throws SQLException, ClassNotFoundException;
+    LinkedList<CustomEntity> getSalesByDateForEachItemOrderBySalesDESC(String date) throws SQLException, ClassNotFoundException;
 }
