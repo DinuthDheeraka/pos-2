@@ -8,6 +8,7 @@ import lk.ijse.pos.entity.CustomEntity;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class JoinQueryBOImpl implements JoinQueryBO {
     JoinQueryDAO joinQueryDAO = (JoinQueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAO.JOINQUERY_IMPL);
@@ -57,5 +58,10 @@ public class JoinQueryBOImpl implements JoinQueryBO {
     @Override
     public double getTotalOrderQTYByDateLike(String itemCode, String date) throws SQLException, ClassNotFoundException {
         return joinQueryDAO.getTotalOrderQTYByDateLike(itemCode,date);
+    }
+
+    @Override
+    public LinkedList<CustomDTO> getSalesByDateForEachItemOrderBySalesDESC(String date) throws SQLException, ClassNotFoundException {
+        return joinQueryDAO.getSalesByDateForEachItemOrderBySalesDESC(date);
     }
 }

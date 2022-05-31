@@ -1,5 +1,6 @@
 package lk.ijse.pos.controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import javafx.event.EventHandler;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
@@ -48,6 +49,11 @@ public class ItemFormController implements Initializable {
     public Label lblUnits;
     public Label lblTotalUnits;
     public Label lblTotalTodaySales;
+    public TextField txtAnalyzeItemByDateSearchBar;
+    public TableView salesTable;
+    public LineChart topSellingChart;
+    public JFXComboBox cmbxMonths;
+    public JFXComboBox cmbxOrderBy;
 
     private String selectedItemCode;
     private String selectedDescription;
@@ -237,5 +243,11 @@ public class ItemFormController implements Initializable {
     }
 
     public void itemAnalyzeSearchBtn(ActionEvent actionEvent) {
+    }
+
+    public void itemAnalyzeByDateSearchBtnOnAction(ActionEvent actionEvent) {
+    }
+
+    public void txtAnalyzeItemByDateSearchBarOnAction(ActionEvent actionEvent) {
     }
 }

@@ -30,6 +30,8 @@ public class CustomDTO {
     private LocalDate ordersDate;
     private String ordersCustID;
 
+    private double totalSales;
+
     public CustomDTO( String orderDetailitemCode,String description, String packSize, double orderDetailunitPrice,int orderDetailorderQTY,double orderDetaildiscount) {
         this.setDescription(description);
         this.setPackSize(packSize);
@@ -44,6 +46,13 @@ public class CustomDTO {
         this.ordersOrderId = ordersOrderId;
         this.ordersDate = ordersDate;
         this.ordersCustID = ordersCustID;
+    }
+
+    public CustomDTO(String itemCode, String description, String packSize, double totalSales) {
+        this.itemCode = itemCode;
+        this.description = description;
+        this.packSize = packSize;
+        this.totalSales = totalSales;
     }
 
     public String getCustID() {
@@ -228,5 +237,13 @@ public class CustomDTO {
 
     public void setOrdersCustID(String ordersCustID) {
         this.ordersCustID = ordersCustID;
+    }
+
+    public double getTotalSales() {
+        return totalSales;
+    }
+
+    public void setTotalSales(double totalSales) {
+        this.totalSales = totalSales;
     }
 }

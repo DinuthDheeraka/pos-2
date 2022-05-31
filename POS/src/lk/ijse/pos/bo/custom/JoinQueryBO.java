@@ -5,6 +5,7 @@ import lk.ijse.pos.dto.CustomDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public interface JoinQueryBO extends SuperBO {
     ArrayList<CustomDTO> getOrderDetailByOrderId(String orderId) throws SQLException, ClassNotFoundException;
@@ -13,4 +14,5 @@ public interface JoinQueryBO extends SuperBO {
     public double getDiscountByYear(String year) throws SQLException, ClassNotFoundException;
     public double getTotalIncomeByYear(String year) throws SQLException, ClassNotFoundException;
     double getTotalOrderQTYByDateLike(String itemCode,String date) throws SQLException, ClassNotFoundException;
+    LinkedList<CustomDTO> getSalesByDateForEachItemOrderBySalesDESC(String date) throws SQLException, ClassNotFoundException;
 }
