@@ -103,6 +103,14 @@ public class ItemFormController implements Initializable {
 
         loadAllItems();
 
+        cmbxMonths.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
+                {
+                    if (newValue!=null){
+                        setAnalyzedData((String) newValue);
+                    }
+                }
+        );
+
         this.year = String.valueOf(LocalDate.now().getYear());
     }
 
@@ -255,35 +263,66 @@ public class ItemFormController implements Initializable {
         return val;
     }
 
-    public void txtAnalyzeItemByDateSearchBarOnAction(ActionEvent actionEvent) {
+    public void setAnalyzedData(String value){
         try {
-            LinkedList<CustomDTO> customDTOS = joinQueryBO.getSalesByDateForEachItemOrderBySalesDESC(txtAnalyzeItemByDateSearchBar.getText()+"%");
+            LinkedList<CustomDTO> customDTOS = joinQueryBO.getSalesByDateForEachItemOrderBySalesDESC(value+"%");
             setDataToSalaesTable(customDTOS);
             setDataToSalesChart(customDTOS);
+            setCmbxMonths(txtAnalyzeItemByDateSearchBar.getText());
         }
         catch (SQLException|ClassNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(1);
     }
 
-    public void itemAnalyzeSearchBtn(ActionEvent actionEvent) {
+    public void txtAnalyzeItemByDateSearchBarOnAction(ActionEvent actionEvent) {
+        setAnalyzedData(txtAnalyzeItemByDateSearchBar.getText());
     }
 
     public void itemAnalyzeByDateSearchBtnOnAction(ActionEvent actionEvent) {
+        txtAnalyzeItemByDateSearchBarOnAction(actionEvent);
     }
 
     private void setDataToSalaesTable(LinkedList<CustomDTO> customDTOS) {
         ObservableList<AnalyzeItemTM> itemTMS = FXCollections.observableArrayList();
         for(CustomDTO customDTO : customDTOS){
             itemTMS.add(new AnalyzeItemTM(
-               customDTO.getItemCode(),customDTO.getDescription(),
-               customDTO.getPackSize(),customDTO.getTotalSales()
+                    customDTO.getItemCode(),customDTO.getDescription(),
+                    customDTO.getPackSize(),customDTO.getTotalSales()
             ));
         };
         salesTable.setItems(itemTMS);
     }
 
     private void setDataToSalesChart(LinkedList<CustomDTO> customDTOS) {
+        //topSellingChart.setTitle("Orders Count of this and last year");
+
+        XYChart.Series<String,Double> sellingData = new XYChart.Series();
+
+        sellingData.setName("Total sales");
+
+        for(int i = 0; i<customDTOS.size(); i++){
+            if(i<10){
+                sellingData.getData().add(new XYChart.Data(customDTOS.get(i).getItemCode(),customDTOS.get(i).getTotalSales()));
+            }
+        }
+
+        topSellingChart.getData().clear();
+        topSellingChart.getData().add(sellingData);
     }
+
+
+    public void itemAnalyzeSearchBtn(ActionEvent actionEvent) {
+    }
+
+    private void setCmbxMonths(String text) {
+        ObservableList<String> months = FXCollections.observableArrayList();
+        for(int i = 1; i<=12; i++){
+            String month = text+String.format("-%02d",i);
+            months.add(month);
+        }
+        cmbxMonths.setItems(months);
+    }
+
+
 }
