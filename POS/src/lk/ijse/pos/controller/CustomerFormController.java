@@ -3,6 +3,7 @@ package lk.ijse.pos.controller;
 import javafx.scene.chart.LineChart;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.CustomerBO;
+import lk.ijse.pos.bo.custom.OrdersBO;
 import lk.ijse.pos.dto.CustomerDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,6 +67,7 @@ public class CustomerFormController implements Initializable {
     private Stage stage;
 
     CustomerBO customerBO = (CustomerBO) BOFactory.getBoFactory().getBO(BOFactory.BO.CUSTOMERBO_IMPL);
+    OrdersBO ordersBO = (OrdersBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ORDERBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -180,7 +182,7 @@ public class CustomerFormController implements Initializable {
     }
 
     public void txtCustomerOrderSearchBarOnAction(ActionEvent actionEvent) {
-
+        setCustomerAnalyzedData(txtCustomerOrderSearchBar.getText());
     }
 
     public void customerOrderSearcgBtnOnAction(ActionEvent actionEvent) {
@@ -193,5 +195,15 @@ public class CustomerFormController implements Initializable {
 
     public void customerGrowthOnAction(ActionEvent actionEvent) {
 
+    }
+
+    public void setCustomerAnalyzedData(String customerId){
+        try {
+            lblTotalOrders.setText(String.valueOf(ordersBO.getOrderCountByCustomerId(customerId)));
+            lblTodayOrders.setText(String.valueOf(ordersBO.getCustomerOrderCountByDate(customerId,String.valueOf(LocalDate.now()))));
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

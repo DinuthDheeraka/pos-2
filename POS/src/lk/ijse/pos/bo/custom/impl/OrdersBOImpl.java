@@ -37,4 +37,9 @@ public class OrdersBOImpl implements OrdersBO{
     public int getOrderCountByCustomerId(String customerId) throws SQLException, ClassNotFoundException {
         return orderDAO.getOrderCountByCustomerId(customerId);
     }
+
+    @Override
+    public int getCustomerOrderCountByDate(String customerId, String date) throws SQLException, ClassNotFoundException {
+        return orderDAO.getCustomerOrderCountByDate(customerId,date);
+    }
 }
