@@ -207,7 +207,7 @@ public class MainFormController implements Initializable {
                 thisYearIncomeChartSerie.getData().add(new XYChart.Data(months[i-1],thisYearIncome));
 
                 double lastYearIncome = joinQueryBO.getIncomeByYearForEachMonth(getMonthLikeValue(lastYear,i));
-                lastYearIncomeChartSerie.getData().add(new XYChart.Data(months[i-1],thisYearIncome));
+                lastYearIncomeChartSerie.getData().add(new XYChart.Data(months[i-1],lastYearIncome));
             }
             catch (SQLException |ClassNotFoundException e) {
                 e.printStackTrace();

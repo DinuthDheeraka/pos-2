@@ -131,7 +131,7 @@
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </JFXButton>
-                                          <LineChart fx:id="customerOrderChart" horizontalGridLinesVisible="false" layoutX="-5.0" layoutY="129.0" prefHeight="508.0" prefWidth="1647.0" stylesheets="@assets/styles/Main-Form-Chart-2.css" verticalGridLinesVisible="false">
+                                          <LineChart fx:id="customerOrderChart" horizontalGridLinesVisible="false" layoutX="-5.0" layoutY="129.0" prefHeight="508.0" prefWidth="1647.0" stylesheets="@assets/styles/Main-Form-Chart-1.css" verticalGridLinesVisible="false">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
@@ -211,6 +211,12 @@
                                                 <Font size="32.0" />
                                              </font>
                                           </Label>
+                                          <TextField fx:id="txtCustomerOrderYearSearchBar" layoutX="1089.0" layoutY="93.0" minHeight="50.0" onAction="#txtCustomerOrderYearSearchBarOnAction" prefHeight="50.0" prefWidth="295.0" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20;" />
+                                          <JFXButton buttonType="RAISED" layoutX="1402.0" layoutY="93.0" onAction="#customerOrderYearSearchBtnOnAction" prefHeight="50.0" prefWidth="231.0" style="-fx-background-color: orange;" text="SEARCH YEAR" textFill="#2c2a2a">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </JFXButton>
                                        </children>
                                     </AnchorPane>
                                 </content>

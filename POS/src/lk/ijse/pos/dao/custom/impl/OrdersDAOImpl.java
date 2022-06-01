@@ -68,7 +68,7 @@ public class OrdersDAOImpl implements OrderDAO {
 
     @Override
     public int getCustomerOrderCountByDate(String customerId,String date) throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(OrderId) FROM orders WHERE CustID = ? AND Date = ?;",customerId,date);
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(OrderId) FROM orders WHERE CustID = ? AND Date LIKE ?;",customerId,date);
         return resultSet.next()? resultSet.getInt(1) : 0;
     }
 }
