@@ -32,4 +32,9 @@ public class OrdersBOImpl implements OrdersBO{
     public int getOrderCountForMonthOf(String month) throws SQLException, ClassNotFoundException {
         return orderDAO.getOrderCountForMonthOf(month);
     }
+
+    @Override
+    public int getOrderCountByCustomerId(String customerId) throws SQLException, ClassNotFoundException {
+        return orderDAO.getOrderCountByCustomerId(customerId);
+    }
 }

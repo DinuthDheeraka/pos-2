@@ -180,14 +180,18 @@ public class CustomerFormController implements Initializable {
     }
 
     public void txtCustomerOrderSearchBarOnAction(ActionEvent actionEvent) {
+
     }
 
     public void customerOrderSearcgBtnOnAction(ActionEvent actionEvent) {
+
     }
 
     public void txtCustomerGrowthSearchBarOnAction(ActionEvent actionEvent) {
+
     }
 
     public void customerGrowthOnAction(ActionEvent actionEvent) {
+
     }
 }

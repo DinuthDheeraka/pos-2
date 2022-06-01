@@ -11,4 +11,5 @@ public interface OrdersBO extends SuperBO {
     String getLastOrderId() throws SQLException, ClassNotFoundException;
     int getOrdersCount() throws SQLException, ClassNotFoundException;
     int getOrderCountForMonthOf(String month) throws SQLException, ClassNotFoundException;
+    int getOrderCountByCustomerId(String customerId) throws SQLException, ClassNotFoundException;
 }

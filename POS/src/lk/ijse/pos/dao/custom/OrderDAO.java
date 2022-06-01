@@ -7,4 +7,5 @@ import java.sql.SQLException;
 
 public interface OrderDAO extends CrudDAO<Orders,String> {
     int getOrderCountForMonthOf(String month) throws SQLException, ClassNotFoundException;
+    int getOrderCountByCustomerId(String customerId) throws SQLException, ClassNotFoundException;
 }
