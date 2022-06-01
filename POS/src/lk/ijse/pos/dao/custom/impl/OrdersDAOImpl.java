@@ -71,4 +71,14 @@ public class OrdersDAOImpl implements OrderDAO {
         ResultSet resultSet = CrudUtil.execute("SELECT COUNT(OrderId) FROM orders WHERE CustID = ? AND Date LIKE ?;",customerId,date);
         return resultSet.next()? resultSet.getInt(1) : 0;
     }
+
+    @Override
+    public ArrayList<String> getOrderIdsByCustomerId(String custId) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT OrderId FROM orders WHERE CustID = ?;",custId);
+        ArrayList<String> orderIds = new ArrayList();
+        while(resultSet.next()){
+            orderIds.add(resultSet.getString(1));
+        }
+        return orderIds;
+    }
 }

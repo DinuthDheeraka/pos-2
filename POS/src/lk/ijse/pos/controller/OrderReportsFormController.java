@@ -1,8 +1,10 @@
 package lk.ijse.pos.controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.JoinQueryBO;
 import com.jfoenix.controls.JFXTextField;
+import lk.ijse.pos.bo.custom.OrdersBO;
 import lk.ijse.pos.dto.CustomDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,10 +35,12 @@ public class OrderReportsFormController implements Initializable {
     public JFXTextField txtTotalCost;
     public JFXTextField txtTotalDiscount;
     public TableColumn colItemPackSize;
+    public JFXComboBox cmbxCustomerOrderIds;
 
     ObservableList<OrderReportTM> orderReportTMS = FXCollections.observableArrayList();
 
     JoinQueryBO joinQueryBO = (JoinQueryBO) BOFactory.getBoFactory().getBO(BOFactory.BO.JOINQUERYBO_IMPL);
+    OrdersBO ordersBO = (OrdersBO) BOFactory.getBoFactory().getBO(BOFactory.BO.ORDERBO_IMPL);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,6 +50,14 @@ public class OrderReportsFormController implements Initializable {
         colItemUnitPrice.setCellValueFactory(new PropertyValueFactory("unitPrice"));
         colItemQTY.setCellValueFactory(new PropertyValueFactory("qty"));
         colItemDiscount.setCellValueFactory(new PropertyValueFactory("discount"));
+
+        cmbxCustomerOrderIds.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->
+                {
+                    if (newValue!=null){
+                        setOrderData((String) newValue);
+                    }
+                }
+        );
     }
 
     public void searchBtnOnAction(ActionEvent actionEvent) {
@@ -55,7 +67,25 @@ public class OrderReportsFormController implements Initializable {
         itemTbl.getItems().clear();
         clearOrderData();
         try {
-            ArrayList<CustomDTO> customDTOS = joinQueryBO.getOrderDetailByOrderId(txtSearchBar.getText());
+            if(txtSearchBar.getText().startsWith("C-")){
+                ObservableList<String> orderIds = FXCollections.observableArrayList(
+                        ordersBO.getOrderIdsByCustomerId(txtSearchBar.getText())
+                );
+                cmbxCustomerOrderIds.setItems(orderIds);
+            }else{
+                setOrderData(txtSearchBar.getText());
+            }
+        }
+        catch (SQLException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setOrderData(String id) {
+        itemTbl.getItems().clear();
+        clearOrderData();
+        try {
+            ArrayList<CustomDTO> customDTOS = joinQueryBO.getOrderDetailByOrderId(id);
             for(CustomDTO customDTO : customDTOS){
                 orderReportTMS.add(new OrderReportTM(
                         customDTO.getOrderDetailitemCode(),customDTO.getDescription(),
@@ -66,7 +96,7 @@ public class OrderReportsFormController implements Initializable {
             }
             itemTbl.setItems(orderReportTMS);
             setTotalAndDiscount();
-            setOrderData();
+            setOrderDataToTextFields(id);
         }
         catch (SQLException|ClassNotFoundException e) {
             e.printStackTrace();
@@ -81,9 +111,9 @@ public class OrderReportsFormController implements Initializable {
         txtTotalDiscount.clear();
     }
 
-    private void setOrderData() {
+    private void setOrderDataToTextFields(String orderId) {
         try {
-            CustomDTO customDTO = joinQueryBO.getOrderByOrderId(txtSearchBar.getText());
+            CustomDTO customDTO = joinQueryBO.getOrderByOrderId(orderId);
             if(customDTO!=null){
                 txtCustomerId.setText(customDTO.getOrdersCustID());
                 txtCustomerName.setText(customDTO.getCustName());

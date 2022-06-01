@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Tab?>
@@ -13,6 +14,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="862.0" prefWidth="1647.0" stylesheets="@assets/styles/Tab-pain.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.OrderReportsFormController">
@@ -48,12 +51,12 @@
                               <TableColumn fx:id="colItemDiscount" prefWidth="276.0" text="Discount" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="txtSearchBar" layoutX="5.0" layoutY="247.0" onAction="#txtSearchBarOnAction" prefHeight="50.0" prefWidth="1360.0" promptText="SEARCH" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20; -fx-text-fill: white;">
+                        <TextField fx:id="txtSearchBar" layoutX="5.0" layoutY="247.0" onAction="#txtSearchBarOnAction" prefHeight="50.0" prefWidth="1363.0" promptText="SEARCH" style="-fx-background-color: null; -fx-border-color: purple; -fx-border-radius: 20; -fx-text-fill: white;">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </TextField>
-                        <JFXButton layoutX="1383.0" layoutY="247.0" onAction="#searchBtnOnAction" prefHeight="50.0" prefWidth="257.0" style="-fx-background-color: #ce1eff;" text="SEARCH" textFill="WHITE">
+                        <JFXButton layoutX="1376.0" layoutY="247.0" onAction="#searchBtnOnAction" prefHeight="50.0" prefWidth="257.0" style="-fx-background-color: #ce1eff;" text="SEARCH" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -83,6 +86,26 @@
                               <Font size="21.0" />
                            </font>
                         </JFXTextField>
+                        <JFXComboBox fx:id="cmbxCustomerOrderIds" layoutX="1374.0" layoutY="132.0" prefHeight="49.0" prefWidth="259.0" promptText="SELECT ORDER ID">
+                           <unFocusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#ff009d" />
+                                    <Stop color="#ff009d" offset="0.007246376811594203" />
+                                    <Stop color="#d94e18" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </unFocusColor>
+                           <focusColor>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#ff009d" />
+                                    <Stop color="#ff009d" offset="0.007246376811594203" />
+                                    <Stop color="#15dad0" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </focusColor>
+                        </JFXComboBox>
                      </children>
                   </AnchorPane>
               </content>

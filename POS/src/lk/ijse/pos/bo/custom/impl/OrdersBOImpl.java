@@ -7,6 +7,7 @@ import lk.ijse.pos.dto.OrdersDTO;
 import lk.ijse.pos.entity.Orders;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class OrdersBOImpl implements OrdersBO{
     private OrderDAO orderDAO = (OrderDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAO.ORDERS_IMPL);
@@ -41,5 +42,10 @@ public class OrdersBOImpl implements OrdersBO{
     @Override
     public int getCustomerOrderCountByDate(String customerId, String date) throws SQLException, ClassNotFoundException {
         return orderDAO.getCustomerOrderCountByDate(customerId,date);
+    }
+
+    @Override
+    public ArrayList<String> getOrderIdsByCustomerId(String custId) throws SQLException, ClassNotFoundException {
+        return orderDAO.getOrderIdsByCustomerId(custId);
     }
 }

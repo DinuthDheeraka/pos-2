@@ -16,7 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.pos.bo.custom.JoinQueryBO;
 import lk.ijse.pos.bo.custom.impl.JoinQueryBOImpl;
-import lk.ijse.pos.view.jaspertm.IncomeJTM;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
