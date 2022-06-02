@@ -125,7 +125,10 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TextField fx:id="txtCustomerOrderSearchBar" layoutX="10.0" layoutY="12.0" minHeight="50.0" onAction="#txtCustomerOrderSearchBarOnAction" prefHeight="50.0" prefWidth="1374.0" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20;" />
+                                          <TextField fx:id="txtCustomerOrderSearchBar" layoutX="10.0" layoutY="12.0" minHeight="50.0" onAction="#txtCustomerOrderSearchBarOnAction" prefHeight="50.0" prefWidth="1374.0" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20; -fx-text-fill: white;">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font></TextField>
                                           <JFXButton buttonType="RAISED" layoutX="1402.0" layoutY="11.0" onAction="#customerOrderSearcgBtnOnAction" prefHeight="50.0" prefWidth="231.0" style="-fx-background-color: orange;" text="SEARCH" textFill="#2c2a2a">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
@@ -143,7 +146,7 @@
                                              <textFill>
                                                 <LinearGradient endX="1.0" endY="1.0">
                                                    <stops>
-                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#de560b" />
                                                       <Stop color="#c29019" offset="1.0" />
                                                    </stops>
                                                 </LinearGradient>
@@ -152,7 +155,7 @@
                                                 <Font size="23.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="lblMonth" layoutX="105.0" layoutY="659.0" text="January" textFill="#cdcdcd">
+                                          <Label fx:id="lblMonth" layoutX="105.0" layoutY="659.0" textFill="#cdcdcd">
                                              <font>
                                                 <Font size="26.0" />
                                              </font>
@@ -161,7 +164,7 @@
                                              <textFill>
                                                 <LinearGradient endX="1.0" endY="1.0">
                                                    <stops>
-                                                      <Stop color="#d109e0" />
+                                                      <Stop color="#de560b" />
                                                       <Stop color="#c29019" offset="1.0" />
                                                    </stops>
                                                 </LinearGradient>
@@ -170,7 +173,7 @@
                                                 <Font size="23.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="lblNoOfOrdersForMonth" layoutX="567.0" layoutY="660.0" text="10" textFill="#cdcdcd">
+                                          <Label fx:id="lblNoOfOrdersForMonth" layoutX="567.0" layoutY="660.0" textFill="#cdcdcd">
                                              <font>
                                                 <Font size="26.0" />
                                              </font>
@@ -217,6 +220,55 @@
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </JFXButton>
+                                          <Label layoutX="649.0" layoutY="109.0" text="ORDERS COUNT OF THIS &amp; LAST YEARS">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#e40bbc" />
+                                                      <Stop color="#f50886" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="935.0" layoutY="662.0" text="Month">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#de0bc8" />
+                                                      <Stop color="#c21971" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="1337.0" layoutY="662.0" text="No of orders">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#de0bc8" />
+                                                      <Stop color="#c21971" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblMonth1" layoutX="1015.0" layoutY="659.0" prefHeight="38.0" prefWidth="203.0" textFill="#cdcdcd">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblNoOfOrdersForMonth1" layoutX="1477.0" layoutY="660.0" prefHeight="38.0" prefWidth="120.0" textFill="#cdcdcd">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -225,7 +277,10 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TextField fx:id="txtCustomerGrowthSearchBar" layoutX="7.0" layoutY="14.0" minHeight="50.0" onAction="#txtCustomerGrowthSearchBarOnAction" prefHeight="50.0" prefWidth="1386.0" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20;" />
+                                          <TextField fx:id="txtCustomerGrowthSearchBar" layoutX="7.0" layoutY="14.0" minHeight="50.0" onAction="#txtCustomerGrowthSearchBarOnAction" prefHeight="50.0" prefWidth="1386.0" style="-fx-background-color: null; -fx-border-color: orange; -fx-border-radius: 20; -fx-text-fill: white;">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font></TextField>
                                           <JFXButton buttonType="RAISED" layoutX="1408.0" layoutY="14.0" onAction="#customerGrowthOnAction" prefHeight="50.0" prefWidth="231.0" style="-fx-background-color: orange;" text="SEARCH" textFill="#2c2a2a">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
@@ -240,17 +295,17 @@
                                             </yAxis>
                                           </LineChart>
                                           <Label layoutX="21.0" layoutY="666.0" text="Month">
-                                             <textFill>
-                                                <LinearGradient endX="1.0" endY="1.0">
-                                                   <stops>
-                                                      <Stop color="#d109e0" />
-                                                      <Stop color="#c29019" offset="1.0" />
-                                                   </stops>
-                                                </LinearGradient>
-                                             </textFill>
                                              <font>
                                                 <Font size="23.0" />
                                              </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#de0bcc" />
+                                                      <Stop color="#ff1997" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
                                           </Label>
                                           <Label fx:id="lblCustMonth" layoutX="100.0" layoutY="664.0" text="January" textFill="#cdcdcd">
                                              <font>
@@ -258,17 +313,17 @@
                                              </font>
                                           </Label>
                                           <Label layoutX="396.0" layoutY="666.0" text="No of customers">
-                                             <textFill>
-                                                <LinearGradient endX="1.0" endY="1.0">
-                                                   <stops>
-                                                      <Stop color="#d109e0" />
-                                                      <Stop color="#c29019" offset="1.0" />
-                                                   </stops>
-                                                </LinearGradient>
-                                             </textFill>
                                              <font>
                                                 <Font size="23.0" />
                                              </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#de0bcc" />
+                                                      <Stop color="#ff1997" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
                                           </Label>
                                           <Label fx:id="lblNoOfCustomers" layoutX="573.0" layoutY="664.0" text="10" textFill="#cdcdcd">
                                              <font>
@@ -309,6 +364,47 @@
                                           <Label fx:id="lblTodayNewCustomers" layoutX="363.0" layoutY="84.0" text="00" textFill="WHITE">
                                              <font>
                                                 <Font size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="621.0" layoutY="113.0" text="GROWTH OF CUSTOMERS IN THIS &amp; LAST YEAR" textFill="#d3ced2">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="1027.0" layoutY="666.0" text="Month">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#de630b" />
+                                                      <Stop color="#c2b419" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblCustMonth1" layoutX="1106.0" layoutY="664.0" text="January" textFill="#cdcdcd">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="1402.0" layoutY="666.0" text="No of customers">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#de630b" />
+                                                      <Stop color="#c2b419" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lblNoOfCustomers1" layoutX="1579.0" layoutY="664.0" text="10" textFill="#cdcdcd">
+                                             <font>
+                                                <Font size="26.0" />
                                              </font>
                                           </Label>
                                        </children>

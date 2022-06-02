@@ -221,7 +221,7 @@ public class ItemFormController implements Initializable {
 
         itemAnalyzeChart.getData().clear();
 
-        itemAnalyzeChart.setTitle("Income of this year and last year");
+        //itemAnalyzeChart.setTitle("Income of this year and last year");
 
         XYChart.Series<String,Double> thisYearSalesChartSerie = new XYChart.Series();
        // XYChart.Series<String,Double> lastYearIncomeChartSerie = new XYChart.Series();
@@ -317,11 +317,24 @@ public class ItemFormController implements Initializable {
 
     private void setCmbxMonths(String text) {
         ObservableList<String> months = FXCollections.observableArrayList();
-        for(int i = 1; i<=12; i++){
-            String month = text+String.format("-%02d",i);
-            months.add(month);
+        switch (text.length()){
+            case 4 :
+                    for(int i = 1; i<=12; i++){
+                        String month = text+String.format("-%02d",i);
+                        months.add(month);
+                    }
+                    cmbxMonths.setItems(months);
+                    break;
+
+            case 7:
+                    for(int i = 1; i<=31; i++){
+                        String month = text+String.format("-%02d",i);
+                        months.add(month);
+                    }
+                    cmbxMonths.setItems(months);
+                    break;
         }
-        cmbxMonths.setItems(months);
+
     }
 
 

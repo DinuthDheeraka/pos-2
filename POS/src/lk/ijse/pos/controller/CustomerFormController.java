@@ -1,7 +1,9 @@
 package lk.ijse.pos.controller;
 
+import javafx.event.EventHandler;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.pos.bo.BOFactory;
 import lk.ijse.pos.bo.custom.CustomerBO;
 import lk.ijse.pos.bo.custom.OrdersBO;
@@ -54,6 +56,10 @@ public class CustomerFormController implements Initializable {
     public Label lblTotalCustomers;
     public Label lblTodayNewCustomers;
     public TextField txtCustomerOrderYearSearchBar;
+    public Label lblNoOfCustomers1;
+    public Label lblCustMonth1;
+    public Label lblMonth1;
+    public Label lblNoOfOrdersForMonth1;
 
     private String selectedCustID;
     private String selectedCusTitle;
@@ -247,6 +253,26 @@ public class CustomerFormController implements Initializable {
         customerOrderChart.getData().clear();
         customerOrderChart.getData().add(lastYearOrderCount);
         customerOrderChart.getData().add(thisYearOrderCount);
+
+        for (XYChart.Data<String,Double> data: thisYearOrderCount.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    lblMonth.setText(data.getXValue());
+                    lblNoOfOrdersForMonth.setText(String.valueOf(data.getYValue()));
+                }
+            });
+        }
+
+        for (XYChart.Data<String,Double> data: lastYearOrderCount.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    lblMonth1.setText(data.getXValue());
+                    lblNoOfOrdersForMonth1.setText(String.valueOf(data.getYValue()));
+                }
+            });
+        }
     }
 
     private String getMonthLikeValue(String year,int month) {
@@ -284,10 +310,10 @@ public class CustomerFormController implements Initializable {
 
     private void setDataToCustomerGrowthChart(String year,String lastYear) {
 
-        customerGrowthChart.setTitle("Growth of members in this year and last year");
+        //customerGrowthChart.setTitle("Growth of members in this year and last year");
 
-        XYChart.Series thisYearCustGrowthChart = new XYChart.Series();
-        XYChart.Series lastYearCustGrowthChart = new XYChart.Series();
+        XYChart.Series<String,Double> thisYearCustGrowthChart = new XYChart.Series();
+        XYChart.Series<String,Double> lastYearCustGrowthChart = new XYChart.Series();
 
         thisYearCustGrowthChart.setName("New customers for each month in this year");
         lastYearCustGrowthChart.setName("New customers for each month in last year");
@@ -298,10 +324,10 @@ public class CustomerFormController implements Initializable {
         for(int i = 1; i<=12; i++){
             try {
                 int customerCountThisYear = customerBO.getCustomerCountByMonth(getMonthLikeValue(year,i));
-                thisYearCustGrowthChart.getData().add(new XYChart.Data<>(months[i-1],customerCountThisYear));
+                thisYearCustGrowthChart.getData().add(new XYChart.Data(months[i-1],customerCountThisYear));
 
                 int customerCountLastYear = customerBO.getCustomerCountByMonth(getMonthLikeValue(lastYear,i));
-                lastYearCustGrowthChart.getData().add(new XYChart.Data<>(months[i-1],customerCountLastYear));
+                lastYearCustGrowthChart.getData().add(new XYChart.Data(months[i-1],customerCountLastYear));
             }
             catch (SQLException|ClassNotFoundException e) {
                 e.printStackTrace();
@@ -311,5 +337,25 @@ public class CustomerFormController implements Initializable {
         customerGrowthChart.getData().clear();
         customerGrowthChart.getData().add(thisYearCustGrowthChart);
         customerGrowthChart.getData().add(lastYearCustGrowthChart);
+
+        for (XYChart.Data<String,Double> data: thisYearCustGrowthChart.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    lblCustMonth.setText(data.getXValue());
+                    lblNoOfCustomers.setText(String.valueOf(data.getYValue()));
+                }
+            });
+        }
+
+        for (XYChart.Data<String,Double> data: lastYearCustGrowthChart.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    lblCustMonth1.setText(data.getXValue());
+                    lblNoOfCustomers1.setText(String.valueOf(data.getYValue()));
+                }
+            });
+        }
     }
 }

@@ -167,12 +167,12 @@
                                                 </LinearGradient>
                                              </textFill>
                                           </Label>
-                                          <Label fx:id="lblMonth" layoutX="105.0" layoutY="679.0" text="January" textFill="WHITE">
+                                          <Label fx:id="lblMonth" layoutX="105.0" layoutY="679.0" textFill="WHITE">
                                              <font>
                                                 <Font size="24.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="lblUnits" layoutX="642.0" layoutY="680.0" text="1000" textFill="WHITE">
+                                          <Label fx:id="lblUnits" layoutX="642.0" layoutY="680.0" textFill="WHITE">
                                              <font>
                                                 <Font size="24.0" />
                                              </font>
@@ -198,6 +198,19 @@
                                           <Label fx:id="lblTotalTodaySales" layoutX="212.0" layoutY="80.0" textFill="WHITE">
                                              <font>
                                                 <Font size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="712.0" layoutY="90.0" text="SALES FOR EACH MONTH">
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop color="#d309bc" />
+                                                      <Stop color="#f7940f" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
                                              </font>
                                           </Label>
                                        </children></AnchorPane>
@@ -236,8 +249,7 @@
                                               <NumberAxis side="LEFT" />
                                             </yAxis>
                                           </LineChart>
-                                          <JFXComboBox fx:id="cmbxMonths" layoutX="1066.0" layoutY="289.0" prefHeight="31.0" prefWidth="238.0" />
-                                          <JFXComboBox fx:id="cmbxOrderBy" layoutX="1398.0" layoutY="289.0" prefHeight="31.0" prefWidth="238.0" />
+                                          <JFXComboBox fx:id="cmbxMonths" layoutX="1398.0" layoutY="296.0" prefHeight="31.0" prefWidth="238.0" />
                                        </children></AnchorPane>
                                 </content>
                               </Tab>
