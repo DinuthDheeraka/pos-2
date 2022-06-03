@@ -95,12 +95,12 @@
                                  <stops>
                                     <Stop color="#f51ad0" />
                                     <Stop color="#f51ad0" offset="0.007246376811594203" />
-                                    <Stop color="#ff9e03" offset="1.0" />
+                                    <Stop color="#ff05c3" offset="1.0" />
                                  </stops>
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Label layoutX="711.0" layoutY="698.0" text="INCOME">
+                        <Label layoutX="399.0" layoutY="701.0" text="INCOME">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -109,7 +109,7 @@
                                  <stops>
                                     <Stop color="#f51ad0" />
                                     <Stop color="#f51ad0" offset="0.007246376811594203" />
-                                    <Stop color="#ff9e03" offset="1.0" />
+                                    <Stop color="#ff05c3" offset="1.0" />
                                  </stops>
                               </LinearGradient>
                            </textFill>
@@ -129,7 +129,7 @@
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label fx:id="txtMonthlyIncome" layoutX="822.0" layoutY="695.0" textFill="WHITE">
+                        <Label fx:id="txtMonthlyIncome" layoutX="510.0" layoutY="698.0" prefHeight="36.0" prefWidth="284.0" textFill="WHITE">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -159,6 +159,44 @@
                                  </stops>
                               </LinearGradient>
                            </textFill>
+                        </Label>
+                        <Label layoutX="1017.0" layoutY="699.0" text="INCOME">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f51ad0" />
+                                    <Stop color="#f51b1b" offset="0.007246376811594203" />
+                                    <Stop color="#ff9e03" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Label fx:id="txtMonth1" layoutX="1128.0" layoutY="696.0" prefHeight="36.0" prefWidth="164.0" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1323.0" layoutY="698.0" text="INCOME">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#f51ad0" />
+                                    <Stop color="#f51b1b" offset="0.007246376811594203" />
+                                    <Stop color="#ff9e03" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Label fx:id="txtMonthlyIncome11" layoutX="1435.0" layoutY="696.0" prefHeight="36.0" prefWidth="200.0" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
                         </Label>
                      </children>
                   </AnchorPane>

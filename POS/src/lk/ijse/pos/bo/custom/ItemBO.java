@@ -17,4 +17,5 @@ public interface ItemBO extends SuperBO {
     void increasetItemQOH(String itemCode,int amount) throws SQLException, ClassNotFoundException;
     String getItemLastId() throws SQLException, ClassNotFoundException;
     int getItemsCount() throws SQLException, ClassNotFoundException;
+    double getItemsBelowFiftyUnits() throws SQLException, ClassNotFoundException;
 }

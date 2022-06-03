@@ -2,9 +2,12 @@ package lk.ijse.pos.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -47,6 +50,7 @@ public class MainFormController implements Initializable {
     public Label lblCustomerCount;
     public Label lblOrdersCount;
     public Label lblItemsCount;
+    public PieChart mainFormPieChart;
 
     private String year;
     private String lastYear;
@@ -66,7 +70,16 @@ public class MainFormController implements Initializable {
         setTestData();
         setDataToIncomeChart();
         setTestDataToOrderChart();
+        setMainFormPieChartData();
         setItemCustomerOrdersCounts();
+    }
+
+    private void setMainFormPieChartData() {
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data(" Paid Members", 2),
+                new PieChart.Data(" Unpaid Members",1));
+
+        mainFormPieChart.setData(pieChartData);
     }
 
     private void setItemCustomerOrdersCounts() {
@@ -157,13 +170,13 @@ public class MainFormController implements Initializable {
     }
 
     public void setTestData(){
-        dbLineChart0.setTitle("Growth of members in this year and last year");
+        dbLineChart0.setTitle("Growth of Customers in this year and last year");
 
         XYChart.Series thisYearCustGrowthChart = new XYChart.Series();
         XYChart.Series lastYearCustGrowthChart = new XYChart.Series();
 
-        thisYearCustGrowthChart.setName("Members count for each month in this year");
-        lastYearCustGrowthChart.setName("Members count for each month last year");
+        thisYearCustGrowthChart.setName("Customer count in this year");
+        lastYearCustGrowthChart.setName("Customer count for last year");
 
         String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 

@@ -4,6 +4,7 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.effect.Light.Distant?>
@@ -197,7 +198,10 @@
                     </yAxis>
                   </LineChart>
                </children></HBox>
-            <HBox layoutX="834.0" layoutY="533.0" prefHeight="322.0" prefWidth="806.0" styleClass="container" />
+            <HBox layoutX="834.0" layoutY="533.0" prefHeight="322.0" prefWidth="806.0" styleClass="container">
+               <children>
+                  <PieChart fx:id="mainFormPieChart" prefHeight="322.0" prefWidth="807.0" stylesheets="@assets/styles/Main-Form-Pie-Chart.css" />
+               </children></HBox>
             <JFXButton fx:id="itemsBtn" buttonType="RAISED" layoutX="7.0" layoutY="9.0" onAction="#itemsBtnOnAction" prefHeight="184.0" prefWidth="322.0" styleClass="mainBtn" text="ITEMS">
                <font>
                   <Font name="System Bold" size="23.0" />

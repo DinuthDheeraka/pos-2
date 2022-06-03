@@ -290,7 +290,7 @@ public class ItemFormController implements Initializable {
                     customDTO.getItemCode(),customDTO.getDescription(),
                     customDTO.getPackSize(),customDTO.getTotalSales()
             ));
-        };
+        }
         salesTable.setItems(itemTMS);
     }
 

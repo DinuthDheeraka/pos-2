@@ -105,4 +105,10 @@ public class ItemDAOImpl implements ItemDAO {
         if(CrudUtil.execute("UPDATE Item SET QOH = QOH+? WHERE ItemCode = ?",amount,itemCode)){
         }
     }
+
+    @Override
+    public double getItemsBelowFiftyUnits() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(ItemCode) FROM item WHERE QOH<=50;");
+        return resultSet.next()? resultSet.getDouble(1):0;
+    }
 }

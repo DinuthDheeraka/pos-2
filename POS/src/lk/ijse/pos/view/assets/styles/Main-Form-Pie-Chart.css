@@ -1,0 +1,19 @@
+.data0.chart-pie{
+    -fx-pie-color : #f705b3;
+}
+.data1.chart-pie{
+    -fx-pie-color : #a02ded;
+}
+
+.chart-pie-label{
+    -fx-fill: #6a6a6b;
+}
+.chart-pie-label{
+    -fx-font-size: 15px;
+}
+
+.chart-legend {
+    -fx-background-color:  transparent;
+    -fx-padding: 20px;
+    -fx-font-size: 17px;
+}

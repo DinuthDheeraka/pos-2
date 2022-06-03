@@ -40,8 +40,12 @@ public class IncomeReportsFormController implements Initializable {
     public Label txtMonthlyIncome;
     public LineChart incomeChart;
     public Label txtTodayIncome;
+    public Label txtMonthlyIncome1;
+    public Label txtMonthlyIncome11;
+    public Label txtMonth1;
 
     private String year;
+    private String lastYear;
 
     JoinQueryBO joinQueryBO = new JoinQueryBOImpl();
 
@@ -49,7 +53,8 @@ public class IncomeReportsFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         year = String.valueOf(LocalDate.now().getYear());
-        setDataToIncomeChart(this.year);
+        lastYear = String.valueOf(Integer.valueOf(year)-1);
+        setDataToIncomeChart(this.year,this.lastYear);
         setAnnualIncomeAndDiscount(this.year);
         setTodayIncome();
     }
@@ -66,14 +71,16 @@ public class IncomeReportsFormController implements Initializable {
     public void txtSearchBarOnAction(ActionEvent actionEvent) {
         if(!txtSearchBar.getText().isEmpty()){
             incomeChart.getData().clear();
-            setDataToIncomeChart(txtSearchBar.getText());
+            setDataToIncomeChart(txtSearchBar.getText(),String.valueOf(Integer.valueOf(txtSearchBar.getText())-1));
         }
     }
 
-    public void setDataToIncomeChart(String year){
+    public void setDataToIncomeChart(String year,String lastYear){
         incomeChart.setTitle("Income Chart for "+year);
 
         XYChart.Series<String,Double> incomeChartSeries = new XYChart.Series();
+        XYChart.Series<String,Double> lastYearChartSeries = new XYChart.Series();
+
         incomeChartSeries.setName("Income for each month");
         String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
@@ -81,12 +88,18 @@ public class IncomeReportsFormController implements Initializable {
             try {
                 double thisYearIncome = joinQueryBO.getIncomeByYearForEachMonth(getMonthLikeValue(year,i));
                 incomeChartSeries.getData().add(new XYChart.Data(months[i-1],thisYearIncome));
+
+                double lastYearIncome = joinQueryBO.getIncomeByYearForEachMonth(getMonthLikeValue(lastYear,i));
+                lastYearChartSeries.getData().add(new XYChart.Data(months[i-1],lastYearIncome));
             }
             catch (SQLException |ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
+
+        incomeChart.getData().clear();
         incomeChart.getData().add(incomeChartSeries);
+        incomeChart.getData().add(lastYearChartSeries);
 
         for (XYChart.Data<String,Double> data: incomeChartSeries.getData()){
             data.getNode().addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
@@ -94,6 +107,16 @@ public class IncomeReportsFormController implements Initializable {
                 public void handle(MouseEvent event) {
                     txtMonth.setText(data.getXValue());
                     txtMonthlyIncome.setText(String.valueOf(data.getYValue()));
+                }
+            });
+        }
+
+        for (XYChart.Data<String,Double> data: lastYearChartSeries.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    txtMonth1.setText(data.getXValue());
+                    txtMonthlyIncome11.setText(String.valueOf(data.getYValue()));
                 }
             });
         }
