@@ -87,4 +87,14 @@ public class ItemBOImpl implements ItemBO {
     public double getItemsBelowFiftyUnits() throws SQLException, ClassNotFoundException {
         return itemDAO.getItemsBelowFiftyUnits();
     }
+
+    @Override
+    public double getItemsBetweenFiftyAndOneFiftyUnits() throws SQLException, ClassNotFoundException {
+        return itemDAO.getItemsBetweenFiftyAndOneFiftyUnits();
+    }
+
+    @Override
+    public double getItemsThatHaveMorethanOneFiftyUnits() throws SQLException, ClassNotFoundException {
+        return itemDAO.getItemsThatHaveMorethanOneFiftyUnits();
+    }
 }

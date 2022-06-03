@@ -18,4 +18,6 @@ public interface ItemBO extends SuperBO {
     String getItemLastId() throws SQLException, ClassNotFoundException;
     int getItemsCount() throws SQLException, ClassNotFoundException;
     double getItemsBelowFiftyUnits() throws SQLException, ClassNotFoundException;
+    double getItemsBetweenFiftyAndOneFiftyUnits() throws SQLException, ClassNotFoundException;
+    double getItemsThatHaveMorethanOneFiftyUnits() throws SQLException, ClassNotFoundException;
 }

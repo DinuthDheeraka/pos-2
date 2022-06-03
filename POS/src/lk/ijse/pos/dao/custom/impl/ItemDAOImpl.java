@@ -111,4 +111,16 @@ public class ItemDAOImpl implements ItemDAO {
         ResultSet resultSet = CrudUtil.execute("SELECT COUNT(ItemCode) FROM item WHERE QOH<=50;");
         return resultSet.next()? resultSet.getDouble(1):0;
     }
+
+    @Override
+    public double getItemsBetweenFiftyAndOneFiftyUnits() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(ItemCode) FROM item WHERE QOH BETWEEN 50 AND 150;");
+        return resultSet.next()? resultSet.getDouble(1):0;
+    }
+
+    @Override
+    public double getItemsThatHaveMorethanOneFiftyUnits() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(ItemCode) FROM item WHERE QOH>=150;");
+        return resultSet.next()? resultSet.getDouble(1):0;
+    }
 }
