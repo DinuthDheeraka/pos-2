@@ -99,7 +99,7 @@ public class AddCustomerFormController implements Initializable {
         map.put(txtCustomerName,name);
 
         Pattern title = Pattern.compile("(Mr|Mrs|Ms|Miss)");
-        map.put(txtCustomerTitle,name);
+        map.put(txtCustomerTitle,title);
 
         Pattern address = Pattern.compile("[A-Za-z0-9 .,/-]{5,}");
         map.put(txtCustomerAddress,address);
@@ -107,7 +107,7 @@ public class AddCustomerFormController implements Initializable {
         Pattern city = Pattern.compile("[A-za-z ]{3,}");
         map.put(txtCustomerCity,city);
 
-        Pattern province = Pattern.compile("(western|suthern|north)");
+        Pattern province = Pattern.compile("(western|southern|north|central|eastern|uva|sabaragamuwa|north central|north western)");
         map.put(txtCustomerProvince,province);
 
         Pattern postalCode = Pattern.compile("[0-9]{5}$");

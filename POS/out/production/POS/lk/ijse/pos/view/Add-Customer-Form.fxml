@@ -59,7 +59,7 @@
                   </LinearGradient>
                </unFocusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtCustomerAddress" labelFloat="true" layoutX="10.0" layoutY="41.0" onKeyReleased="#validate" promptText="Address" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerTitle" labelFloat="true" layoutX="10.0" layoutY="72.0" onKeyReleased="#validate" promptText="Title" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -80,7 +80,7 @@
                   </LinearGradient>
                </unFocusColor>
             </JFXTextField>
-            <JFXTextField fx:id="txtCustomerTitle" labelFloat="true" layoutX="10.0" layoutY="72.0" onKeyReleased="#validate" promptText="Title" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
+            <JFXTextField fx:id="txtCustomerAddress" labelFloat="true" layoutX="10.0" layoutY="41.0" onKeyReleased="#validate" promptText="Address" style="-fx-prompt-text-fill: #919293; -fx-text-fill: white;">
                <font>
                   <Font size="20.0" />
                </font>

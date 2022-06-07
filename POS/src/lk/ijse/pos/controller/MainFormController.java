@@ -75,9 +75,17 @@ public class MainFormController implements Initializable {
     }
 
     private void setMainFormPieChartData() {
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                new PieChart.Data(" Paid Members", 2),
-                new PieChart.Data(" Unpaid Members",1));
+        ObservableList<PieChart.Data> pieChartData = null;
+        try {
+            pieChartData = FXCollections.observableArrayList(
+                    new PieChart.Data("Items that below 50 units", itemBO.getItemsBelowFiftyUnits()),
+                    new PieChart.Data("Items that between 50 & 150 units", itemBO.getItemsBetweenFiftyAndOneFiftyUnits()),
+                    new PieChart.Data("Items that have more than 150 units",itemBO.getItemsThatHaveMorethanOneFiftyUnits()));
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         mainFormPieChart.setData(pieChartData);
     }
